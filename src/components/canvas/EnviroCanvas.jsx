@@ -20,16 +20,23 @@ export const EnviroCanvas = ({ arg }) => {
 	};
 
 	useEffect(() => {
+		// if (arg === 1) {
+		// 	handleView(
+		// 		{ x: 0, y: 5, z: 0 }, // position
+		// 		{ x: 20, y: 4, z: -10 }, // target
+		// 		true // enableTransition
+		// 	);
+		// }
 		if (arg === 1) {
 			handleView(
-				{ x: 0, y: 5, z: 0 }, // position
-				{ x: 20, y: 4, z: -10 }, // target
+				{ x: 22, y: 5, z: 0 }, // position
+				{ x: 20, y: 2, z: -17 }, // target
 				true // enableTransition
 			);
 		} else if (arg === 2) {
 			handleView(
-				{ x: 22, y: 5, z: 0 }, // position
-				{ x: 20, y: 2, z: -17 }, // target
+				{ x: 15, y: 3, z: -14 }, // position
+				{ x: 20, y: 0, z: -20 }, // target
 				true // enableTransition
 			);
 		} else if (arg === 3) {
@@ -38,7 +45,27 @@ export const EnviroCanvas = ({ arg }) => {
 				{ x: 10, y: 0, z: -12 }, // target
 				true // enableTransition
 			);
+		} else if (arg === 4) {
+			handleView(
+				{ x: 18, y: 3, z: -18 }, // position
+				{ x: 10, y: 1, z: -35 }, // target
+				true // enableTransition
+				
+			);
+		} else if (arg === 5) {
+			handleView(
+				{ x: 22, y: 3, z: -18 }, // position
+				{ x: 10, y: 1, z: -35 }, // target
+				true // enableTransition
+			);
+		} else if (arg === 6) {
+			handleView(
+				{ x: 25, y: 6, z: -13 }, // position
+				{ x: 35, y: -5, z: -20 }, // target
+				true // enableTransition
+			);
 		}
+		
 	}, [arg]);
 
 	return (

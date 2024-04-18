@@ -3,7 +3,7 @@ import { EnviroCanvas } from "./components/canvas/EnviroCanvas";
 import React, { useState } from "react";
 
 function App() {
-	const [arg, setArg] = useState(1); // State to store the argument
+	const [arg, setArg] = useState(2); // State to store the argument
 
 	const handlePrevBtn = () => {
 		/* If the value of arg is 0, then return */
@@ -14,7 +14,7 @@ function App() {
 	};
 	const handleNextBtn = () => {
 		/* If the value of arg is 5, then return */
-		if (arg === 3) {
+		if (arg === 6) {
 			return;
 		}
 		setArg(arg + 1); // Increase the value of arg by 1

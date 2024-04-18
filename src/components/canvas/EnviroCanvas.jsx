@@ -22,20 +22,20 @@ export const EnviroCanvas = ({ arg }) => {
 	useEffect(() => {
 		if (arg === 1) {
 			handleView(
-				{ x: 22, y: 5, z: 0 }, // position
-				{ x: 20, y: 2, z: -17  }, // target
+				{ x: 0, y: 5, z: 0 }, // position
+				{ x: 20, y: 4, z: -10 }, // target
 				true // enableTransition
 			);
 		} else if (arg === 2) {
 			handleView(
-				{ x: 22, y: 3, z: -17 }, // position
-				{ x: 10, y: 2, z: -12 }, // target
+				{ x: 22, y: 5, z: 0 }, // position
+				{ x: 20, y: 2, z: -17 }, // target
 				true // enableTransition
 			);
 		} else if (arg === 3) {
 			handleView(
-				{ x: 0, y: 5, z: 0 }, // position
-				{ x: 20, y: 4, z: -10 }, // target
+				{ x: 20, y: 3, z: -17 }, // position
+				{ x: 10, y: 0, z: -12 }, // target
 				true // enableTransition
 			);
 		}
@@ -52,7 +52,7 @@ export const EnviroCanvas = ({ arg }) => {
 				<boxGeometry />
 				<meshNormalMaterial />
 			</mesh> */}
-			<Building />
+			<Building arg={arg}/>
 		</Canvas>
 	);
 };

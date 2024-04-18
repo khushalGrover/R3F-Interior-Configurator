@@ -3,7 +3,7 @@ import { EnviroCanvas } from "./components/canvas/EnviroCanvas";
 import React, { useState } from "react";
 
 function App() {
-  const [arg, setArg] = useState(1); // State to store the argument
+	const [arg, setArg] = useState(1); // State to store the argument
 
 	const handlePrevBtn = () => {
 		/* If the value of arg is 0, then return */
@@ -25,22 +25,22 @@ function App() {
 			<div className=" fixed flex flex-col h-full w-full outline">
 				<EnviroCanvas arg={arg} />
 
-				<div className=" fixed b-0">
-					<div className="flex items-end justify-center w-screen ">
+				<div className="absolute bottom-0">
+					<div className="flex items-center justify-center w-screen">
 						<Button
 							onClick={handlePrevBtn}
 							size="lg"
-							variant="outline"
+							variant="primary"
 						>
 							Prev.
 						</Button>
-						<Button size="ls" variant="outline">
+						<Button size="ls" variant="primary">
 							{arg}
 						</Button>
 						<Button
 							onClick={handleNextBtn}
 							size="lg"
-							variant="outline"
+							variant="primary"
 						>
 							Next
 						</Button>

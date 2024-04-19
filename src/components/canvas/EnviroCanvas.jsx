@@ -8,6 +8,9 @@ import {
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Building } from "./Building";
+import { Part2 } from "./Part2";
+import { Part3 } from "./Part3";
+import { Part4 } from "./Part4";
 import React, { useEffect, useRef } from "react";
 
 export const EnviroCanvas = ({ arg }) => {
@@ -85,6 +88,9 @@ export const EnviroCanvas = ({ arg }) => {
 				<meshNormalMaterial />
 			</mesh> */}
 			<Building arg={arg} />
+			<Part2 arg={arg} />
+			<Part3 arg={arg} />
+			<Part4 arg={arg} />
 			<AccumulativeShadows
 				resolution={1024}
 				frames={100}

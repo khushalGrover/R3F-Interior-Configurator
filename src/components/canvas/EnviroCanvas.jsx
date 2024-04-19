@@ -1,4 +1,11 @@
-import { OrbitControls, useTexture, CameraControls } from "@react-three/drei";
+import {
+	OrbitControls,
+	useTexture,
+	CameraControls,
+	Environment,
+	AccumulativeShadows,
+	RandomizedLight,
+} from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Building } from "./Building";
 import React, { useEffect, useRef } from "react";
@@ -50,7 +57,6 @@ export const EnviroCanvas = ({ arg }) => {
 				{ x: 18, y: 3, z: -18 }, // position
 				{ x: 10, y: 1, z: -35 }, // target
 				true // enableTransition
-				
 			);
 		} else if (arg === 5) {
 			handleView(
@@ -65,7 +71,6 @@ export const EnviroCanvas = ({ arg }) => {
 				true // enableTransition
 			);
 		}
-		
 	}, [arg]);
 
 	return (
@@ -79,7 +84,28 @@ export const EnviroCanvas = ({ arg }) => {
 				<boxGeometry />
 				<meshNormalMaterial />
 			</mesh> */}
-			<Building arg={arg}/>
+			<Building arg={arg} />
+			<AccumulativeShadows
+				resolution={1024}
+				frames={100}
+				color={'#8fa2be'}
+				alphaTest={0.68}
+				colorBlend={1.5}
+				opacity={1.65}
+				scale={8}
+			>
+				<RandomizedLight
+					radius={2.6}
+					ambient={0.5}
+					position={[10, 5, -15]}
+					bias={0.001}
+				/>
+			</AccumulativeShadows>
+			<Environment
+				files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/peppermint_powerplant_2_1k.hdr"
+				background
+				blur={0.7}
+			/>
 		</Canvas>
 	);
 };

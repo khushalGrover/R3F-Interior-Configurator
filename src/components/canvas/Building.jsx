@@ -12,7 +12,7 @@ export function Building(props) {
 	useControls({
 		DrawingRoom: folder({
 			// label: "Drawing Room",
-
+			// collapsed: true,
 			Sofa: folder({
 				sofa: buttonGroup({
 					label: "Sofa Set",
@@ -45,6 +45,8 @@ export function Building(props) {
 				<mesh
 					geometry={nodes.Material2.geometry}
 					material={materials.Summer_Evening}
+					castShadow 
+					receiveShadow
 				/>
 				<mesh
 					geometry={nodes.Material2001.geometry}
@@ -785,6 +787,9 @@ export function Building(props) {
 					geometry={nodes.Material2182.geometry}
 					material={materials["green-leather_texture-seamless"]}
 					position={[728.084, 663.772, 76.44]}
+					// visible={false}
+					castShadow 
+					receiveShadow
 				/>
 				<mesh
 					geometry={nodes.Material2183.geometry}

@@ -109,8 +109,8 @@ const CustomizationContext = createContext({});
 export const CustomizationProvider = (props) => {
 	const [rawValue, setRawValue] = useState("");
 	const [objectCode, setObjectCode] = useState("1111111111111111111111111");
-	const [loc, setLoc] = useState("1");
-	const [sofa, setSofa] = useState("1");
+	const [loc, setLoc] = useState(1);
+	const [sofa, setSofa] = useState(1);
 	const [sofaColor, setSofaColor] = useState(sofaColors[0]);
 	const [centerTable, setCenterTable] = useState("1");
 	const [rug, setRug] = useState("1");
@@ -121,6 +121,8 @@ export const CustomizationProvider = (props) => {
 	const [lampColor, setLampColor] = useState("#ffffff");
 	const [painting, setPainting] = useState("1");
 	
+
+
 	// loc list
 	// DR - Dorwaing room
 	// KT - Kitchen
@@ -138,12 +140,12 @@ export const CustomizationProvider = (props) => {
 	
 
 	const codeOBJ = {
-		drSofa: parseInt(objectCode.charAt(0)), // loc
-		drRug: parseInt(objectCode.charAt(1)), // table
-		drTable: parseInt(objectCode.charAt(2)), // rug
-		ktTab: parseInt(objectCode.charAt(3)), 
-		ktTableTexture: parseInt(objectCode.charAt(4)),
-		ktLamp: parseInt(objectCode.charAt(5)),
+		A: parseInt(objectCode.charAt(0)), // sofa
+		B: parseInt(objectCode.charAt(1)), // table
+		C: parseInt(objectCode.charAt(2)), // rug
+		D: parseInt(objectCode.charAt(3)), 
+		E: parseInt(objectCode.charAt(4)),
+		F: parseInt(objectCode.charAt(5)),
 		ktChair: parseInt(objectCode.charAt(6)),
 		dnTableTexture: parseInt(objectCode.charAt(7)),
 		dnTable: parseInt(objectCode.charAt(8)),
@@ -168,7 +170,7 @@ export const CustomizationProvider = (props) => {
 
 	};
 
-	console.log(codeOBJ, "!!! codeOBJ");
+	// console.log(codeOBJ, "!!! codeOBJ");
 	return (
 		<CustomizationContext.Provider
 			value={{
@@ -178,7 +180,6 @@ export const CustomizationProvider = (props) => {
 				setObjectCode,
 				loc,
 				setLoc,
-
 				sofa,
 				setSofa,
 				sofaColor,

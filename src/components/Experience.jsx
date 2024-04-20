@@ -1,3 +1,18 @@
+
+
+
+
+
+
+// not using ANY WHERE
+
+
+
+
+
+
+
+
 import { OrbitControls } from "@react-three/drei";
 import { useTexture } from "@react-three/drei"
 export const Experience = ({arg }) => {
@@ -16,12 +31,12 @@ export const Experience = ({arg }) => {
   })
   return (
     <>
-      <OrbitControls />
+      {/* <OrbitControls />
       <ambientLight intensity={0.5} />
       <mesh>
         <boxGeometry />
         <meshStandardMaterial {...props}/>
-      </mesh>
+      </mesh> */}
     </>
   );
 };

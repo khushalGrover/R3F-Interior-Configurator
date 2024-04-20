@@ -108,9 +108,10 @@ const CustomizationContext = createContext({});
 
 export const CustomizationProvider = (props) => {
 	const [rawValue, setRawValue] = useState("");
+	const [rawValueTap, setRawValueTap] = useState("");
 	const [objectCode, setObjectCode] = useState("1111111111111111111111111");
 	const [loc, setLoc] = useState(1);
-	const [sofa, setSofa] = useState(1);
+	const [tappp, setTap] = useState('1');
 	const [sofaColor, setSofaColor] = useState(sofaColors[0]);
 	const [centerTable, setCenterTable] = useState("1");
 	const [rug, setRug] = useState("1");
@@ -142,16 +143,16 @@ export const CustomizationProvider = (props) => {
 	const codeOBJ = {
 		A: parseInt(objectCode.charAt(0)), // sofa
 		B: parseInt(objectCode.charAt(1)), // table
-		C: parseInt(objectCode.charAt(2)), // rug
-		D: parseInt(objectCode.charAt(3)), 
-		E: parseInt(objectCode.charAt(4)),
+		C: parseInt(objectCode.charAt(2)), // Self
+		D: parseInt(objectCode.charAt(3)), // pattern
+		E: parseInt(objectCode.charAt(4)), // rug
 		F: parseInt(objectCode.charAt(5)),
 		ktChair: parseInt(objectCode.charAt(6)),
-		dnTableTexture: parseInt(objectCode.charAt(7)),
+		dnTableTexture: parseInt(objectCode.charAt(7)), // pattern
 		dnTable: parseInt(objectCode.charAt(8)),
-		dnLamp: parseInt(objectCode.charAt(9)),
+		dnLamp: parseInt(objectCode.charAt(9)), // lamp
 		dnChair: parseInt(objectCode.charAt(10)),
-		dnClock: parseInt(objectCode.charAt(11)),
+		dnClock: parseInt(objectCode.charAt(11)), //clock 
 		hwTable: parseInt(objectCode.charAt(12)),
 		hwTableTexture: parseInt(objectCode.charAt(13)),
 		hwLamp: parseInt(objectCode.charAt(14)),
@@ -167,6 +168,7 @@ export const CustomizationProvider = (props) => {
 		mbTableTexture: parseInt(objectCode.charAt(24)),
 		mbLamp: parseInt(objectCode.charAt(25)),
 		mbChair: parseInt(objectCode.charAt(26)),
+		ktTap: parseInt(objectCode.charAt(27)),	
 
 	};
 
@@ -176,12 +178,14 @@ export const CustomizationProvider = (props) => {
 			value={{
 				rawValue,
 				setRawValue,
+				rawValueTap,
+		setRawValueTap,
 				objectCode,
 				setObjectCode,
 				loc,
 				setLoc,
-				sofa,
-				setSofa,
+				tappp,
+				setTap,
 				sofaColor,
 				setSofaColor,
 				centerTable,

@@ -11,7 +11,8 @@ import { useCustomization } from "../../constants/Customization";
 function BuildingGroup(props) {
 	const { nodes, materials } = useGLTF("./models2/Building-1.gltf");
 	const group = useRef();
-	const { loc, setLoc, codeOBJ,sofa, sofaSet, setObjectCode } = useCustomization();
+	const { loc, setLoc, codeOBJ, sofa, sofaSet, setObjectCode, tappp } =
+		useCustomization();
 
 	return (
 		<group {...props} dispose={null}>
@@ -1211,7 +1212,8 @@ function BuildingGroup(props) {
 
 function Part2(props) {
 	const { nodes, materials } = useGLTF("./models2/part-2.gltf");
-	const { loc, setLoc, objectCode, codeOBJ, sofa, sofaSet } = useCustomization();
+	const { loc, setLoc, objectCode, codeOBJ, sofa, sofaSet } =
+		useCustomization();
 
 	return (
 		<group {...props} dispose={null}>
@@ -1243,7 +1245,6 @@ function Part2(props) {
 				position={[15.205, 2.467, -18.085]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
-				visible={codeOBJ['C']===0}
 			/>
 			<group
 				position={[16.666, 1.938, -15.443]}
@@ -1344,7 +1345,7 @@ function Part2(props) {
 				position={[18.483, 1.625, -15.337]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
-				visible={codeOBJ['A']===0}
+				visible={codeOBJ["A"] === 0}
 			>
 				<mesh
 					geometry={nodes.Material2214.geometry}
@@ -1364,10 +1365,10 @@ function Part2(props) {
 				/>
 			</group>
 			<group
-			// sofa-B
+				// sofa-B
 				position={[15.33, 1.472, -15.921]}
 				scale={[0.407, 0.407, 0.465]}
-				visible={codeOBJ['A']===1}
+				visible={codeOBJ["A"] === 1}
 			>
 				<mesh
 					geometry={nodes.Mesh001.geometry}
@@ -1387,14 +1388,13 @@ function Part2(props) {
 				material={materials["Material.005"]}
 				position={[16.753, 1.37, -15.377]}
 				scale={0.407}
-				visible={codeOBJ['B']===1}
+				visible={codeOBJ["B"] === 1}
 			/>
 			<group
 				position={[16.926, 1.457, -15.313]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
-				visible={codeOBJ['B']===0}
-
+				visible={codeOBJ["B"] === 0}
 			>
 				<mesh
 					geometry={nodes.Material2248.geometry}
@@ -1435,11 +1435,13 @@ function Part2(props) {
 				position={[15.186, 1.915, -18.076]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
+				visible={codeOBJ["C"] === 1}
 			/>
 			<group
 				position={[15.205, 2.436, -18.052]}
 				rotation={[-Math.PI / 2, 0, 0]}
-				scale={0.021}				
+				scale={0.021}
+				visible={codeOBJ["C"] === 0}
 			>
 				<mesh
 					geometry={nodes.Material2218.geometry}
@@ -1479,7 +1481,11 @@ function Part2(props) {
 				/>
 				<mesh
 					geometry={nodes.Material2279_1.geometry}
-					material={materials.sehpa_mermer__marble}
+					material={
+						codeOBJ["dnTableTexture"] === 1
+							? materials.sehpa_mermer__marble
+							: materials.material_6
+					}
 				/>
 				<mesh
 					geometry={nodes.Material2279_2.geometry}
@@ -1496,6 +1502,7 @@ function Part2(props) {
 				position={[15.763, 3.295, -21.151]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
+				visible={codeOBJ["dnClock"] === 1}
 			>
 				<mesh
 					geometry={nodes.Material2114.geometry}
@@ -1514,7 +1521,7 @@ function Part2(props) {
 					material={materials["23_brushed_dark_steel_metal"]}
 				/>
 			</group>
-			<group position={[16.928, 4.182, -21.346]}>
+			<group visible={false} position={[16.928, 4.182, -21.346]}>
 				<mesh
 					geometry={nodes.Material2521.geometry}
 					material={materials.Translucent_Glass_Gray}
@@ -1530,7 +1537,10 @@ function Part2(props) {
 					material={materials.Color_M07}
 				/>
 			</group>
-			<group position={[16.928, 4.143, -21.349]}>
+			<group
+				position={[16.928, 4.143, -21.349]}
+				visible={codeOBJ["dnLamp"] === 2}
+			>
 				<mesh
 					geometry={nodes.Circle003.geometry}
 					material={materials["Car plastic dark"]}
@@ -1552,7 +1562,10 @@ function Part2(props) {
 					material={materials.Glass}
 				/>
 			</group>
-			<group position={[16.93, 4.168, -22.02]}>
+			<group
+				position={[16.93, 4.168, -22.02]}
+				visible={codeOBJ["dnLamp"] === 1}
+			>
 				<mesh
 					geometry={nodes.Mesh157.geometry}
 					material={materials["tepa.001"]}
@@ -1606,7 +1619,7 @@ function Part2(props) {
 					material={materials["03.001"]}
 				/>
 			</group>
-			<group position={[16.913, 4.184, -22.016]}>
+			<group position={[16.913, 4.184, -22.016]} visible={false}>
 				<mesh
 					geometry={nodes.Mesh170.geometry}
 					material={materials["03"]}
@@ -1628,7 +1641,7 @@ function Part2(props) {
 					material={materials["03 wood"]}
 				/>
 			</group>
-			<group position={[16.921, 4.184, -22.014]}>
+			<group position={[16.921, 4.184, -22.014]} visible={false}>
 				<mesh
 					geometry={nodes.Mesh171.geometry}
 					material={materials["03"]}
@@ -1706,7 +1719,8 @@ function Part2(props) {
 
 function Part3(props) {
 	const { nodes, materials } = useGLTF("./models2/part-3.gltf");
-	const { loc, setLoc, objectCode, codeOBJ ,sofa,sofaSet} = useCustomization();
+	const { loc, setLoc, objectCode, codeOBJ, sofa, sofaSet } =
+		useCustomization();
 
 	return (
 		<group {...props} dispose={null}>
@@ -1787,6 +1801,8 @@ function Part3(props) {
 				/>
 			</group>
 			<group
+				// chair-A
+				visible={codeOBJ["ktChair"] === 1}
 				position={[20.138, 2.148, -18.874]}
 				rotation={[-Math.PI / 2, 0, -0.281]}
 				scale={0.021}
@@ -1811,12 +1827,14 @@ function Part3(props) {
 				/>
 			</group>
 			<mesh
+				visible={codeOBJ["ktChair"] === 2}
 				geometry={nodes["k-Chair-B"].geometry}
 				material={materials.Lamed_chair}
 				position={[20.154, 2.234, -18.731]}
 				rotation={[Math.PI, -0.35, Math.PI]}
 			/>
 			<group
+				visible={ codeOBJ['']}
 				position={[20.09, 2.827, -19.883]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
@@ -1883,6 +1901,7 @@ function Part3(props) {
 				position={[20.108, 3.433, -19.59]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
+				visible={false}
 			>
 				<mesh
 					geometry={nodes.Material2263.geometry}
@@ -1899,7 +1918,7 @@ function Part3(props) {
 					material={materials.Color_M07}
 				/>
 			</group>
-			<group position={[20.108, 3.485, -19.588]}>
+			<group position={[20.108, 3.485, -19.588]} visible={codeOBJ['F']===1}>
 				<mesh
 					geometry={nodes.Circle001.geometry}
 					material={materials["Car plastic dark"]}
@@ -1921,7 +1940,7 @@ function Part3(props) {
 					material={materials.Glass}
 				/>
 			</group>
-			<group position={[20.094, 3.491, -19.588]} scale={0.001}>
+			<group position={[20.094, 3.491, -19.588]} visible={codeOBJ['F']===2} scale={0.001}>
 				<mesh
 					geometry={nodes.Mesh154.geometry}
 					material={materials["tepa.001"]}

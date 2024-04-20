@@ -4,7 +4,7 @@ import { useCustomization } from "./constants/Customization";
 import "../src/App.css";
 import React, { useState } from "react";
 import Spinner from "./components/Spinner";
-
+import RangeSlider from "./components/RangeSlider";
 function App() {
 	const {
 		loc,
@@ -33,9 +33,9 @@ function App() {
 	const handleSetCode = () => {
 		if (rawValue.length === 5) {
 			setObjectCode("" + rawValue);
-			console.log(rawValue, "!!! Final value of objectCode", objectCode);
+			// console.log(rawValue, "!!! Final value of objectCode", objectCode);
 		} else {
-			console.log("Invalid code");
+			// console.log("Invalid code");
 		}
 	};
 	const handleChange = (e) => {
@@ -55,7 +55,7 @@ function App() {
 					</div>
 				</div>
 			);
-		} else if (loc === 2) {
+		} else if (loc === 2 || loc === 3 ) {
 			return (
 				<div className="configurator__section">
 					<div className="configurator__section__title">
@@ -72,6 +72,13 @@ function App() {
 					/>
 					<Spinner
 						targetIndex={2}
+						type="text"
+						items={["Classic self", "Modern self"]}
+						objectCode={objectCode}
+						setObjectCode={setObjectCode}
+					/>
+					<Spinner
+						targetIndex={4}
 						type="text"
 						items={["Classic Rug", "Modern Rug"]}
 						objectCode={objectCode}
@@ -110,10 +117,10 @@ function App() {
 						targetIndex={9}
 						type="text"
 						items={[
+							"Abstract Lamp",
 							"Classic lamp",
 							"Modern Lamp",
-							"Abstract",
-							"minimalist ",
+							"minimalist Lamp",
 						]}
 						objectCode={objectCode}
 						setObjectCode={setObjectCode}
@@ -163,7 +170,7 @@ function App() {
 						objectCode={objectCode}
 						setObjectCode={setObjectCode}
 					/>
-					<Spinner
+					{/* <Spinner
 						targetIndex={3}
 						type="text"
 						items={[
@@ -177,14 +184,15 @@ function App() {
 						]}
 						objectCode={objectCode}
 						setObjectCode={setObjectCode}
-					/>
+					/> */}
+					<RangeSlider min={1} max={7} step={1} defaultValue={1} />
 				</div>
 			);
 		} else if (loc === 6) {
 			return (
 				<div className="configurator__section">
 					<div className="configurator__section__title">
-						{loc}. Guest Room{" "}
+						{loc}. Living Room
 					</div>
 					<Spinner
 						targetIndex={15}
@@ -233,31 +241,8 @@ function App() {
 					</div>
 				</div>
 				<div className="configurator">
-					{/* Drawing Room */}
-					<div className="configurator__section">
-						<div className="configurator__section__title">
-							Chair Code: #{objectCode}
-						</div>
-
-						<div className="configurator__section__values">
-							<input
-								type="text"
-								value={rawValue}
-								onChange={handleChange}
-								placeholder="Enter Code(numbers only)"
-								className="w-auto spinner"
-							/>
-
-							<div
-								className="item__label  cursor-pointer"
-								onClick={handleSetCode}
-							>
-								Set
-							</div>
-						</div>
-					</div>
+					
 					<Overlay />
-					{/* DINING  */}
 				</div>
 			</div>
 		</div>

@@ -1,36 +1,66 @@
-// Hero.jsx
+
+
+
+
+
+
+
+/// not using any where
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState } from "react";
 import Button from "./Button"; // Import your custom Button component
+import { useCustomization } from "../constants/Customization";
+
+
 
 export function Overlay() {
-	const [arg, setArg] = useState(0); // State to store the argument
+
+	const { loc, setLoc } = useCustomization(); // State to store the locument
 
 	const handlePrevBtn = () => {
-		/* If the value of arg is 0, then return */
-		if (arg === 1) {
+		/* If the value of loc is 0, then return */
+		if (loc === 1) {
 			return;
 		}
-		setArg(arg - 1); // Decrease the value of arg by 1
-		console.log("First button clicked:", arg);
+		setLoc(loc - 1); // Decrease the value of loc by 1
+		console.log("First button clicked:", loc);
 	};
 	const handleNextBtn = () => {
-		/* If the value of arg is 5, then return */
-		if (arg === 3) {
+		/* If the value of loc is 5, then return */
+		if (loc === 3) {
 			return;
 		}
-		setArg(arg + 1); // Increase the value of arg by 1
-		console.log("Second button clicked:", arg);
+		setLoc(loc + 1); // Increase the value of loc by 1
+		console.log("Second button clicked:", loc);
 	};
 
 	return (
-		<div className="flex items-end justify-center w-screen ">
-			<Button onClick={handlePrevBtn} size="lg" variant="outline">
-				Prev.
-			</Button>
-			<Button size="ls" variant="outline">{arg}</Button>
-			<Button onClick={handleNextBtn} size="lg" variant="outline">
-				Next
-			</Button>
-		</div>
+		<CustomizationProvider>
+			<div className="flex items-end justify-center w-screen ">
+				<Button onClick={handlePrevBtn} size="lg" variant="outline">
+					Prevtt.
+				</Button>
+				<Button size="ls" variant="outline">
+					{"> "+loc}
+				</Button>
+				<Button onClick={handleNextBtn} size="lg" variant="outline">
+					Next
+				</Button>
+			</div>
+		</CustomizationProvider>
 	);
 }

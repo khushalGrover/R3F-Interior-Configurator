@@ -6,8 +6,7 @@ import {
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Building } from "./Building";
-import React, { useEffect, useRef } from "react";
-import { CustomizationProvider } from "../../constants/Customization";
+import React, { useEffect, useState, useRef } from "react";
 import { useControls, button, buttonGroup, folder } from "leva";
 import * as THREE from "three";
 
@@ -15,7 +14,7 @@ const { DEG2RAD } = THREE.MathUtils;
 
 export const EnviroCanvas = ({ arg }) => {
 	const cameraControlsRef = useRef(null);
-
+	const [index, setIndex] = useState(1);
 	const handleView = (position, target, enableTransition) => {
 		cameraControlsRef.current?.setLookAt(
 			position.x,
@@ -28,6 +27,8 @@ export const EnviroCanvas = ({ arg }) => {
 		);
 	};
 
+	
+	
 	useEffect(() => {
 		const views = [
 			{
@@ -76,8 +77,8 @@ export const EnviroCanvas = ({ arg }) => {
 					cameraBtn: buttonGroup({
 						label: "Camera Button",
 						opts: {
-							" Prev. Camera": () => setArg(arg-1),
-							"Next Camera": () => setArg(arg+1),
+							" Prev. Camera": () => setIndex(index-1),
+							"Next Camera": () => setIndex(index+1),
 						},
 					}),
 				}),
@@ -162,7 +163,7 @@ export const EnviroCanvas = ({ arg }) => {
 	});
 
 	return (
-		<CustomizationProvider>
+		
 			<Canvas shadows camera={{ fov: 50 }}>
 				<CameraControls
 					ref={cameraControlsRef}
@@ -172,8 +173,8 @@ export const EnviroCanvas = ({ arg }) => {
 					dollyToCursor={dollyToCursor}
 					infinityDolly={infinityDolly}
 				/>
-				<color attach="background" args={["#ececec"]} />
-				<ambientLight intensity={0.5} />
+				{/* <color attach="background" args={["#ececec"]} /> */}
+				{/* <ambientLight intensity={0.5} /> */}
 				<Building arg={arg} />
 				<AccumulativeShadows
 					resolution={1024}
@@ -186,7 +187,7 @@ export const EnviroCanvas = ({ arg }) => {
 				>
 					<RandomizedLight
 						radius={2.6}
-						ambient={0.5}
+						ambient={0.3}
 						position={[10, 5, -15]}
 						bias={0.001}
 					/>
@@ -197,6 +198,6 @@ export const EnviroCanvas = ({ arg }) => {
 					blur={0.7}
 				/>
 			</Canvas>
-		</CustomizationProvider>
+		
 	);
 };

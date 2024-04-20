@@ -24,7 +24,7 @@ function App() {
 		setLoc((prevLoc) => prevLoc - 1);
 	};
 	const handleNextBtn = () => {
-		if (loc === 6) {
+		if (loc === 8) {
 			return;
 		}
 		setLoc((prevLoc) => prevLoc + 1);
@@ -55,13 +55,13 @@ function App() {
 					</div>
 				</div>
 			);
-		} else if (loc === 2 || loc === 3 ) {
+		} else if (loc === 2 || loc === 3) {
 			return (
 				<div className="configurator__section">
 					<div className="configurator__section__title">
 						{loc}. Drawing Room
 					</div>
-					<Spinner
+					{/* <Spinner
 						targetIndex={0}
 						type="text"
 						items={["Classic Sofa", "Modern Sofa"]}
@@ -77,20 +77,14 @@ function App() {
 						objectCode={objectCode}
 						setObjectCode={setObjectCode}
 					/>
-					<Spinner
-						targetIndex={4}
-						type="text"
-						items={["Classic Rug", "Modern Rug"]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/>
+					
 					<Spinner
 						targetIndex={1}
 						type="text"
 						items={["Classic Table", "Modern Table"]}
 						objectCode={objectCode}
 						setObjectCode={setObjectCode}
-					/>
+					/> */}
 				</div>
 			);
 		} else if (loc === 4) {
@@ -99,7 +93,7 @@ function App() {
 					<div className="configurator__section__title">
 						{loc}. dining room{" "}
 					</div>
-					<Spinner
+					{/* <Spinner
 						targetIndex={10}
 						type="text"
 						items={["Classic Chair", "chair2 not avai."]}
@@ -131,16 +125,16 @@ function App() {
 						items={["Classic Clock", "clock2 not avai."]}
 						objectCode={objectCode}
 						setObjectCode={setObjectCode}
-					/>
+					/> */}
 				</div>
 			);
-		} else if (loc === 5) {
+		} else if (loc === 5 || loc === 6) {
 			return (
 				<div className="configurator__section">
 					<div className="configurator__section__title">
 						{loc}. Kitchen{" "}
 					</div>
-					<Spinner
+					{/* <Spinner
 						targetIndex={6}
 						type="text"
 						items={["Classic Chair", "Modern Chair"]}
@@ -169,7 +163,7 @@ function App() {
 						]}
 						objectCode={objectCode}
 						setObjectCode={setObjectCode}
-					/>
+					/> */}
 					{/* <Spinner
 						targetIndex={3}
 						type="text"
@@ -184,17 +178,17 @@ function App() {
 						]}
 						objectCode={objectCode}
 						setObjectCode={setObjectCode}
-					/> */}
 					<RangeSlider min={1} max={7} step={1} defaultValue={1} />
+					/> */}
 				</div>
 			);
-		} else if (loc === 6) {
+		} else if (loc === 7) {
 			return (
 				<div className="configurator__section">
 					<div className="configurator__section__title">
 						{loc}. Living Room
 					</div>
-					<Spinner
+					{/* <Spinner
 						targetIndex={15}
 						type="text"
 						items={["Classic sofa", "Modern sofa"]}
@@ -211,7 +205,34 @@ function App() {
 						]}
 						objectCode={objectCode}
 						setObjectCode={setObjectCode}
+					/> */}
+				</div>
+			);
+		}
+		else if (loc === 8) {
+			return (
+				<div className="configurator__section">
+					<div className="configurator__section__title">
+						{loc}. Study Area
+					</div>
+					{/* <Spinner
+						targetIndex={15}
+						type="text"
+						items={["Classic sofa", "Modern sofa"]}
+						objectCode={objectCode}
+						setObjectCode={setObjectCode}
 					/>
+					<Spinner
+						targetIndex={13}
+						type="text"
+						items={[
+							"Rug Classic pattern",
+							"Rug Modern Pattern",
+							"Rug Abstract",
+						]}
+						objectCode={objectCode}
+						setObjectCode={setObjectCode}
+					/> */}
 				</div>
 			);
 		}
@@ -230,7 +251,7 @@ function App() {
 						>
 							Prev.
 						</Button>
-						<Button size="ls" variant="primary"></Button>
+
 						<Button
 							onClick={handleNextBtn}
 							size="lg"
@@ -241,7 +262,12 @@ function App() {
 					</div>
 				</div>
 				<div className="configurator">
-					
+					<div className="configurator__section">
+						<div className="configurator__section__title">
+							{/* {loc}. Code{" # "} */}
+							{/* {objectCode} */}
+						</div>
+					</div>
 					<Overlay />
 				</div>
 			</div>

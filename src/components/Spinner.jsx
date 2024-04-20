@@ -167,7 +167,7 @@ const Spinner = ({
 						id={`spinner-${type}`}
 						className="spinner"
 					/>
-					<Button size="lg" variant="arrow" onClick={handleIncrement}>
+					<Button size="lg" variant="outline" onClick={handleIncrement}>
 						&gt;
 					</Button>
 				</div>

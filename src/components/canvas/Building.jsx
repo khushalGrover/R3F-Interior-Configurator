@@ -481,6 +481,7 @@ function BuildingGroup(props) {
 				position={[20.099, 5.459, -22.312]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
+				visible={false}
 			/>
 			<mesh
 				geometry={nodes.Material3001.geometry}
@@ -1521,7 +1522,7 @@ function Part2(props) {
 					material={materials["23_brushed_dark_steel_metal"]}
 				/>
 			</group>
-			<group visible={false} position={[16.928, 4.182, -21.346]}>
+			<group visible={codeOBJ['dnLamp']===4} position={[16.928, 4.182, -21.346]}>
 				<mesh
 					geometry={nodes.Material2521.geometry}
 					material={materials.Translucent_Glass_Gray}
@@ -1619,7 +1620,7 @@ function Part2(props) {
 					material={materials["03.001"]}
 				/>
 			</group>
-			<group position={[16.913, 4.184, -22.016]} visible={false}>
+			<group position={[16.913, 4.184, -22.016]} visible={codeOBJ['dnLamp']===3}>
 				<mesh
 					geometry={nodes.Mesh170.geometry}
 					material={materials["03"]}
@@ -1641,7 +1642,7 @@ function Part2(props) {
 					material={materials["03 wood"]}
 				/>
 			</group>
-			<group position={[16.921, 4.184, -22.014]} visible={false}>
+			<group position={[16.921, 4.184, -22.014]} visible={codeOBJ['dnLamp']===5}>
 				<mesh
 					geometry={nodes.Mesh171.geometry}
 					material={materials["03"]}
@@ -1834,7 +1835,7 @@ function Part3(props) {
 				rotation={[Math.PI, -0.35, Math.PI]}
 			/>
 			<group
-				visible={ codeOBJ['']}
+				visible={ codeOBJ['D']===4}
 				position={[20.09, 2.827, -19.883]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
@@ -1854,6 +1855,7 @@ function Part3(props) {
 				position={[20.072, 2.711, -19.861]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
+				visible={codeOBJ['D']===2}
 			/>
 			<mesh
 				geometry={nodes["k-Tap003"].geometry}
@@ -1861,11 +1863,13 @@ function Part3(props) {
 				position={[20.063, 2.702, -19.841]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
+				visible={codeOBJ['D']===1}
 			/>
 			<group
 				position={[20.084, 2.672, -19.85]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
+				visible={codeOBJ['D']===6}
 			>
 				<mesh
 					geometry={nodes.pipa7_material3_0001.geometry}
@@ -1882,6 +1886,7 @@ function Part3(props) {
 				position={[20.073, 2.701, -19.87]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
+				visible={codeOBJ['D']===7}
 			/>
 			<mesh
 				geometry={nodes["k-Tap006"].geometry}
@@ -1889,6 +1894,7 @@ function Part3(props) {
 				position={[20.089, 2.688, -19.888]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
+				visible={codeOBJ['D']===3}
 			/>
 			<mesh
 				geometry={nodes["k-Tap001"].geometry}
@@ -1896,12 +1902,13 @@ function Part3(props) {
 				position={[20.099, 2.744, -19.866]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
+				visible={codeOBJ['D']===5}
 			/>
 			<group
 				position={[20.108, 3.433, -19.59]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
-				visible={false}
+				visible={codeOBJ['F']===3}
 			>
 				<mesh
 					geometry={nodes.Material2263.geometry}

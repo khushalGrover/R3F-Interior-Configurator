@@ -3,7 +3,7 @@ import React from 'react';
 
 const Button = ({ children, size, variant, onClick }) => {
   // Determine the Tailwind CSS classes based on size and variant props
-  let classes = 'py-2 px-4 mx-1 rounded';
+  let classes = 'py-2 px-4 m-2 mx-1 rounded';
   if (size === 'lg') {
     classes += ' text-lg';
   }
@@ -11,7 +11,7 @@ const Button = ({ children, size, variant, onClick }) => {
     classes += ' border border-gray-400 text-gray-700';
   } 
   if (variant === 'primary'){
-    classes += ' bg-blue-500 text-white';
+    classes += ' bg-blue-700 text-white border border-gray-700';
   }
 
   return (

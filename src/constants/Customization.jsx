@@ -141,13 +141,13 @@ export const CustomizationProvider = (props) => {
 	
 
 	const codeOBJ = {
-		A: parseInt(objectCode.charAt(0)), // sofa
-		B: parseInt(objectCode.charAt(1)), // table
-		C: parseInt(objectCode.charAt(2)), // Self
-		D: parseInt(objectCode.charAt(3)), // pattern
-		E: parseInt(objectCode.charAt(4)), // rug
-		F: parseInt(objectCode.charAt(5)),
-		ktChair: parseInt(objectCode.charAt(6)),
+		A: parseInt(objectCode.charAt(0)), // Dnsofa
+		B: parseInt(objectCode.charAt(1)), // Dntable
+		C: parseInt(objectCode.charAt(2)), // DnSelf
+		D: parseInt(objectCode.charAt(3)), // Kttaps
+		E: parseInt(objectCode.charAt(4)), // KtTable
+		F: parseInt(objectCode.charAt(5)), // KtLamp
+		ktChair: parseInt(objectCode.charAt(6)), // KtChairs
 		dnTableTexture: parseInt(objectCode.charAt(7)), // pattern
 		dnTable: parseInt(objectCode.charAt(8)),
 		dnLamp: parseInt(objectCode.charAt(9)), // lamp
@@ -168,7 +168,7 @@ export const CustomizationProvider = (props) => {
 		mbTableTexture: parseInt(objectCode.charAt(24)),
 		mbLamp: parseInt(objectCode.charAt(25)),
 		mbChair: parseInt(objectCode.charAt(26)),
-		ktTap: parseInt(objectCode.charAt(27)),	
+		// ktTap: parseInt(objectCode.charAt(27)),	
 
 	};
 

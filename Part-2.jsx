@@ -24,8 +24,8 @@ export function Model(props) {
         <mesh geometry={nodes.Material2255_3.geometry} material={materials.Color_D02} />
       </group>
       <mesh geometry={nodes.Material2136.geometry} material={materials['vase-ode-to-baydo']} position={[14.059, 2.441, -17.838]} rotation={[-Math.PI / 2, 0, 0]} scale={0.021} />
-      <mesh geometry={nodes.Material2124.geometry} material={materials.Color_M07} position={[19.596, 5.586, -14.97]} rotation={[-Math.PI / 2, 0, 0]} scale={0.021} />
-      <mesh geometry={nodes.Material2025.geometry} material={materials.Translucent_Glass_Gray} position={[18.784, 5.807, -20.116]} rotation={[-Math.PI / 2, 0, 0]} scale={0.021} />
+      <mesh geometry={nodes.Material2124.geometry} material={materials.Color_M07} position={[19.596, 5.586, -14.97]} rotation={[-Math.PI / 2, 0, 0]} />
+      <mesh geometry={nodes.Material2025.geometry} material={materials.Translucent_Glass_Gray} position={[18.784, 5.807, -20.116]} rotation={[-Math.PI / 2, 0, 0]} />
       <group position={[16.82, 4.004, -15.47]} rotation={[-Math.PI / 2, 0, 0]} scale={0.021}>
         <mesh geometry={nodes.Material2432.geometry} material={materials.Translucent_Glass_Gray} />
         <mesh geometry={nodes.Material2432_1.geometry} material={materials.material_12} />
@@ -81,6 +81,46 @@ export function Model(props) {
         <mesh geometry={nodes.Material2114_1.geometry} material={materials.WALL_CLOCK} />
         <mesh geometry={nodes.Material2114_2.geometry} material={materials.material_12} />
         <mesh geometry={nodes.Material2114_3.geometry} material={materials['23_brushed_dark_steel_metal']} />
+      </group>
+      <group position={[16.928, 4.182, -21.346]}>
+        <mesh geometry={nodes.Material2521.geometry} material={materials.Translucent_Glass_Gray} />
+        <mesh geometry={nodes.Material2521_1.geometry} material={materials['26_old_dirty_copper_metal_texture-seamless']} />
+        <mesh geometry={nodes.Material2521_2.geometry} material={materials.Color_M07} />
+      </group>
+      <group position={[16.928, 4.143, -21.349]}>
+        <mesh geometry={nodes.Circle003.geometry} material={materials['Car plastic dark']} />
+        <mesh geometry={nodes.Circle003_1.geometry} material={materials['filament_Light ']} />
+        <mesh geometry={nodes.Circle003_2.geometry} material={materials['metal.002']} />
+        <mesh geometry={nodes.Circle003_3.geometry} material={materials.Steel} />
+        <mesh geometry={nodes.Circle003_4.geometry} material={materials.Glass} />
+      </group>
+      <group position={[16.93, 4.168, -22.02]}>
+        <mesh geometry={nodes.Mesh157.geometry} material={materials['tepa.001']} />
+        <mesh geometry={nodes.Mesh157_1.geometry} material={materials['xlor up.001']} />
+        <mesh geometry={nodes.Mesh157_2.geometry} material={materials['lampa.001']} />
+        <mesh geometry={nodes.Mesh157_3.geometry} material={materials['xrom.001']} />
+        <mesh geometry={nodes.Mesh157_4.geometry} material={materials['Material #29.001']} />
+        <mesh geometry={nodes.Mesh157_5.geometry} material={materials['Material #30.001']} />
+        <mesh geometry={nodes.Mesh157_6.geometry} material={materials['simi.001']} />
+        <mesh geometry={nodes.Mesh157_7.geometry} material={materials['01 wood.001']} />
+        <mesh geometry={nodes.Mesh157_8.geometry} material={materials['01.001']} />
+        <mesh geometry={nodes.Mesh157_9.geometry} material={materials['02 wood.001']} />
+        <mesh geometry={nodes.Mesh157_10.geometry} material={materials['02.001']} />
+        <mesh geometry={nodes.Mesh157_11.geometry} material={materials['03 wood.001']} />
+        <mesh geometry={nodes.Mesh157_12.geometry} material={materials['03.001']} />
+      </group>
+      <group position={[16.913, 4.184, -22.016]}>
+        <mesh geometry={nodes.Mesh170.geometry} material={materials['03']} />
+        <mesh geometry={nodes.Mesh170_1.geometry} material={materials.simi} />
+        <mesh geometry={nodes.Mesh170_2.geometry} material={materials['lampa.001']} />
+        <mesh geometry={nodes.Mesh170_3.geometry} material={materials.tepa} />
+        <mesh geometry={nodes.Mesh170_4.geometry} material={materials['03 wood']} />
+      </group>
+      <group position={[16.921, 4.184, -22.014]}>
+        <mesh geometry={nodes.Mesh171.geometry} material={materials['03']} />
+        <mesh geometry={nodes.Mesh171_1.geometry} material={materials.simi} />
+        <mesh geometry={nodes.Mesh171_2.geometry} material={materials.lampa} />
+        <mesh geometry={nodes.Mesh171_3.geometry} material={materials.tepa} />
       </group>
       <group position={[16.962, 2.212, -20.138]} rotation={[-Math.PI / 2, 0, 1.865]} scale={0.021}>
         <mesh geometry={nodes.Material2298.geometry} material={materials['23_brushed_dark_steel_metal']} />

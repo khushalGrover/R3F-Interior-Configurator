@@ -179,7 +179,7 @@ export const CustomizationProvider = (props) => {
 				rawValue,
 				setRawValue,
 				rawValueTap,
-		setRawValueTap,
+				setRawValueTap,
 				objectCode,
 				setObjectCode,
 				loc,

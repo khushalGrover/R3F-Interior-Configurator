@@ -11,8 +11,6 @@ const Spinner = ({
 	min,
 	objectCode,
 	setObjectCode,
-	sofa,
-	setSofa,
 }) => {
 	const [value, setValue] = useState(items[0]);
 	const [choice, setChoice] = useState(0);
@@ -64,22 +62,8 @@ const Spinner = ({
 		};	
 
 
-
-
-	// function handleObjectCodeUpdateAtIndex(tIndex, choice, objectCode) {
-	// 	const newObjectCode = objectCode.substring(0, tIndex) + (choice + 1) + objectCode.substring(tIndex + 1);
-	// 	setObjectCode(newObjectCode);
-
-	// 	setSofa(choice );
-	// 	console.log(choice+ " :targetIndex: " + targetIndex);
-	// 	console.log("Object Code: " + newObjectCode);
-	// }
-
 	function handleObjectCodeUpdateAtIndex(tIndex) {
-
-		// console.log("targetIndex: " + tIndex + " choice: " + choice + " objectCode: " + objectCode);
-		// in case 3 and case4, choice is incremented by 1 bcz the choice starts from 1 not 0 , bcz none option is not included for legs and seat
-        switch (tIndex) {
+		switch (tIndex) {
             case 0: 
                 setObjectCode(choice + objectCode.charAt(1) + objectCode.slice(2));
                 break;

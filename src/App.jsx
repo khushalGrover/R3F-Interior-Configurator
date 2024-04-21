@@ -3,16 +3,11 @@ import { EnviroCanvas } from "./components/canvas/EnviroCanvas";
 import { useCustomization } from "./constants/Customization";
 import "../src/App.css";
 import React, { useState } from "react";
-import Spinner from "./components/Spinner";
-import RangeSlider from "./components/RangeSlider";
 function App() {
 	const {
 		loc,
 		setLoc,
-		objectCode,
 		setObjectCode,
-		sofa,
-		setSofa,
 		rawValue,
 		setRawValue,
 	} = useCustomization();
@@ -33,9 +28,6 @@ function App() {
 	const handleSetCode = () => {
 		if (rawValue.length === 5) {
 			setObjectCode("" + rawValue);
-			// console.log(rawValue, "!!! Final value of objectCode", objectCode);
-		} else {
-			// console.log("Invalid code");
 		}
 	};
 	const handleChange = (e) => {
@@ -61,30 +53,6 @@ function App() {
 					<div className="configurator__section__title">
 						{loc}. Drawing Room
 					</div>
-					{/* <Spinner
-						targetIndex={0}
-						type="text"
-						items={["Classic Sofa", "Modern Sofa"]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-						sofa={sofa}
-						setSofa={setSofa}
-					/>
-					<Spinner
-						targetIndex={2}
-						type="text"
-						items={["Classic self", "Modern self"]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/>
-					
-					<Spinner
-						targetIndex={1}
-						type="text"
-						items={["Classic Table", "Modern Table"]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/> */}
 				</div>
 			);
 		} else if (loc === 4) {
@@ -93,39 +61,6 @@ function App() {
 					<div className="configurator__section__title">
 						{loc}. dining room{" "}
 					</div>
-					{/* <Spinner
-						targetIndex={10}
-						type="text"
-						items={["Classic Chair", "chair2 not avai."]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/>
-					<Spinner
-						targetIndex={7}
-						type="text"
-						items={["Classic pattern", "Modern Pattern"]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/>
-					<Spinner
-						targetIndex={9}
-						type="text"
-						items={[
-							"Abstract Lamp",
-							"Classic lamp",
-							"Modern Lamp",
-							"minimalist Lamp",
-						]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/>
-					<Spinner
-						targetIndex={11}
-						type="text"
-						items={["Classic Clock", "clock2 not avai."]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/> */}
 				</div>
 			);
 		} else if (loc === 5 || loc === 6) {
@@ -134,52 +69,6 @@ function App() {
 					<div className="configurator__section__title">
 						{loc}. Kitchen{" "}
 					</div>
-					{/* <Spinner
-						targetIndex={6}
-						type="text"
-						items={["Classic Chair", "Modern Chair"]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/>
-					<Spinner
-						targetIndex={4}
-						type="text"
-						items={[
-							"Classic pattern",
-							"Modern Pattern",
-							"Abstract",
-						]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/>
-					<Spinner
-						targetIndex={5}
-						type="text"
-						items={[
-							"Classic lamp",
-							"Modern Lamp",
-							"Abstract Lamp",
-							"minimalist Lamp",
-						]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/> */}
-					{/* <Spinner
-						targetIndex={3}
-						type="text"
-						items={[
-							"Classic Tap",
-							"Modern tap",
-							"Abstract tap",
-							"minimalist tap",
-							"Unique tap",
-							"Classic tap 2",
-							"Functional tap",
-						]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					<RangeSlider min={1} max={7} step={1} defaultValue={1} />
-					/> */}
 				</div>
 			);
 		} else if (loc === 7) {
@@ -188,24 +77,6 @@ function App() {
 					<div className="configurator__section__title">
 						{loc}. Living Room
 					</div>
-					{/* <Spinner
-						targetIndex={15}
-						type="text"
-						items={["Classic sofa", "Modern sofa"]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/>
-					<Spinner
-						targetIndex={13}
-						type="text"
-						items={[
-							"Rug Classic pattern",
-							"Rug Modern Pattern",
-							"Rug Abstract",
-						]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/> */}
 				</div>
 			);
 		}
@@ -215,24 +86,6 @@ function App() {
 					<div className="configurator__section__title">
 						{loc}. Study Area
 					</div>
-					{/* <Spinner
-						targetIndex={15}
-						type="text"
-						items={["Classic sofa", "Modern sofa"]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/>
-					<Spinner
-						targetIndex={13}
-						type="text"
-						items={[
-							"Rug Classic pattern",
-							"Rug Modern Pattern",
-							"Rug Abstract",
-						]}
-						objectCode={objectCode}
-						setObjectCode={setObjectCode}
-					/> */}
 				</div>
 			);
 		}

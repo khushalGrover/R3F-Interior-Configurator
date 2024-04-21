@@ -14,7 +14,7 @@
 
 .configurator {
   position: fixed;
-  right: 24px;
+  left: 24px;
   top:10%;
   /* bottom: 25vh; */
   width: 360px;

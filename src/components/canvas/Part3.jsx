@@ -138,7 +138,7 @@ export function Part3(props) {
 				position={[20.072, 2.711, -19.861]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
-				visible={codeOBJ["D"] === 2}
+				visible={codeOBJ["ktTaps"] === 2}
 			/>
 			<mesh
 				geometry={nodes["k-Tap003"].geometry}
@@ -146,13 +146,13 @@ export function Part3(props) {
 				position={[20.063, 2.702, -19.841]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
-				visible={codeOBJ["D"] === 1}
+				visible={codeOBJ["ktTaps"] === 1}
 			/>
 			<group
 				position={[20.084, 2.672, -19.85]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
-				visible={codeOBJ["D"] === 6}
+				visible={codeOBJ["ktTaps"] === 6}
 			>
 				<mesh
 					geometry={nodes.pipa7_material3_0001.geometry}
@@ -169,7 +169,7 @@ export function Part3(props) {
 				position={[20.073, 2.701, -19.87]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
-				visible={codeOBJ["D"] === 7}
+				visible={codeOBJ["ktTaps"] === 7}
 			/>
 			<mesh
 				geometry={nodes["k-Tap006"].geometry}
@@ -177,7 +177,7 @@ export function Part3(props) {
 				position={[20.089, 2.688, -19.888]}
 				rotation={[0, 1.571, 0]}
 				scale={0.01}
-				visible={codeOBJ["D"] === 3}
+				visible={codeOBJ["ktTaps"] === 3}
 			/>
 			<mesh
 				geometry={nodes["k-Tap001"].geometry}
@@ -185,13 +185,13 @@ export function Part3(props) {
 				position={[20.099, 2.744, -19.866]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
-				visible={codeOBJ["D"] === 5}
+				visible={codeOBJ["ktTaps"] === 5}
 			/>
 			<group
 				position={[20.108, 3.433, -19.59]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
-				visible={codeOBJ["F"] === 3}
+				visible={codeOBJ["ktLamp"] === 3}
 			>
 				<mesh
 					geometry={nodes.Material2263.geometry}
@@ -210,7 +210,7 @@ export function Part3(props) {
 			</group>
 			<group
 				position={[20.108, 3.485, -19.588]}
-				visible={codeOBJ["F"] === 1}
+				visible={codeOBJ["ktLamp"] === 1}
 			>
 				<mesh
 					geometry={nodes.Circle001.geometry}
@@ -235,7 +235,7 @@ export function Part3(props) {
 			</group>
 			<group
 				position={[20.094, 3.491, -19.588]}
-				visible={codeOBJ["F"] === 2}
+				visible={codeOBJ["ktLamp"] === 2}
 				scale={0.001}
 			>
 				<mesh

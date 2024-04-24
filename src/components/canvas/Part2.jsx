@@ -6,50 +6,84 @@ Command: npx gltfjsx@6.2.16 .\public\models2\part-2.gltf
 import React, { useRef, useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import { useCustomization } from "../../constants/Customization";
-
+// import { UpdateObjectCode } from "../UpdateObjectCode";
 export function Part2(props) {
 	const { nodes, materials } = useGLTF("./models2/part-2.gltf");
-	const { codeOBJ, focusObj, setFocusObj } = useCustomization();
+	const { codeOBJ, loc, setLoc } = useCustomization();
 	const [objVisible, setObjVisible] = useState();
 	const mainRef = useRef();
+	const [clicked, setClick] = useState(false);
 
 	return (
 		<group {...props} dispose={null}>
+			<Annotation
+				position={[16.483, 3.5, -15.337]}
+				focusObj={"Drawing Room"}
+				tIndex={2}
+			></Annotation>
+			<Annotation
+				position={[17, 2, -21]}
+				focusObj={"Dinning Table"}
+				tIndex={4}
+			></Annotation>
+			<Annotation
+				position={[20, 3.5, -20]}
+				focusObj={"Kitchen"}
+				tIndex={5}
+			></Annotation>
+			<Annotation
+				position={[19, 3, -20]}
+				focusObj={"."}
+				tIndex={6}
+			></Annotation>
+			<Annotation
+				position={[29, 3.5, -15]}
+				focusObj={"Guest Room"}
+				tIndex={7}
+			></Annotation>
+			<Annotation
+				position={[27, 3.5, -7]}
+				focusObj={"Swimming Pool"}
+				tIndex={1}
+			></Annotation>
+			<Annotation
+				position={[24, 5, -15]}
+				focusObj={"Study Room"}
+				tIndex={8}
+			></Annotation>
+			<Annotation
+				position={[16, 7, -11]}
+				focusObj={"Master Bed Room"}
+				tIndex={9}
+			></Annotation>
 			<group
 				position={[16.666, 1.938, -15.443]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
 			>
-				{/* <group mainRef={mainRef}>
-					<group
-						position={[18.483, 1.625, -15.337]}
-						rotation={[-Math.PI / 2, 0, 0]}
-						scale={0.021}
-						visible={codeOBJ["dSofa"] === 0}
-					>
-						<Annotation position={[18.483, 1.625, -15.337]}>
-							Hello123
-						</Annotation>
-						<mesh
-							geometry={nodes.Material2214.geometry}
-							material={
-								materials["green-leather_texture-seamless"]
-							}
-						/>
-						<mesh
-							geometry={nodes.Material2214_1.geometry}
-							material={materials.material_12}
-						/>
-						<mesh
-							geometry={nodes.Material2214_2.geometry}
-							material={materials.White_Painted_Stone_Tall_Green}
-						/>
-						<mesh
-							geometry={nodes.Material2214_3.geometry}
-							material={materials.PDM_Leather_BandB_AC_Lounge_2}
-						/>
-					</group>
-				</group> */}
+				<group
+					position={[18.483, 1.625, -15.337]}
+					rotation={[-Math.PI / 2, 0, 0]}
+					scale={0.021}
+					visible={codeOBJ["dSofa"] === 0}
+				>
+					<mesh
+						geometry={nodes.Material2214.geometry}
+						material={materials["green-leather_texture-seamless"]}
+					/>
+					<mesh
+						geometry={nodes.Material2214_1.geometry}
+						material={materials.material_12}
+					/>
+					<mesh
+						geometry={nodes.Material2214_2.geometry}
+						material={materials.White_Painted_Stone_Tall_Green}
+					/>
+					<mesh
+						geometry={nodes.Material2214_3.geometry}
+						material={materials.PDM_Leather_BandB_AC_Lounge_2}
+					/>
+				</group>
 
 				<mesh
 					geometry={nodes.Material2282.geometry}
@@ -88,7 +122,7 @@ export function Part2(props) {
 				/>
 				<mesh
 					geometry={nodes.Material2255_3.geometry}
-					material={materials.Color_D02}
+					material={materials.Color_Df02}
 				/>
 			</group>
 			<mesh
@@ -203,7 +237,6 @@ export function Part2(props) {
 						</div>
 					</div>
 				</Html> */}
-				<Annotation position={[-50, 0, 35]} focusObj={focusObj} ></Annotation>
 			</group>
 			<group
 				// this object is sofa B
@@ -279,13 +312,13 @@ export function Part2(props) {
 				position={[15.186, 1.915, -18.076]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
-				visible={codeOBJ["dSelf"] === 1}
+				visible={false}
 			/>
 			<group
 				position={[15.205, 2.436, -18.052]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				scale={0.021}
-				visible={codeOBJ["dSelf"] === 0}
+				visible={false}
 			>
 				<mesh
 					geometry={nodes.Material2218.geometry}
@@ -573,43 +606,45 @@ export function Part2(props) {
 function Annotation({ children, ...props }) {
 	const [objVisible, setObjVisible] = useState();
 	const [isObjFocus, setIsObjFocus] = useState(true);
-
+	const { setLoc } = useCustomization();
 	return (
 		<Html
 			scale={5}
 			// rotation={[Math.PI / 2, Math.PI / 2, 0]}
 			position={props.position}
-			// transform
-			// occlude
-			// onOcclude={setObjVisible}
 			distanceFactor={5}
-			style={{
-				transition: "all 0.5s",
-				opacity: objVisible ? 0 : 1,
-				transform: `scale(${isObjFocus ? 0.5 : 1})`,
-			}}
 		>
 			<div className="configurator">
 				{/* Table	 */}
 				<div className="configurator__section">
-					
-					<div className="configurator__section__title">
-						{"Table"}
+					<div
+						className="configurator__section__title"
+						onClick={() => {
+							console.log("focus on " + props.focusObj);
+							setLoc(props.tIndex);
+						}}
+					>
+						{props.focusObj}
 					</div>
-					{ (<div className="configurator__section__values">
-						<div
-							className={"item"}
-							onClick={() => console.log("Table 1")}
-						>
-							<div className="item__label">Design</div>
+					{/*
+						<div className="configurator__section__values">
+							<div
+								className={"item"}
+								onClick={() => {
+									(<UpdateObjectCode target={0} value={1} />),
+										console.log("Table 1");
+								}}
+							>
+								<div className="item__label">Design</div>
+							</div>
+							<div
+								className={"item item--active"}
+								onClick={() => console.log("Table 2")}
+							>
+								<div className="item__label">Classic</div>
+							</div>
 						</div>
-						<div
-							className={"item item--active"}
-							onClick={() => console.log("Table 2")}
-						>
-							<div className="item__label">Classic</div>
-						</div>
-					</div>)}
+					*/}
 				</div>
 				{/* <Overlay /> */}
 			</div>

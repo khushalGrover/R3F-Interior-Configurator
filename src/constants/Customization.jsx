@@ -107,6 +107,7 @@ const rugColors = [
 const CustomizationContext = createContext({});
 
 export const CustomizationProvider = (props) => {
+	const [targetPos, setTargetPos] = useState([20,5,-15])
 	const [rawValue, setRawValue] = useState("");
 	const [rawValueTap, setRawValueTap] = useState("");
 	const [objectCode, setObjectCode] = useState("1111111111111111111111111");
@@ -116,7 +117,7 @@ export const CustomizationProvider = (props) => {
 	const [centerTable, setCenterTable] = useState("1");
 	const [rug, setRug] = useState("1");
 	const [rugColor, setRugColor] = useState(rugColors[0]);
-	const [chair, setChair] = useState("1");
+	const [sofa, setSofa] = useState("1");
 	const [cushionColor, setCushionColor] = useState(cushionColors[0]);
 	const [lamp, setLamp] = useState("1");
 	const [lampColor, setLampColor] = useState("#ffffff");
@@ -197,8 +198,8 @@ export const CustomizationProvider = (props) => {
 				setRug,
 				rugColor,
 				setRugColor,
-				chair,
-				setChair,
+				sofa,
+				setSofa,
 				cushionColor,
 				setCushionColor,
 				lamp,
@@ -213,6 +214,8 @@ export const CustomizationProvider = (props) => {
 				rugColors,
 
 				codeOBJ,
+				targetPos,
+				setTargetPos,
 				
 			}}
 		>

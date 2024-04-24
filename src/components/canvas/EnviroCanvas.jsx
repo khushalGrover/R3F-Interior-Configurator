@@ -15,7 +15,7 @@ import * as THREE from "three";
 
 const { DEG2RAD } = THREE.MathUtils;
 export const EnviroCanvas = (arg) => {
-	const { loc, setLoc, objectCode, setObjectCode } = useCustomization();
+	const { loc, setLoc, objectCode, setObjectCode,targetPos } = useCustomization();
 	const cameraControlsRef = useRef(null);
 
 	const handleView = (position, target, enableTransition) => {
@@ -36,36 +36,40 @@ export const EnviroCanvas = (arg) => {
 		const views = [
 			{
 				position: { x: 32, y: 5, z: 0 },
-				target: { x: 25, y: 2, z: -17 },
+				target: { x: 27, y: 2, z: -7 },
 			},
 			{
-				position: { x: 16, y: 3, z: -14 },
+				position: { x: 16, y: 3.2, z: -13 },
 				target: { x: 17, y: 1.5, z: -15.4 },
 			},
 			{
-				position: { x: 20, y: 3, z: -14 },
-				target: { x: 17, y: 1, z: -15.4 },
+				position: { x: 18, y: 3, z: -16 },
+				target: { x: 15, y: 2, z: -18.4 },
 			},
 			{
 				position: { x: 18, y: 3, z: -18 },
-				target: { x: 10, y: 1, z: -35 },
+				target: { x: 17, y: 3, z: -21 },
 			},
 			{
 				position: { x: 19, y: 3, z: -15 },
-				target: { x: 22, y: 1, z: -22 },
+				target: { x: 20, y: 3, z: -20 },
 			},
 			{
 				position: { x: 19, y: 3, z: -21 },
 				target: { x: 25, y: 3, z: -15 },
 			},
 			{
-				position: { x: 31.5, y: 4, z: -16 },
-				target: { x: 20, y: 1, z: -18 },
+				position: { x: 31.5, y: 2.5, z: -16 },
+				target: { x: 28.9, y: 2.5, z: -15.5 },
 			},
 			{
-				position: { x: 25, y: 6, z: -15 },
-				target: { x: 15, y: 4, z: -18 },
+				position: { x: 25, y: 6, z: -15.2 },
+				target: { x: 22, y: 6, z: -15.5 },
 			},
+			{
+				position: { x: 18, y: 6, z: -10 },
+				target: { x: 16.5, y: 6, z: -11}
+			}
 		];
 		const view = views[loc - 1];
 		if (view) {
@@ -582,7 +586,7 @@ export const EnviroCanvas = (arg) => {
 
 	return (
 		<>
-			<Canvas shadows camera={{ fov: 50 }}>
+			<Canvas shadows camera={ { fov: 50 }}>
 				<Suspense fallback={null}>
 					<CameraControls ref={cameraControlsRef} minDistance={1} maxDistance={3} />
 					{/* <color attach="background" args={["#ececec"]} /> */}

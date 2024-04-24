@@ -13,16 +13,20 @@
 }
 
 .configurator {
+	z-index: 100;
 	position: fixed;
 	left: 24px;
 	top: 10%;
 	/* bottom: 25vh; */
-	width: 260px;
-	padding: 24px;
+	/* width: 260px; */
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 5px;
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-	background-color: rgba(41, 45, 57, 0.9);
+	background-color: rgba(41, 45, 57, 0.8);
 	backdrop-filter: blur(10px);
 	border-radius: 8px;
 	border: solid 1px #888;

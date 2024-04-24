@@ -14,7 +14,6 @@ import { useCustomization } from "../../constants/Customization";
 import * as THREE from "three";
 
 const { DEG2RAD } = THREE.MathUtils;
-
 export const EnviroCanvas = (arg) => {
 	const { loc, setLoc, objectCode, setObjectCode } = useCustomization();
 	const cameraControlsRef = useRef(null);
@@ -40,12 +39,12 @@ export const EnviroCanvas = (arg) => {
 				target: { x: 25, y: 2, z: -17 },
 			},
 			{
-				position: { x: 15, y: 3, z: -14 },
-				target: { x: 20, y: 0, z: -20 },
+				position: { x: 16, y: 3, z: -14 },
+				target: { x: 17, y: 1.5, z: -15.4 },
 			},
 			{
-				position: { x: 20, y: 3, z: -17 },
-				target: { x: 10, y: 0, z: -12 },
+				position: { x: 20, y: 3, z: -14 },
+				target: { x: 17, y: 1, z: -15.4 },
 			},
 			{
 				position: { x: 18, y: 3, z: -18 },
@@ -74,170 +73,171 @@ export const EnviroCanvas = (arg) => {
 		}
 	}, [arg]);
 
-	const {
-		minDistance,
-		enabled,
-		verticalDragToForward,
-		dollyToCursor,
-		infinityDolly,
-	} = useControls({
-		CameraLight: folder({
-			ActiveCamera: folder({
-				activeCamera: buttonGroup({
-					label: "Camera",
-					opts: {
-						1: () => setLoc(1),
-						2: () => setLoc(2),
-						3: () => setLoc(3),
-						4: () => setLoc(4),
-						5: () => setLoc(5),
-						6: () => setLoc(6),
-						7: () => setLoc(7),
-						8: () => setLoc(8),
-					},
-				}),
-			}),
-		}),
+	// const {
+	// 	minDistance,
+	// 	maxDistance,
+	// 	enabled,
+	// 	verticalDragToForward,
+	// 	dollyToCursor,
+	// 	infinityDolly,
+	// } = useControls({
+	// 	CameraLight: folder({
+	// 		ActiveCamera: folder({
+	// 			activeCamera: buttonGroup({
+	// 				label: "Camera",
+	// 				opts: {
+	// 					1: () => setLoc(1),
+	// 					2: () => setLoc(2),
+	// 					3: () => setLoc(3),
+	// 					4: () => setLoc(4),
+	// 					5: () => setLoc(5),
+	// 					6: () => setLoc(6),
+	// 					7: () => setLoc(7),
+	// 					8: () => setLoc(8),
+	// 				},
+	// 			}),
+	// 		}),
+	// 	}),
 
-		DrawingRoom: folder(
-			{
-				sofa: buttonGroup({
-					label: "Sofa-Set",
-					opts: {
-						"Vairient-1": () =>
-							handleObjectCodeUpdateAtIndex(0, 0, objectCode),
-						"Vairient-2": () =>
-							handleObjectCodeUpdateAtIndex(0, 1, objectCode),
-					},
-				}),
-				// SofaColor: { r: 1, g: 2, b: 3 },
+	// 	DrawingRoom: folder(
+	// 		{
+	// 			sofa: buttonGroup({
+	// 				label: "Sofa-Set",
+	// 				opts: {
+	// 					"Vairient-1": () =>
+	// 						handleObjectCodeUpdateAtIndex(0, 0, objectCode),
+	// 					"Vairient-2": () =>
+	// 						handleObjectCodeUpdateAtIndex(0, 1, objectCode),
+	// 				},
+	// 			}),
+	// 			// SofaColor: { r: 1, g: 2, b: 3 },
 
-				CenteralTable: buttonGroup({
-					label: "Table",
-					opts: {
-						"Varient-1": () =>
-							handleObjectCodeUpdateAtIndex(1, 0, objectCode),
-						"Varient-2": () =>
-							handleObjectCodeUpdateAtIndex(1, 1, objectCode),
-						// "Pattern-3": () => handleObjectCodeUpdateAtIndex(1,1,objectCode),
-					},
-				}),
-				BookShelf: buttonGroup({
-					label: "Book-Shelf",
-					opts: {
-						"Vairient-1": () =>
-							handleObjectCodeUpdateAtIndex(2, 0, objectCode),
-						"Vairient-2": () =>
-							handleObjectCodeUpdateAtIndex(2, 1, objectCode),
-					},
-				}),
+	// 			CenteralTable: buttonGroup({
+	// 				label: "Table",
+	// 				opts: {
+	// 					"Varient-1": () =>
+	// 						handleObjectCodeUpdateAtIndex(1, 0, objectCode),
+	// 					"Varient-2": () =>
+	// 						handleObjectCodeUpdateAtIndex(1, 1, objectCode),
+	// 					// "Pattern-3": () => handleObjectCodeUpdateAtIndex(1,1,objectCode),
+	// 				},
+	// 			}),
+	// 			BookShelf: buttonGroup({
+	// 				label: "Book-Shelf",
+	// 				opts: {
+	// 					"Vairient-1": () =>
+	// 						handleObjectCodeUpdateAtIndex(2, 0, objectCode),
+	// 					"Vairient-2": () =>
+	// 						handleObjectCodeUpdateAtIndex(2, 1, objectCode),
+	// 				},
+	// 			}),
 
-				// collapsed: true,
-			},
-			{ collapsed: false }
-		),
-		DiningRoom: folder(
-			{
-				clock: buttonGroup({
-					label: "Clock",
-					opts: {
-						"Vairient-1": () =>
-							handleObjectCodeUpdateAtIndex(11, 0, objectCode),
-						"Vairient-2": () =>
-							handleObjectCodeUpdateAtIndex(11, 1, objectCode),
-					},
-				}),
-				// SofaColor: { r: 1, g: 2, b: 3 },
+	// 			// collapsed: true,
+	// 		},
+	// 		{ collapsed: false }
+	// 	),
+	// 	DiningRoom: folder(
+	// 		{
+	// 			clock: buttonGroup({
+	// 				label: "Clock",
+	// 				opts: {
+	// 					"Vairient-1": () =>
+	// 						handleObjectCodeUpdateAtIndex(11, 0, objectCode),
+	// 					"Vairient-2": () =>
+	// 						handleObjectCodeUpdateAtIndex(11, 1, objectCode),
+	// 				},
+	// 			}),
+	// 			// SofaColor: { r: 1, g: 2, b: 3 },
 
-				DnTable: buttonGroup({
-					label: "Dining-Table",
-					opts: {
-						"Pattern-1": () =>
-							handleObjectCodeUpdateAtIndex(7, 0, objectCode),
-						"Pattern-2": () =>
-							handleObjectCodeUpdateAtIndex(7, 1, objectCode),
-						// "Pattern-3": () => handleObjectCodeUpdateAtIndex(1,1,objectCode),
-					},
-				}),
-				DnLamp: buttonGroup({
-					label: "Lamp",
-					opts: {
-						Var1: () =>
-							handleObjectCodeUpdateAtIndex(9, 0, objectCode),
-						Var2: () =>
-							handleObjectCodeUpdateAtIndex(9, 1, objectCode),
-						Var3: () =>
-							handleObjectCodeUpdateAtIndex(9, 2, objectCode),
-						Var4: () =>
-							handleObjectCodeUpdateAtIndex(9, 3, objectCode),
-						Var5: () =>
-							handleObjectCodeUpdateAtIndex(9, 4, objectCode),
-					},
-				}),
+	// 			DnTable: buttonGroup({
+	// 				label: "Dining-Table",
+	// 				opts: {
+	// 					"Pattern-1": () =>
+	// 						handleObjectCodeUpdateAtIndex(7, 0, objectCode),
+	// 					"Pattern-2": () =>
+	// 						handleObjectCodeUpdateAtIndex(7, 1, objectCode),
+	// 					// "Pattern-3": () => handleObjectCodeUpdateAtIndex(1,1,objectCode),
+	// 				},
+	// 			}),
+	// 			DnLamp: buttonGroup({
+	// 				label: "Lamp",
+	// 				opts: {
+	// 					Var1: () =>
+	// 						handleObjectCodeUpdateAtIndex(9, 0, objectCode),
+	// 					Var2: () =>
+	// 						handleObjectCodeUpdateAtIndex(9, 1, objectCode),
+	// 					Var3: () =>
+	// 						handleObjectCodeUpdateAtIndex(9, 2, objectCode),
+	// 					Var4: () =>
+	// 						handleObjectCodeUpdateAtIndex(9, 3, objectCode),
+	// 					Var5: () =>
+	// 						handleObjectCodeUpdateAtIndex(9, 4, objectCode),
+	// 				},
+	// 			}),
 
-				// collapsed: true,
-			},
-			{ collapsed: false }
-		),
-		Kitchen: folder(
-			{
-				KtTaps: buttonGroup({
-					label: "Taps",
-					opts: {
-						Var1: () =>
-							handleObjectCodeUpdateAtIndex(3, 0, objectCode),
-						Var2: () =>
-							handleObjectCodeUpdateAtIndex(3, 1, objectCode),
-						Var3: () =>
-							handleObjectCodeUpdateAtIndex(3, 2, objectCode),
-						Var4: () =>
-							handleObjectCodeUpdateAtIndex(3, 3, objectCode),
-						Var5: () =>
-							handleObjectCodeUpdateAtIndex(3, 4, objectCode),
-						Var6: () =>
-							handleObjectCodeUpdateAtIndex(3, 5, objectCode),
-						Var7: () =>
-							handleObjectCodeUpdateAtIndex(3, 6, objectCode),
-					},
-				}),
-				// SofaColor: { r: 1, g: 2, b: 3 },
+	// 			// collapsed: true,
+	// 		},
+	// 		{ collapsed: false }
+	// 	),
+	// 	Kitchen: folder(
+	// 		{
+	// 			KtTaps: buttonGroup({
+	// 				label: "Taps",
+	// 				opts: {
+	// 					Var1: () =>
+	// 						handleObjectCodeUpdateAtIndex(3, 0, objectCode),
+	// 					Var2: () =>
+	// 						handleObjectCodeUpdateAtIndex(3, 1, objectCode),
+	// 					Var3: () =>
+	// 						handleObjectCodeUpdateAtIndex(3, 2, objectCode),
+	// 					Var4: () =>
+	// 						handleObjectCodeUpdateAtIndex(3, 3, objectCode),
+	// 					Var5: () =>
+	// 						handleObjectCodeUpdateAtIndex(3, 4, objectCode),
+	// 					Var6: () =>
+	// 						handleObjectCodeUpdateAtIndex(3, 5, objectCode),
+	// 					Var7: () =>
+	// 						handleObjectCodeUpdateAtIndex(3, 6, objectCode),
+	// 				},
+	// 			}),
+	// 			// SofaColor: { r: 1, g: 2, b: 3 },
 
-				KtTable: buttonGroup({
-					label: "Table",
-					opts: {
-						"Pattern-1": () =>
-							handleObjectCodeUpdateAtIndex(4, 0, objectCode),
-						"Pattern-2": () =>
-							handleObjectCodeUpdateAtIndex(4, 1, objectCode),
-						// "Pattern-3": () => handleObjectCodeUpdateAtIndex(1,1,objectCode),
-					},
-				}),
-				KtLamp: buttonGroup({
-					label: "Lamp",
-					opts: {
-						Var1: () =>
-							handleObjectCodeUpdateAtIndex(5, 0, objectCode),
-						Var2: () =>
-							handleObjectCodeUpdateAtIndex(5, 1, objectCode),
-						Var3: () =>
-							handleObjectCodeUpdateAtIndex(5, 2, objectCode),
-					},
-				}),
-				KtChair: buttonGroup({
-					label: "Kitchen Chair",
-					opts: {
-						"Vairient-1": () =>
-							handleObjectCodeUpdateAtIndex(6, 0, objectCode),
-						"Vairient-2": () =>
-							handleObjectCodeUpdateAtIndex(6, 1, objectCode),
-					},
-				}),
+	// 			KtTable: buttonGroup({
+	// 				label: "Table",
+	// 				opts: {
+	// 					"Pattern-1": () =>
+	// 						handleObjectCodeUpdateAtIndex(4, 0, objectCode),
+	// 					"Pattern-2": () =>
+	// 						handleObjectCodeUpdateAtIndex(4, 1, objectCode),
+	// 					// "Pattern-3": () => handleObjectCodeUpdateAtIndex(1,1,objectCode),
+	// 				},
+	// 			}),
+	// 			KtLamp: buttonGroup({
+	// 				label: "Lamp",
+	// 				opts: {
+	// 					Var1: () =>
+	// 						handleObjectCodeUpdateAtIndex(5, 0, objectCode),
+	// 					Var2: () =>
+	// 						handleObjectCodeUpdateAtIndex(5, 1, objectCode),
+	// 					Var3: () =>
+	// 						handleObjectCodeUpdateAtIndex(5, 2, objectCode),
+	// 				},
+	// 			}),
+	// 			KtChair: buttonGroup({
+	// 				label: "Kitchen Chair",
+	// 				opts: {
+	// 					"Vairient-1": () =>
+	// 						handleObjectCodeUpdateAtIndex(6, 0, objectCode),
+	// 					"Vairient-2": () =>
+	// 						handleObjectCodeUpdateAtIndex(6, 1, objectCode),
+	// 				},
+	// 			}),
 
-				// collapsed: true,
-			},
-			{ collapsed: false }
-		),
-	});
+	// 			// collapsed: true,
+	// 		},
+	// 		{ collapsed: false }
+	// 	),
+	// });
 
 	function handleObjectCodeUpdateAtIndex(tIndex, value, objectCode) {
 		// in case 3 and case4, value is incremented by 1 bcz the value starts from 1 not 0 , bcz none option is not included for legs and seat
@@ -251,6 +251,7 @@ export const EnviroCanvas = (arg) => {
 				setObjectCode(
 					objectCode.charAt(0) + value + objectCode.slice(2)
 				);
+
 				break;
 			case 2:
 				setObjectCode(
@@ -259,6 +260,7 @@ export const EnviroCanvas = (arg) => {
 						value +
 						objectCode.slice(3)
 				);
+				
 				break;
 			case 3:
 				setObjectCode(
@@ -582,7 +584,7 @@ export const EnviroCanvas = (arg) => {
 		<>
 			<Canvas shadows camera={{ fov: 50 }}>
 				<Suspense fallback={null}>
-					<CameraControls ref={cameraControlsRef} />
+					<CameraControls ref={cameraControlsRef} minDistance={1} maxDistance={3} />
 					{/* <color attach="background" args={["#ececec"]} /> */}
 					{/* <ambientLight intensity={0.5} /> */}
 					<Building loc={loc} />

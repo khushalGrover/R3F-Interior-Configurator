@@ -121,6 +121,7 @@ export const CustomizationProvider = (props) => {
 	const [lamp, setLamp] = useState("1");
 	const [lampColor, setLampColor] = useState("#ffffff");
 	const [painting, setPainting] = useState("1");
+	const [foucsObj, serFocusObj] = useState("dTable");
 	
 
 
@@ -141,12 +142,12 @@ export const CustomizationProvider = (props) => {
 	
 
 	const codeOBJ = {
-		A: parseInt(objectCode.charAt(0)), // Dnsofa
-		B: parseInt(objectCode.charAt(1)), // Dntable
-		C: parseInt(objectCode.charAt(2)), // DnSelf
-		D: parseInt(objectCode.charAt(3)), // Kttaps
-		E: parseInt(objectCode.charAt(4)), // KtTable
-		F: parseInt(objectCode.charAt(5)), // KtLamp
+		dSofa: parseInt(objectCode.charAt(0)), // Dnsofa
+		dTable: parseInt(objectCode.charAt(1)), // Dntable
+		dSelf: parseInt(objectCode.charAt(2)), // DnSelf
+		ktTaps: parseInt(objectCode.charAt(3)), // Kttaps
+		ktTable: parseInt(objectCode.charAt(4)), // KtTable
+		ktLamp: parseInt(objectCode.charAt(5)), // KtLamp
 		ktChair: parseInt(objectCode.charAt(6)), // KtChairs
 		dnTableTexture: parseInt(objectCode.charAt(7)), // pattern
 		dnTable: parseInt(objectCode.charAt(8)),
@@ -184,6 +185,8 @@ export const CustomizationProvider = (props) => {
 				setObjectCode,
 				loc,
 				setLoc,
+				foucsObj,
+				serFocusObj,
 				tappp,
 				setTap,
 				sofaColor,

@@ -10,6 +10,12 @@ function App() {
 		setObjectCode,
 		rawValue,
 		setRawValue,
+		chairColors,
+		chairColor,
+		setChairColor,
+		cushionColors,
+		cushionColor,
+		setCushionColor,
 	} = useCustomization();
 
 	const handlePrevBtn = () => {
@@ -41,17 +47,88 @@ function App() {
 	const Overlay = () => {
 		if (loc === 1) {
 			return (
-				<div className="configurator__section">
-					<div className="configurator__section__title">
-						{loc}. Welcome to the configurator
+				<div className="configurator">
+					<div className="configurator__section">
+						<div className="configurator__section__title">
+							{loc}. Welcome 
+							{/* to the configurator */}
+						</div>
 					</div>
 				</div>
 			);
-		} else if (loc === 2 || loc === 3) {
+		} else {
+			return (
+				<div className="configurator">
+				<div className="configurator__section">
+					<div className="configurator__section__title">
+						{"# " + loc + " "}
+						Active Object is:
+					</div>
+					<div className="configurator__section__values">
+						<div className={"item "}>
+							<div className="item__label">Design</div>
+						</div>
+						<div
+							className={"item item--active"}
+							onClick={() => setLegs(2)}
+						>
+							<div className="item__label">Classic</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			);
+			
+		}
+
+		/*
+		else if (loc === 2 || loc === 3) {
 			return (
 				<div className="configurator__section">
 					<div className="configurator__section__title">
 						{loc}. Drawing Room
+						<div className="configurator__section__title">
+							Chair material
+						</div>
+						<div className="configurator__section__values">
+							<div
+								className={"item--active"}
+								onClick={() => console.log("lather material")}
+							>
+								<div className="item__label">Leather</div>
+							</div>
+							<div
+								// className={`item ${
+								// 	material === "fabric" ? "item--active" : ""
+								// }`}
+								className={"item--active"}
+								onClick={() => console.log("lather material")}
+							>
+								<div className="item__label">Fabric</div>
+							</div>
+						</div>
+					</div>
+					<div className="configurator__section__title">
+						Chair color
+					</div>
+					<div className="configurator__section__values">
+						{chairColors.map((item, index) => (
+							<div
+								key={index}
+								className={`item ${
+									item.color === chairColor.color
+										? "item--active"
+										: ""
+								}`}
+								onClick={() => console.log("chair")}
+							>
+								<div
+									className="item__dot"
+									style={{ backgroundColor: item.color }}
+								/>
+								<div className="item__label">!23</div>
+							</div>
+						))}
 					</div>
 				</div>
 			);
@@ -79,8 +156,7 @@ function App() {
 					</div>
 				</div>
 			);
-		}
-		else if (loc === 8) {
+		} else if (loc === 8) {
 			return (
 				<div className="configurator__section">
 					<div className="configurator__section__title">
@@ -89,6 +165,8 @@ function App() {
 				</div>
 			);
 		}
+
+		*/
 	};
 
 	return (
@@ -114,15 +192,8 @@ function App() {
 						</Button>
 					</div>
 				</div>
-				<div className="configurator">
-					<div className="configurator__section">
-						<div className="configurator__section__title">
-							{/* {loc}. Code{" # "} */}
-							{/* {objectCode} */}
-						</div>
-					</div>
-					<Overlay />
-				</div>
+
+				<Overlay />
 			</div>
 		</div>
 	);

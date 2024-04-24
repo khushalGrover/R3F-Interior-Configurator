@@ -1,4 +1,3 @@
-
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { Part3 } from "./Part3";
@@ -10,7 +9,6 @@ function BuildingGroup(props) {
 	const group = useRef();
 	// const { loc, setLoc, codeOBJ, sofa, sofaSet, setObjectCode, tappp } =
 	//useCustomization();
-
 	return (
 		<group {...props} dispose={null}>
 			<group rotation={[-Math.PI / 2, 0, 0]} scale={0.021}>
@@ -1206,6 +1204,7 @@ function BuildingGroup(props) {
 			/>
 		</group>
 	);
+	
 }
 
 export function Building(props) {

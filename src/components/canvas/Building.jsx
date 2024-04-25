@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import { Part3 } from "./Part3";
-import { Part2 } from "./Part2";
-import { Part4 } from "./Part4";
+// import { Part3 } from "./Part3";
+// import { Part2 } from "./Part2";
+// import { Part4 } from "./Part4";
 
 function BuildingGroup(props) {
 	const { nodes, materials } = useGLTF("./models2/Building-1.gltf");

@@ -20,13 +20,13 @@ import { UIManager } from './UIManager';
 import { SwimmingPool } from './SwimmingPool';
 import { MasterBedRoom } from './MasterBedRoom';
 
-import React, { useEffect, useState, useRef, Suspense } from "react";
+import React, { useEffect, useState, useRef, Suspense, lazy } from "react";
 import { useControls, button, buttonGroup, folder } from "leva";
 import { useCustomization } from "../../constants/Customization";
 import * as THREE from "three";
 
 const { DEG2RAD } = THREE.MathUtils;
-export const EnviroCanvas = (arg) => {
+export const EnviroCanvas = () => {
 	const { loc, setLoc, objectCode, setObjectCode, targetPos } =
 		useCustomization();
 	const cameraControlsRef = useRef(null);
@@ -88,7 +88,7 @@ export const EnviroCanvas = (arg) => {
 		if (view) {
 			handleView(view.position, view.target, true);
 		}
-	}, [arg]);
+	}, [loc]);
 
 	return (
 		<>
@@ -101,7 +101,7 @@ export const EnviroCanvas = (arg) => {
 					/>
 					{/* <color attach="background" args={["#ececec"]} /> */}
 					{/* <ambientLight intensity={0.5} /> */}
-					<Building loc={loc} />
+					<Building />
 
 					<BedRoom />
 					<Drawing />

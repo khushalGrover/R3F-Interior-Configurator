@@ -77,6 +77,8 @@ export const EnviroCanvas = (arg) => {
 		}
 	}, [arg]);
 
+
+	/*
 	// const {
 	// 	minDistance,
 	// 	maxDistance,
@@ -242,6 +244,7 @@ export const EnviroCanvas = (arg) => {
 	// 		{ collapsed: false }
 	// 	),
 	// });
+	*/
 
 	function handleObjectCodeUpdateAtIndex(tIndex, value, objectCode) {
 		// in case 3 and case4, value is incremented by 1 bcz the value starts from 1 not 0 , bcz none option is not included for legs and seat

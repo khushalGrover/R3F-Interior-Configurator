@@ -5,9 +5,12 @@ Command: npx gltfjsx@6.2.16 .\public\models3\Hall.gltf
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useCustomization } from "../../constants/Customization";
 
 export function Hall(props) {
   const { nodes, materials } = useGLTF('./models3/Hall.gltf')
+	const { codeOBJ, loc, setLoc } = useCustomization();
+
   return (
     <group {...props} dispose={null}>
       <group position={[28.932, 2.084, -15.55]}>

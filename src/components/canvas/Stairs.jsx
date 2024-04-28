@@ -5,9 +5,12 @@ Command: npx gltfjsx@6.2.16 .\public\models3\Stairs.gltf
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useCustomization } from "../../constants/Customization";
 
 export function Stairs(props) {
   const { nodes, materials } = useGLTF('./models3//Stairs.gltf')
+	const { codeOBJ, loc, setLoc } = useCustomization();
+
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Material3002.geometry} material={materials.material_3_3} position={[25.453, 3.297, -15.601]} rotation={[-Math.PI / 2, 0, 0]} scale={0.021} />

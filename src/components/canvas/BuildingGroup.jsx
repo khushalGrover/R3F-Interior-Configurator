@@ -1,7 +1,10 @@
 import { useGLTF } from '@react-three/drei'
+import { useCustomization } from "../../constants/Customization";
 
 export function BuildingGroup(props) {
   const { nodes, materials } = useGLTF('./models3/Building.gltf')
+	const { codeOBJ, loc, setLoc } = useCustomization();
+
   return (
     <group {...props} dispose={null}>
         <group rotation={[-Math.PI / 2, 0, 0]} scale={0.021}>

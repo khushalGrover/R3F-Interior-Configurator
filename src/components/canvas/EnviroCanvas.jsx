@@ -39,7 +39,7 @@ export const EnviroCanvas = (arg) => {
 				target: { x: 27, y: 2, z: -7 },
 			},
 			{
-				position: { x: 16, y: 3.2, z: -13 },
+				position: { x: 14, y: 3.2, z: -18 },
 				target: { x: 17, y: 1.5, z: -15.4 },
 			},
 			{
@@ -589,7 +589,7 @@ export const EnviroCanvas = (arg) => {
 
 	return (
 		<>
-			<Canvas shadows camera={ { fov: 50 }}>
+			<Canvas shadows camera={  { fov: 50, position: [3,-3,3]} } >
 				<Suspense fallback={null}>
 					<CameraControls ref={cameraControlsRef} minDistance={1} maxDistance={3} />
 					{/* <color attach="background" args={["#ececec"]} /> */}

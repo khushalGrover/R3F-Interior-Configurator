@@ -70,7 +70,10 @@
 .item.item--active .item__dot {
 	border: solid 2px white;
 }
-
+.item--intro{
+	/* background-color: #f00; */
+	width: 300px;
+}
 .item__label {
 	text-align: center;
 	font-weight: bold;

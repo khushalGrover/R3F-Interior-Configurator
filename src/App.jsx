@@ -11,7 +11,9 @@ function App() {
 		setObjectCode,
 		rawValue,
 		setRawValue,
-		sofaColors,
+		rug,
+		setRug,
+		rugColors,
 		sofaColor,
 	} = useCustomization();
 
@@ -387,8 +389,22 @@ function App() {
 			return (
 				<div className="configurator__section">
 					<div className="configurator__section__title">
-						{loc}. Welcome
-						{/* to the configurator */}
+						<h1>{loc}. Welcome</h1>
+					</div>
+					<div className="configurator__section__values">
+						<div className="item__label item--intro">
+							Lorem ipsum dolor, sit amet consectetur adipisicing
+							elit. Tempora rerum natus facilis necessitatibus?
+							Sed, earum.
+						</div>
+					</div>
+					<div
+						className={"item item--active"}
+						onClick={() => setLoc(2)}
+					>
+						<div className="item__label outline px-2">
+							Lets Start
+						</div>
 					</div>
 				</div>
 			);
@@ -462,10 +478,10 @@ function App() {
 					</div>
 					<div className="configurator__section">
 						<div className="configurator__section__title">
-							Sofa cushion color
+							Rug color
 						</div>
 						<div className="configurator__section__values">
-							{sofaColors.map((item, index) => (
+							{rugColors.map((item, index) => (
 								<div
 									key={index}
 									className={`item ${
@@ -473,7 +489,10 @@ function App() {
 											? "item--active"
 											: ""
 									}`}
-									onClick={() => setsofaColor(item)}
+									onClick={() => {
+										setRug(item.name);
+										console.log(item);
+									}}
 								>
 									<div
 										className="item__dot"
@@ -725,19 +744,37 @@ function App() {
 						<div className="configurator__section__values">
 							<div
 								className={"item"}
-								onClick={() => handleObjectCodeUpdateAtIndex(5, 0, objectCode)}
+								onClick={() =>
+									handleObjectCodeUpdateAtIndex(
+										5,
+										0,
+										objectCode
+									)
+								}
 							>
 								<div className="item__label">Classic</div>
 							</div>
 							<div
 								className={"item"}
-								onClick={() => handleObjectCodeUpdateAtIndex(5, 1, objectCode)}
+								onClick={() =>
+									handleObjectCodeUpdateAtIndex(
+										5,
+										1,
+										objectCode
+									)
+								}
 							>
 								<div className="item__label">Modern</div>
 							</div>
 							<div
 								className={"item"}
-								onClick={() => handleObjectCodeUpdateAtIndex(5, 2, objectCode)}
+								onClick={() =>
+									handleObjectCodeUpdateAtIndex(
+										5,
+										2,
+										objectCode
+									)
+								}
 							>
 								<div className="item__label">Abstract</div>
 							</div>
@@ -746,21 +783,34 @@ function App() {
 
 					{/* Chairs */}
 					<div className="configurator__section">
-						<div className="configurator__section__title">Chair</div>
+						<div className="configurator__section__title">
+							Chair
+						</div>
 						<div className="configurator__section__values">
 							<div
 								className={"item"}
-								onClick={() => handleObjectCodeUpdateAtIndex(6, 0, objectCode)}
+								onClick={() =>
+									handleObjectCodeUpdateAtIndex(
+										6,
+										0,
+										objectCode
+									)
+								}
 							>
 								<div className="item__label">Classic</div>
 							</div>
 							<div
 								className={"item"}
-								onClick={() => handleObjectCodeUpdateAtIndex(6, 1, objectCode)}
+								onClick={() =>
+									handleObjectCodeUpdateAtIndex(
+										6,
+										1,
+										objectCode
+									)
+								}
 							>
 								<div className="item__label">Modern</div>
 							</div>
-							
 						</div>
 					</div>
 				</>

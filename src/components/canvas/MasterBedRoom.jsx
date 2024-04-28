@@ -5,9 +5,12 @@ Command: npx gltfjsx@6.2.16 .\public\models3\MasterBedRoom.gltf
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useCustomization } from "../../constants/Customization";
 
 export function MasterBedRoom(props) {
   const { nodes, materials } = useGLTF('./models3/MasterBedRoom.gltf')
+	const { codeOBJ, loc, setLoc } = useCustomization();
+
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Material2249.geometry} material={materials.Plain_Natural_Blackout} position={[15.897, 5.118, -19.559]} />

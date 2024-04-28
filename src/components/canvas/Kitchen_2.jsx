@@ -5,9 +5,12 @@ Command: npx gltfjsx@6.2.16 .\public\models3\kitchen_2.gltf
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useCustomization } from "../../constants/Customization";
 
 export function Kitchen_2(props) {
   const { nodes, materials } = useGLTF('./models3//kitchen_2.gltf')
+	const { codeOBJ, loc, setLoc } = useCustomization();
+
   return (
     <group {...props} dispose={null}>
       <group position={[20.48, 2.695, -21.879]} rotation={[-Math.PI / 2, 0, 0]} scale={0.021}>

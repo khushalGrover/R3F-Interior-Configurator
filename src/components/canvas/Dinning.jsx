@@ -5,9 +5,12 @@ Command: npx gltfjsx@6.2.16 .\public\models3\Dinning_part2.gltf
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useCustomization } from "../../constants/Customization";
 
 export function Dinning(props) {
   const { nodes, materials } = useGLTF('./models3/Dinning_part2.gltf')
+	const { codeOBJ, loc, setLoc } = useCustomization();
+
   return (
     <group {...props} dispose={null}>
       <group position={[16.947, 1.835, -21.103]}>
@@ -20,7 +23,7 @@ export function Dinning(props) {
         <mesh geometry={nodes.Material2279_2.geometry} material={materials['31_brushed_copper_metal_texture-seamless_6']} />
         <mesh geometry={nodes.Material2279_3.geometry} material={materials.Polished_Concrete_Old} />
       </group>
-      <group position={[15.764, 3.295, -21.151]}>
+      <group position={[15.764, 3.295, -21.151]} visible={codeOBJ["dnClock"] === 1}>
         <mesh geometry={nodes.Material2114.geometry} material={materials.brushed_aluminium} />
         <mesh geometry={nodes.Material2114_1.geometry} material={materials.WALL_CLOCK} />
         <mesh geometry={nodes.Material2114_2.geometry} material={materials.material_12} />

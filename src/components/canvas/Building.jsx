@@ -13,8 +13,10 @@ import { SwimmingPool } from './SwimmingPool';
 import { MasterBedRoom } from './MasterBedRoom';
 
 export function Building(props) {
+  const group = useRef();
+
   return (
-    <>
+    <group position={[0,0,0]} >
       <BuildingGroup/>
       <BedRoom/>
       <Drawing/>
@@ -27,7 +29,7 @@ export function Building(props) {
       <UIManager/>
       <SwimmingPool/>
       <MasterBedRoom/>
-    </>
+    </group>
   )
 }
 

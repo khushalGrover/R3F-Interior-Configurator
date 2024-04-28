@@ -5,17 +5,20 @@ Command: npx gltfjsx@6.2.16 .\public\models3\Drawing.gltf
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useCustomization } from "../../constants/Customization";
 
 export function Drawing(props) {
   const { nodes, materials } = useGLTF('./models3/Drawing.gltf')
+	const { codeOBJ, loc, setLoc,rug } = useCustomization();
+
   return (
     <group {...props} dispose={null}>
-      <group position={[16.84, 1.664, -15.305]}>
-        <mesh geometry={nodes.mesh011.geometry} material={materials.Sofa_Dark} />
+      <group position={[16.84, 1.664, -15.305]} visible={codeOBJ["dSofa"] === 1} >
+        <mesh geometry={nodes.mesh011.geometry} material={materials.Sofa_Dark}  />
         <mesh geometry={nodes.mesh011_1.geometry} material={materials.Material} />
         <mesh geometry={nodes.mesh011_2.geometry} material={materials.Sofa_Gray} />
       </group>
-      <group position={[16.557, 1.632, -15.304]}>
+      <group position={[16.557, 1.632, -15.304]} visible={codeOBJ["dSofa"] === 0} >
         <mesh geometry={nodes.mesh029.geometry} material={materials['green-leather_texture-seamless']} />
         <mesh geometry={nodes.mesh029_1.geometry} material={materials.White_Painted_Stone_Tall_Green} />
         <mesh geometry={nodes.mesh029_2.geometry} material={materials.PDM_Leather_BandB_AC_Lounge_2} />
@@ -56,12 +59,12 @@ export function Drawing(props) {
       <mesh geometry={nodes.Material2379.geometry} material={materials.Translucent_Glass_Gray} position={[16.82, 3.901, -15.47]} />
       <mesh geometry={nodes.Material2437.geometry} material={materials.Color_M07} position={[16.82, 4.124, -15.47]} />
       <mesh geometry={nodes.Retopo_Material2136.geometry} material={materials['vase-ode-to-baydo']} position={[14.058, 2.321, -17.836]} />
-      <mesh geometry={nodes['D-centerTable-B'].geometry} material={materials['Material.005']} position={[16.873, 1.472, -15.301]} />
-      <group position={[16.926, 1.486, -15.312]}>
+      <mesh geometry={nodes['D-centerTable-B'].geometry} material={materials['Material.005']} position={[16.873, 1.472, -15.301]} visible={codeOBJ["dTable"] === 1}/>
+      <group position={[16.926, 1.486, -15.312]} visible={codeOBJ["dTable"] === 0}>
         <mesh geometry={nodes.Material2248.geometry} material={materials.material_12} />
         <mesh geometry={nodes.Material2248_1.geometry} material={materials.Pale_lancelot_oak_PBR} />
       </group>
-      <mesh geometry={nodes['D-Rug-B'].geometry} material={materials.Sofa_Dark} position={[16.872, 1.371, -15.33]} />
+      <mesh geometry={nodes['D-Rug-B'].geometry} material={ rug === "black" ? materials.Sofa_Dark: materials['Camel___Ivory_Rug__Labyrinth__-_Jonathan_Adler']} position={[16.872, 1.371, -15.33]} />
       <group position={[16.586, 1.338, -15.547]}>
         <mesh geometry={nodes.Material2273.geometry} material={materials['Camel___Ivory_Rug__Labyrinth__-_Jonathan_Adler']} />
         <mesh geometry={nodes.Material2273_1.geometry} material={materials.Dense_Rattan} />

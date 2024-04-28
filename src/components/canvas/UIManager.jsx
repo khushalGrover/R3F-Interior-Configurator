@@ -62,7 +62,6 @@ function Annotation({ children, ...props }) {
 	return (
 		<Html
 			scale={5}
-			// rotation={[Math.PI / 2, Math.PI / 2, 0]}
 			position={props.position}
 			distanceFactor={5}
 		>

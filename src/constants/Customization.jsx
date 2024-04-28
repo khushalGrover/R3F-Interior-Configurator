@@ -71,30 +71,30 @@ const cushionColors = [
 ];
 
 const rugColors = [
-	{
-		color: "#683434",
-		name: "brown",
-	},
-	{
-		color: "#1a5e1a",
-		name: "green",
-	},
-	{
-		color: "#659994",
-		name: "blue",
-	},
-	{
-		color: "#896599",
-		name: "mauve",
-	},
-	{
-		color: "#ffa500",
-		name: "orange",
-	},
-	{
-		color: "#59555b",
-		name: "grey",
-	},
+	// {
+	// 	color: "#683434",
+	// 	name: "brown",
+	// },
+	// {
+	// 	color: "#1a5e1a",
+	// 	name: "green",
+	// },
+	// {
+	// 	color: "#659994",
+	// 	name: "blue",
+	// },
+	// {
+	// 	color: "#896599",
+	// 	name: "mauve",
+	// },
+	// {
+	// 	color: "#ffa500",
+	// 	name: "orange",
+	// },
+	// {
+	// 	color: "#59555b",
+	// 	name: "grey",
+	// },
 	{
 		color: "#222222",
 		name: "black",
@@ -115,7 +115,7 @@ export const CustomizationProvider = (props) => {
 	const [tappp, setTap] = useState('1');
 	const [sofaColor, setSofaColor] = useState(sofaColors[0]);
 	const [centerTable, setCenterTable] = useState("1");
-	const [rug, setRug] = useState("1");
+	const [rug, setRug] = useState("black");
 	const [rugColor, setRugColor] = useState(rugColors[0]);
 	const [sofa, setSofa] = useState("1");
 	const [cushionColor, setCushionColor] = useState(cushionColors[0]);
@@ -170,6 +170,7 @@ export const CustomizationProvider = (props) => {
 		mbTableTexture: parseInt(objectCode.charAt(24)),
 		mbLamp: parseInt(objectCode.charAt(25)),
 		mbChair: parseInt(objectCode.charAt(26)),
+		dRug: parseInt(objectCode.charAt(27)),
 		// ktTap: parseInt(objectCode.charAt(27)),	
 
 	};

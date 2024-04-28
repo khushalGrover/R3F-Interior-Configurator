@@ -21,14 +21,14 @@ export function UIManager(props) {
 				focusObj={"Dinning Table"}
 				tIndex={4}
 			></Annotation>
-			<Annotation
-				position={[20, 3.5, -20]}
+			{/* <Annotation
+				position={[21, 3.5, -21]}
 				focusObj={"Kitchen"}
 				tIndex={5}
-			></Annotation>
+			></Annotation> */}
 			<Annotation
 				position={[19, 3, -20]}
-				focusObj={"."}
+				focusObj={"Kitchen"}
 				tIndex={6}
 			></Annotation>
 			<Annotation

@@ -574,7 +574,7 @@ function App() {
 								<div className="item__label">Style 2</div>
 							</div>
 						</div>
-					</div>
+					</div> 
 
 					{/* Lamp */}
 					<div className="configurator__section">

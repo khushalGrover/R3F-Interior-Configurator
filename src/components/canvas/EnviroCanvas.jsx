@@ -72,7 +72,7 @@ export const EnviroCanvas = () => {
 				target: { x: 20, y: 3, z: -19 },
 			},
 			{
-				position: { x: 31.5, y: 2.5, z: -16 },
+				position: { x: 31.5, y: 4, z: -16 },
 				target: { x: 28.9, y: 2.5, z: -15.5 },
 			},
 			{
@@ -97,25 +97,28 @@ export const EnviroCanvas = () => {
 					<CameraControls
 						ref={cameraControlsRef}
 						minDistance={1}
-						maxDistance={3}
+						maxDistance={8}
 					/>
 					{/* <color attach="background" args={["#ececec"]} /> */}
 					{/* <ambientLight intensity={0.5} /> */}
-					<Building />
 
+					<Hall />
+					<UIManager />
+
+					{/*
+					 <Building />
 					<BedRoom />
 					<Drawing />
-					<Dinning />
-					<Hall />
+					<Dinning /> 
 					<Kitchen_1 />
 					<Kitchen_2 />
-					<Stairs />
+					 <Stairs />
 					<StudyArea />
-					<UIManager />
 					<SwimmingPool />
-					<MasterBedRoom />
+					<MasterBedRoom /> 
+					  */}
 
-					<AccumulativeShadows
+					{/* <AccumulativeShadows
 						resolution={1024}
 						frames={100}
 						color={"#8fa2be"}
@@ -130,11 +133,11 @@ export const EnviroCanvas = () => {
 							position={[10, 5, -15]}
 							bias={0.001}
 						/>
-					</AccumulativeShadows>
+					</AccumulativeShadows> */}
 					<Environment
 						files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/peppermint_powerplant_2_1k.hdr"
 						background
-						blur={0.7}
+						blur={0.8}
 					/>
 				</Suspense>
 			</Canvas>

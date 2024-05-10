@@ -8,17 +8,18 @@ import {
 import { Canvas } from "@react-three/fiber";
 
 import { Building } from "./Building";
-import { BedRoom} from './BedRoom';
-import { Drawing } from './Drawing';
-import { Dinning } from './Dinning';
-import { Hall } from './Hall';
-import { Kitchen_1} from './Kitchen_1';
-import { Kitchen_2} from './Kitchen_2';
-import { Stairs } from './Stairs';
-import { StudyArea} from './StudyArea';
-import { UIManager } from './UIManager';
-import { SwimmingPool } from './SwimmingPool';
-import { MasterBedRoom } from './MasterBedRoom';
+import { Hall_Building } from "./Hall_Building";
+import { BedRoom } from "./BedRoom";
+import { Drawing } from "./Drawing";
+import { Dinning } from "./Dinning";
+import { Hall } from "./Hall";
+import { Kitchen_1 } from "./Kitchen_1";
+import { Kitchen_2 } from "./Kitchen_2";
+import { Stairs } from "./Stairs";
+import { StudyArea } from "./StudyArea";
+import { UIManager } from "./UIManager";
+import { SwimmingPool } from "./SwimmingPool";
+import { MasterBedRoom } from "./MasterBedRoom";
 
 import React, { useEffect, useState, useRef, Suspense, lazy } from "react";
 import { useControls, button, buttonGroup, folder } from "leva";
@@ -96,27 +97,30 @@ export const EnviroCanvas = () => {
 				<Suspense fallback={null}>
 					<CameraControls
 						ref={cameraControlsRef}
+						makeDefault
+						infinityDolly={true}
 						minDistance={1}
-						maxDistance={8}
+						maxDistance={3}
+						dollyToCursor={true}
 					/>
+
 					{/* <color attach="background" args={["#ececec"]} /> */}
 					{/* <ambientLight intensity={0.5} /> */}
 
-					<Hall />
 					<UIManager />
+					{/* <Hall_Building /> */}
 
-					{/*
-					 <Building />
+					<Building />
 					<BedRoom />
 					<Drawing />
-					<Dinning /> 
+					<Dinning />
 					<Kitchen_1 />
 					<Kitchen_2 />
-					 <Stairs />
+					<Hall />
+					<Stairs />
 					<StudyArea />
 					<SwimmingPool />
-					<MasterBedRoom /> 
-					  */}
+					<MasterBedRoom />
 
 					{/* <AccumulativeShadows
 						resolution={1024}
@@ -133,7 +137,7 @@ export const EnviroCanvas = () => {
 							position={[10, 5, -15]}
 							bias={0.001}
 						/>
-					</AccumulativeShadows> */}
+					</AccumulativeShadows>  */}
 					<Environment
 						files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/peppermint_powerplant_2_1k.hdr"
 						background

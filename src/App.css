@@ -17,8 +17,6 @@
 	position: fixed;
 	left: 24px;
 	top: 10%;
-	/* bottom: 25vh; */
-	/* width: 260px; */
 	padding-top: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -31,6 +29,45 @@
 	border-radius: 8px;
 	border: solid 1px #888;
 }
+
+
+.card__section__title {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: "Poppins", sans-serif;
+	color: white;
+  }
+  
+  .card__section__values  {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+	
+  }
+  
+  .card__section__values.two {
+	flex-wrap: wrap;
+  }
+  
+  .handle {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 100%;
+	border: solid 2px #999999;
+	transition: all 0.4s;
+	opacity: 0.3;
+  }
+  
+  .handle:hover {
+	cursor: pointer;
+	opacity: 1;
+	border: solid 2px white;
+  }
 
 .configurator__section__title {
 	text-transform: uppercase;

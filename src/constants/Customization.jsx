@@ -104,15 +104,44 @@ const rugColors = [
 		name: "white",
 	},
 ];
+
+// focus location list
+// DR - Dorwaing room
+// KT - Kitchen
+// MB - Master Bedroom
+// LR - Living room
+// SR- Study room
+// HW - Hallway
+// OD - Outdoors
+// WM - Washroom
+// BR - Bathroom
+// SP - Swimming pool
+// GR - Garden
+
+const focusLocations = [
+	"DR",
+	"KT",
+	"MB",
+	"LR",
+	"SR",
+	"HW",
+	"OD",
+	"WM",
+	"BR",
+	"SP",
+	"GR",
+];
+
+
 const CustomizationContext = createContext({});
 
 export const CustomizationProvider = (props) => {
-	const [targetPos, setTargetPos] = useState([20,5,-15])
+	const [targetPos, setTargetPos] = useState([20, 5, -15]);
 	const [rawValue, setRawValue] = useState("");
 	const [rawValueTap, setRawValueTap] = useState("");
 	const [objectCode, setObjectCode] = useState("1111111111111111111111111");
 	const [loc, setLoc] = useState(1);
-	const [tappp, setTap] = useState('1');
+	const [tappp, setTap] = useState("1");
 	const [sofaColor, setSofaColor] = useState(sofaColors[0]);
 	const [centerTable, setCenterTable] = useState("1");
 	const [rug, setRug] = useState("black");
@@ -122,25 +151,8 @@ export const CustomizationProvider = (props) => {
 	const [lamp, setLamp] = useState("1");
 	const [lampColor, setLampColor] = useState("#ffffff");
 	const [painting, setPainting] = useState("1");
-	const [foucsObj, serFocusObj] = useState("dTable");
-	
-
-
-	// loc list
-	// DR - Dorwaing room
-	// KT - Kitchen
-	// MB - Master Bedroom
-	// LR - Living room
-	// SR- Study room
-	// HW - Hallway
-	// OD - Outdoors
-	// WM - Washroom
-	// BR - Bathroom
-	// SP - Swimming pool
-	// GR - Garden
-
-	
-	
+	const [focusObj, setFocusObj] = useState("dTable");
+	const [activeItem, setActiveItem] = useState("");
 
 	const codeOBJ = {
 		dSofa: parseInt(objectCode.charAt(0)), // Dnsofa
@@ -154,7 +166,7 @@ export const CustomizationProvider = (props) => {
 		dnTable: parseInt(objectCode.charAt(8)),
 		dnLamp: parseInt(objectCode.charAt(9)), // lamp
 		dnChair: parseInt(objectCode.charAt(10)),
-		dnClock: parseInt(objectCode.charAt(11)), //clock 
+		dnClock: parseInt(objectCode.charAt(11)), //clock
 		hwTable: parseInt(objectCode.charAt(12)),
 		hwTableTexture: parseInt(objectCode.charAt(13)),
 		hwLamp: parseInt(objectCode.charAt(14)),
@@ -171,8 +183,7 @@ export const CustomizationProvider = (props) => {
 		mbLamp: parseInt(objectCode.charAt(25)),
 		mbChair: parseInt(objectCode.charAt(26)),
 		dRug: parseInt(objectCode.charAt(27)),
-		// ktTap: parseInt(objectCode.charAt(27)),	
-
+		// ktTap: parseInt(objectCode.charAt(27)),
 	};
 
 	// console.log(codeOBJ, "!!! codeOBJ");
@@ -187,8 +198,10 @@ export const CustomizationProvider = (props) => {
 				setObjectCode,
 				loc,
 				setLoc,
-				foucsObj,
-				serFocusObj,
+				focusObj,
+				setFocusObj,
+				activeItem,
+				setActiveItem,
 				tappp,
 				setTap,
 				sofaColor,
@@ -217,7 +230,6 @@ export const CustomizationProvider = (props) => {
 				codeOBJ,
 				targetPos,
 				setTargetPos,
-				
 			}}
 		>
 			{props.children}

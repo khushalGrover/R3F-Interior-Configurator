@@ -847,7 +847,7 @@ function App() {
 			<div className=" fixed flex flex-col h-full w-full outline">
 				<EnviroCanvas />
 				<div className="configurator">
-					<Overlay />
+					{/* <Overlay /> */}
 				</div>
 				{/* <div className="absolute bottom-0">
 					<div className="flex items-center justify-center w-screen">

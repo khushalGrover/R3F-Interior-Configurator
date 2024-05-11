@@ -8,16 +8,16 @@ import {
 import { Canvas } from "@react-three/fiber";
 
 import { Building } from "./Building";
-import { Hall_Building } from "./Hall_Building";
+import { Hall_Building } from "./BuilingsJsx/Hall_Building";
 import { BedRoom } from "./BedRoom";
 import { Drawing } from "./Drawing";
 import { Dinning } from "./Dinning";
-import { Hall } from "./Hall";
+import { Hall } from "./BuilingsJsx/Hall";
 import { Kitchen_1 } from "./Kitchen_1";
 import { Kitchen_2 } from "./Kitchen_2";
 import { Stairs } from "./Stairs";
 import { StudyArea } from "./StudyArea";
-import { UIManager } from "./UIManager";
+import { UIManager } from "./canvasUI/UIManager";
 import { SwimmingPool } from "./SwimmingPool";
 import { MasterBedRoom } from "./MasterBedRoom";
 

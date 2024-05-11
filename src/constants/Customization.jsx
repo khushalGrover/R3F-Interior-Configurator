@@ -153,6 +153,7 @@ export const CustomizationProvider = (props) => {
 	const [painting, setPainting] = useState("1");
 	const [focusObj, setFocusObj] = useState("dTable");
 	const [activeItem, setActiveItem] = useState("");
+	const [mode, setMode] = useState("");
 
 	const codeOBJ = {
 		dSofa: parseInt(objectCode.charAt(0)), // Dnsofa
@@ -200,8 +201,10 @@ export const CustomizationProvider = (props) => {
 				setLoc,
 				focusObj,
 				setFocusObj,
+
 				activeItem,
 				setActiveItem,
+
 				tappp,
 				setTap,
 				sofaColor,

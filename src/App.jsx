@@ -1,5 +1,5 @@
 import Button from "./components/Button";
-import { EnviroCanvas } from "./components/canvas/BuilingsJsx/EnviroCanvas";
+import { EnviroCanvas } from "./components/canvas/EnviroCanvas";
 import { useCustomization } from "./constants/Customization";
 import "../src/App.css";
 import React, { useState } from "react";

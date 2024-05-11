@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { BuildingGroup } from './BuildingGroup';
+import { BuildingGroup } from '../BuildingGroup';
 
 
 export function Building(props) {

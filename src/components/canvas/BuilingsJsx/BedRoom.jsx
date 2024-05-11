@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { useCustomization } from "../../constants/Customization";
+import { useCustomization } from "../../../constants/Customization";
 
 export function BedRoom(props) {
   const { nodes, materials } = useGLTF('./models3/BedRoom.gltf')

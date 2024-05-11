@@ -7,29 +7,25 @@ import {
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 
-import { Building } from "./Building";
+import { Building } from "./BuilingsJsx/Building";
 import { Hall_Building } from "./BuilingsJsx/Hall_Building";
-import { BedRoom } from "./BedRoom";
-import { Drawing } from "./Drawing";
-import { Dinning } from "./Dinning";
+import { BedRoom } from "./BuilingsJsx/BedRoom";
+import { Drawing } from "./BuilingsJsx/Drawing";
+import { Dinning } from "./BuilingsJsx/Dinning";
 import { Hall } from "./BuilingsJsx/Hall";
-import { Kitchen_1 } from "./Kitchen_1";
-import { Kitchen_2 } from "./Kitchen_2";
-import { Stairs } from "./Stairs";
-import { StudyArea } from "./StudyArea";
-import { UIManager } from "./canvasUI/UIManager";
-import { SwimmingPool } from "./SwimmingPool";
-import { MasterBedRoom } from "./MasterBedRoom";
+import { Kitchen_1 } from "./BuilingsJsx/Kitchen_1";
+import { Kitchen_2 } from "./BuilingsJsx/Kitchen_2";
+import { Stairs } from "./BuilingsJsx/Stairs";
+import { StudyArea } from "./BuilingsJsx/StudyArea";
+import { SwimmingPool } from "./BuilingsJsx/SwimmingPool";
+import { MasterBedRoom } from "./BuilingsJsx/MasterBedRoom";
+import { UIManager } from "./canvasUI/UIManager";      
 
 import React, { useEffect, useState, useRef, Suspense, lazy } from "react";
-import { useControls, button, buttonGroup, folder } from "leva";
 import { useCustomization } from "../../constants/Customization";
-import * as THREE from "three";
 
-const { DEG2RAD } = THREE.MathUtils;
 export const EnviroCanvas = () => {
-	const { loc, setLoc, objectCode, setObjectCode, targetPos } =
-		useCustomization();
+	const { loc } = useCustomization();
 	const cameraControlsRef = useRef(null);
 
 	const handleView = (position, target, enableTransition) => {

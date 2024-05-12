@@ -173,7 +173,7 @@ export const CustomizationProvider = (props) => {
 		hwLamp: parseInt(objectCode.charAt(14)),
 		hwChair: parseInt(objectCode.charAt(15)),
 		hwPainting: parseInt(objectCode.charAt(16)),
-		srTable: parseInt(objectCode.charAt(17)),
+		srTable: parseInt(objectCode.charAt(17)),		// swimming pool
 		srTableTexture: parseInt(objectCode.charAt(18)),
 		srLamp: parseInt(objectCode.charAt(19)),
 		srChair: parseInt(objectCode.charAt(20)),
@@ -204,7 +204,9 @@ export const CustomizationProvider = (props) => {
 
 				activeItem,
 				setActiveItem,
-
+				mode,
+				setMode,
+				
 				tappp,
 				setTap,
 				sofaColor,

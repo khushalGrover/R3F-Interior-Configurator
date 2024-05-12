@@ -59,13 +59,15 @@
 	border-radius: 100%;
 	border: solid 2px #999999;
 	transition: all 0.4s;
-	opacity: 1;
+	opacity: 0.3;
 	
 }
 
 .handle:hover {
 	cursor: pointer;
 	border: solid 3px white;
+	opacity: 1;
+
 }
 
 .configurator__section__title {

@@ -9,13 +9,14 @@ import {
 import React, { useRef, useState } from "react";
 import { Html } from "@react-three/drei";
 import { useCustomization } from "../../../constants/Customization";
-// import { UpdateObjectCode } from "../UpdateObjectCode";
+import { UpdateObjectCode } from "../../UpdateObjectCode";
+
 export function UIManager() {
-	const { activeItem } = useCustomization();
+	const { activeItem, mode, setMode } = useCustomization();
 
 	// Calculate the position for the Card and SubMenu based on the offset of interactionBtns
-	const cardPosition = calculatePosition[(0, 0, 0)];
-	const subMenuPosition = calculatePosition([0, 0, 0]);
+	const cardPosition = calculatePosition[(50, 0, 0)];
+	const subMenuPosition = calculatePosition([50, 0, 0]);
 
 	function calculatePosition(offset) {
 		// Calculate the average of the offset values of interactionBtns
@@ -37,7 +38,6 @@ export function UIManager() {
 			offset[1] + averageOffset[1],
 			offset[2] + averageOffset[2],
 		];
-		console.log("new Position is:", position);
 		return position;
 	}
 
@@ -49,18 +49,21 @@ export function UIManager() {
 			{interactionBtns.map((btn, index) => (
 				<InteractionBtn key={index} {...btn} />
 			))}
-			<Card position={cardPosition} />
-			{/* <SubMenu position={subMenuPosition} /> */}
+
+			{/* only visible when mode is config */}
+			{/* {mode === "config" && <Card position={cardPosition} />} */}
+			{/* only visible when mode is subMenu */}
+			{mode === "submenu" && <SubMenu position={subMenuPosition} />}
 		</>
 	);
 }
 
 function InteractionBtn(target) {
-	const { activeItem, setActiveItem } = useCustomization();
+	const { activeItem, setActiveItem, setMode } = useCustomization();
 
 	const handleFocus = (target) => {
 		setActiveItem(target);
-		console.log("Active obj is:", activeItem);
+		setMode("submenu");
 		// console.log("Active pos is:", activeItem.offset);
 	};
 
@@ -134,42 +137,127 @@ const interactionBtns = [
 
 const subMenuItems = [
 	{
-		target: "dSofa1", 
-		variants: [{ variant: "L Shape" }, { variant: "U Shape" }],
-		colors: [{ color: "Red" }, { color: "Blue" }],
-	},
-	{
-		target: "dSelf",
-		variants: [{ variant: "" }],
-		colors: [{ color: "dark" }, { color: "light" }],
+		target: "dSofa1",
+		tIndex: 0,
+		updateObjectCodeValues: [
+			{ value: "Classic", targetValue: 0 },
+			{ value: "Modern", targetValue: 1 },
+		],
 	},
 	{
 		target: "dTable",
-		variants: [{ variant: "Round" }, { variant: "Square" }],
-		colors: [{ color: "Black" }, { color: "White" }],
+		tIndex: 1,
+		updateObjectCodeValues: [
+			{ value: "Round", targetValue: 0 },
+			{ value: "Classic", targetValue: 1 },
+		],
 	},
 	{
-		target: "dRug",
-		variants: [],
-		colors: [{ color: "Red" }, { color: "Blue" }],
+		target: "dSelf",
+		tIndex: 2,
+		updateObjectCodeValues: [
+			{ value: "dark", targetValue: 0 },
+			{ value: "light", targetValue: 1 },
+		],
+	},
+	{
+		target: "ktTap",
+		tIndex: 3,
+		updateObjectCodeValues: [
+			{ value: "1", targetValue: 0 },
+			{ value: "2", targetValue: 1 },
+			{ value: "3", targetValue: 2 },
+			{ value: "4", targetValue: 3 },
+			{ value: "5", targetValue: 4 },
+			{ value: "6", targetValue: 5 },
+			{ value: "7", targetValue: 6 },
+		],
+	},
+	{
+		target: "ktTable",
+		tIndex: 4,
+		updateObjectCodeValues: [
+			{ value: "dark", targetValue: 0 },
+			{ value: "Light", targetValue: 1 },
+		],
+	},
+	{
+		target: "ktLamp",
+		tIndex: 5,
+		updateObjectCodeValues: [
+			{ value: "Classic", targetValue: 0 },
+			{ value: "Modern", targetValue: 1 },
+			{ value: "minimalist", targetValue: 2 },
+		],
+	},
+	{
+		target: "ktChair",
+		tIndex: 6,
+		updateObjectCodeValues: [
+			{ value: "Classic", targetValue: 0 },
+			{ value: "Modern", targetValue: 1 },
+		],
+	},
+	{
+		target: "dnTableTexture",
+		tIndex: 7,
+		updateObjectCodeValues: [
+			{ value: "Classic", targetValue: 0 },
+			{ value: "Modern", targetValue: 1 },
+		],
+	},
+	{
+		target: "dnTable",
+		tIndex: 8,
+		updateObjectCodeValues: [
+			{ value: "dark", targetValue: 0 },
+			{ value: "light", targetValue: 1 },
+		],
+	},
+	{
+		target: "dnLamp",
+		tIndex: 9,
+		updateObjectCodeValues: [
+			{ value: "Classic", targetValue: 0 },
+			{ value: "Modern", targetValue: 1 },
+			{ value: "minimalist", targetValue: 4 },
+			{ value: "Desgin", targetValue: 2 },
+			{ value: "simple", targetValue: 3 },
+		],
+	},
+	{
+		target: "dnChair",
+		tIndex: 10,
+		updateObjectCodeValues: [
+			{ value: "Classic", targetValue: 0 },
+			{ value: "Modern", targetValue: 1 },
+		],
 	},
 	{
 		target: "dnClock",
-		variants: [],
-		colors: [{ color: "Black" }, { color: "White" }],
-	}
+		tIndex: 11,
+		updateObjectCodeValues: [
+			{ value: "disable", targetValue: 0 },
+			{ value: "enable", targetValue: 1 },
+		],
+	},
+	{
+		target: "dRug",
+		tIndex: 27,
+		updateObjectCodeValues: [
+			{ value: "light", targetValue: 0 },
+			{ value: "dark", targetValue: 1 },
+		],
+	},
 ];
 
 function Card() {
 	const { setFocusObj, setMode, activeItem, setActiveItem } =
 		useCustomization();
 
-	console.log("Position is:", activeItem.offset);
 	const handleReset = () => {
 		// setFocusObj("");
-		// setMode("view");
-		setActiveItem.offset = [0, 0, 0];
-		console.log("reset Active obj is offset:", activeItem.offset);
+		setMode("view");
 	};
 
 	return (
@@ -184,7 +272,10 @@ function Card() {
 			<div className="configurator">
 				<div className="configurator__section">
 					<div className="configurator__section__title">
-						<CardSection />
+						<CardSection
+							activeItem={activeItem}
+							setMode={setMode}
+						/>
 					</div>
 				</div>
 			</div>
@@ -193,13 +284,17 @@ function Card() {
 }
 
 function SubMenu() {
-	const { activeItem } = useCustomization();
+	const { activeItem, setMode } = useCustomization();
 	return (
-		<Html scale={2} distanceFactor={8} position={activeItem.offset}>
+		<Html scale={2} distanceFactor={3} position={activeItem.offset}>
 			<div className="configurator">
 				<div className="configurator__section">
 					<div className="configurator__section__title">
-						<CardSection isSubMenu activeItem={activeItem} />
+						<CardSection
+							isSubMenu
+							activeItem={activeItem}
+							setMode={setMode}
+						/>
 					</div>
 				</div>
 			</div>
@@ -207,40 +302,58 @@ function SubMenu() {
 	);
 }
 
-function CardSection({ isSubMenu, activeItem }) {
-	const handleClick = () => {
-		console.log("Clicked");
-	};
+function CardSection({ isSubMenu, activeItem, setMode }) {
+	// const { setMode } = useCustomization();
 
+	const handleCardClick = () => {
+		// console.log("Clicked "+ activeItem.target);
+		setMode("submenu");
+	};
+	const handleSubMenuClick = () => {
+		// console.log("Clicked subMenu " + activeItem.target);
+		setMode("view");
+	};
 	return (
 		<div className="card">
 			<div className="card__section">
-				<div
-					className={`card__section__values ${
-						isSubMenu ? "two" : ""
-					}`}
-				>
+				<div className={`card__section__values ${isSubMenu ? "" : ""}`}>
 					{isSubMenu && (
 						<>
-							<div className="item" onClick={handleClick}>
-								<div className="item__label">123</div>
-							</div>
-							<div className="item" onClick={handleClick}>
-								<div className="item__label">
-									{activeItem.target}
-								</div>
-							</div>
+							{subMenuItems
+								.filter(
+									(item) => item.target === activeItem.target
+								)
+								.map((item) =>
+									item.updateObjectCodeValues.map(
+										({ value, targetValue }) => (
+											<div
+												className="item"
+												key={value}
+												onClick={() => {
+													
+													UpdateObjectCode(
+														item.tIndex,
+														targetValue
+													);
+												}}
+											>
+												<div className="item__label">
+													{value}
+												</div>
+											</div>
+										)
+									)
+								)}
 						</>
 					)}
 					{!isSubMenu && (
 						<>
-
-							<div className="item" onClick={handleClick}>
+							<div className="item" onClick={handleCardClick}>
 								<div className="item__dot">
 									<img src={texture} alt="swapImg" />
 								</div>
 							</div>
-							<div className="item" onClick={handleClick}>
+							<div className="item" onClick={handleCardClick}>
 								<div className="item__dot">
 									<img src={swap} alt="swapImg" />
 								</div>

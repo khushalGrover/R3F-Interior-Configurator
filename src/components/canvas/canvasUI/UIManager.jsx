@@ -50,7 +50,7 @@ export function UIManager() {
 				<InteractionBtn key={index} {...btn} />
 			))}
 			<Card position={cardPosition} />
-			<SubMenu position={subMenuPosition} />
+			{/* <SubMenu position={subMenuPosition} /> */}
 		</>
 	);
 }

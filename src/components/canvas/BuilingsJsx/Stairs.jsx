@@ -5,11 +5,9 @@ Command: npx gltfjsx@6.2.16 .\public\models3\Stairs.gltf
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { useCustomization } from "../../constants/Customization";
 
 export function Stairs(props) {
   const { nodes, materials } = useGLTF('./models3//Stairs.gltf')
-	const { codeOBJ, loc, setLoc } = useCustomization();
 
   return (
     <group {...props} dispose={null}>

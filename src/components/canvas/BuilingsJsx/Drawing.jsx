@@ -6,6 +6,7 @@ Command: npx gltfjsx@6.2.16 .\public\models3\Drawing.gltf
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useCustomization } from "../../../constants/Customization";
+import { code } from "three/examples/jsm/nodes/Nodes.js";
 // import { InteractionUI } from "./InteractionUI";
 
 export function Drawing(props) {
@@ -69,7 +70,11 @@ export function Drawing(props) {
 			</group>
 			<mesh
 				geometry={nodes["D-Self-main001"].geometry}
-				material={materials.Pale_lancelot_oak_PBR}
+				// material={materials.Pale_lancelot_oak_PBR}
+				material={codeOBJ["dSelf"] === 0 
+					? materials.Pale_lancelot_oak_PBR
+					: materials.material_12
+				}
 				position={[15.2, 2.301, -18.08]}
 			/>
 			<mesh
@@ -133,6 +138,8 @@ export function Drawing(props) {
 				<mesh
 					geometry={nodes.Material2432_1.geometry}
 					material={materials.material_12}
+					// visible={codeOBJ["dSelf"] === 0}
+					visible={false}
 				/>
 				<mesh
 					geometry={nodes.Material2432_2.geometry}
@@ -204,7 +211,7 @@ export function Drawing(props) {
 			<mesh
 				geometry={nodes["D-Rug-B"].geometry}
 				material={
-					rug === "black"
+					codeOBJ["dRug"] === 1
 						? materials.Sofa_Dark
 						: materials[
 								"Camel___Ivory_Rug__Labyrinth__-_Jonathan_Adler"
@@ -230,11 +237,13 @@ export function Drawing(props) {
 				geometry={nodes["D-Self-B"].geometry}
 				material={materials.material_18}
 				position={[15.188, 1.956, -18.077]}
+				visible={codeOBJ["dSelf"] === 1}
 			/>
-			<group position={[15.19, 1.999, -18.101]}>
+			<group position={[15.19, 1.999, -18.101]} visible={codeOBJ["dSelf"] === 0}>
 				<mesh
 					geometry={nodes.Material2218.geometry}
 					material={materials.material_12}
+					
 				/>
 				<mesh
 					geometry={nodes.Material2218_1.geometry}

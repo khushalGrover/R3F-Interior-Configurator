@@ -139,7 +139,7 @@ export const CustomizationProvider = (props) => {
 	const [targetPos, setTargetPos] = useState([20, 5, -15]);
 	const [rawValue, setRawValue] = useState("");
 	const [rawValueTap, setRawValueTap] = useState("");
-	const [objectCode, setObjectCode] = useState("1111111111111111111111111");
+	const [objectCode, setObjectCode] = useState("111111111111111111111111111");
 	const [loc, setLoc] = useState(1);
 	const [tappp, setTap] = useState("1");
 	const [sofaColor, setSofaColor] = useState(sofaColors[0]);
@@ -164,7 +164,7 @@ export const CustomizationProvider = (props) => {
 		ktLamp: parseInt(objectCode.charAt(5)), // KtLamp
 		ktChair: parseInt(objectCode.charAt(6)), // KtChairs
 		dnTableTexture: parseInt(objectCode.charAt(7)), // pattern
-		dnTable: parseInt(objectCode.charAt(8)),
+		dnTable: parseInt(objectCode.charAt(8)), // table texture
 		dnLamp: parseInt(objectCode.charAt(9)), // lamp
 		dnChair: parseInt(objectCode.charAt(10)),
 		dnClock: parseInt(objectCode.charAt(11)), //clock

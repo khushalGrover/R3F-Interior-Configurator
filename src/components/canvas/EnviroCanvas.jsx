@@ -89,7 +89,7 @@ export const EnviroCanvas = () => {
 
 	return (
 		<>
-			<Canvas shadows camera={{ fov: 50, position: [-3, -0.5, 5] }}>
+			<Canvas shadows camera={{ fov: 50, position: [-3, -0.5, 5] }  }>
 				<Suspense fallback={null}>
 					<CameraControls
 						ref={cameraControlsRef}

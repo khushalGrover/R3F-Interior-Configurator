@@ -100,7 +100,7 @@ const subMenuItems = [
 	},
 	{
 		target: "dnTable",
-		tIndex: 8,
+		tIndex: 7,
 		updateObjectCodeValues: [
 			{ value: "dark", targetValue: 0 },
 			{ value: "light", targetValue: 1 },

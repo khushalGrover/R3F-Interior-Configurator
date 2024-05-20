@@ -58,6 +58,12 @@ export function UIManager() {
 		</>
 	);
 }
+
+
+					//  To Do make saperate component file for below code
+
+
+
 // function Card() {
 // 	const { setFocusObj, setMode, activeItem, setActiveItem } =
 // 		useCustomization();
@@ -130,6 +136,7 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 				item.tIndex
 		);
 		UpdateObjectCode(item.tIndex, targetValue, objectCode, setObjectCode);
+		console.log("ObjectCode is:", objectCode);
 	};
 	return (
 		<div className="card">
@@ -188,7 +195,6 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 
 
 
-					//  To Do make saperate component file for below code
 
 function InteractionBtn(target) {
 	const { activeItem, setActiveItem, setMode } = useCustomization();

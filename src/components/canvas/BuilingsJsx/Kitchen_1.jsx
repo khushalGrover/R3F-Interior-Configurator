@@ -26,8 +26,8 @@ export function Kitchen_1(props) {
         <mesh geometry={nodes.Material2187_2.geometry} material={materials['31_brushed_copper_metal_texture-seamless']} />
         <mesh geometry={nodes.Material2187_3.geometry} material={materials.material} />
       </group>
-      <mesh geometry={nodes['k-Chair-B'].geometry} material={materials.Lamed_chair} position={[20.154, 2.234, -18.25]} visible={codeOBJ["ktChair"] === 2}/>
-      <group position={[20.09, 2.827, -19.883]} visible={codeOBJ["ktTaps"] === 7}>
+      <mesh geometry={nodes['k-Chair-B'].geometry} material={materials.Lamed_chair} position={[20.154, 2.234, -18.25]} visible={codeOBJ["ktChair"] === 0}/>
+      <group position={[20.09, 2.827, -19.883]} visible={codeOBJ["ktTaps"] === 0}>
         <mesh geometry={nodes.pipa4_material_2_0001.geometry} material={materials['metal.001']} />
         <mesh geometry={nodes.pipa4_material_2_0001_1.geometry} material={materials['rubber.001']} />
       </group>
@@ -40,12 +40,12 @@ export function Kitchen_1(props) {
       <mesh geometry={nodes['k-Tap004'].geometry} material={materials['metal.001']} position={[20.073, 2.701, -19.87]} visible={codeOBJ["ktTaps"] === 4}/>
       <mesh geometry={nodes['k-Tap006'].geometry} material={materials['metal.001']} position={[20.089, 2.688, -19.888]} visible={codeOBJ["ktTaps"] === 6}/>
       <mesh geometry={nodes['k-Tap001'].geometry} material={materials['metal.001']} position={[20.099, 2.744, -19.866]} visible={codeOBJ["ktTaps"] === 1}/>
-      <group position={[20.111, 3.556, -19.587]} visible={codeOBJ["ktLamp"] === 2}>
+      <group position={[20.111, 3.556, -19.587]} visible={codeOBJ["ktLamp"] === 1}>
         <mesh geometry={nodes.Circle001.geometry} material={materials['Car plastic dark']} />
         <mesh geometry={nodes.Circle001_1.geometry} material={materials.Steel} />
         <mesh geometry={nodes.Circle001_2.geometry} material={materials.Glass} />
       </group>
-      <group position={[20.094, 3.491, -19.588]} visible={codeOBJ["ktLamp"] === 3}>
+      <group position={[20.094, 3.491, -19.588]} visible={codeOBJ["ktLamp"] === 2}>
         <mesh geometry={nodes.Mesh154.geometry} material={materials['tepa.001']} />
         <mesh geometry={nodes.Mesh154_1.geometry} material={materials['xlor up.001']} />
         <mesh geometry={nodes.Mesh154_2.geometry} material={materials['lampa.001']} />
@@ -60,7 +60,7 @@ export function Kitchen_1(props) {
         <mesh geometry={nodes.Mesh154_11.geometry} material={materials['03 wood.001']} />
         <mesh geometry={nodes.Mesh154_12.geometry} material={materials['03.001']} />
       </group>
-      <group position={[20.785, 3.483, -19.59]} visible={codeOBJ["ktLamp"] === 1}>
+      <group position={[20.785, 3.483, -19.59]} visible={codeOBJ["ktLamp"] === 0}>
         <mesh geometry={nodes.Material2192.geometry} material={materials.Translucent_Glass_Gray} />
         <mesh geometry={nodes.Material2192_1.geometry} material={materials['26_old_dirty_copper_metal_texture-seamless']} />
         <mesh geometry={nodes.Material2192_2.geometry} material={materials.Color_M07} />

@@ -4,10 +4,18 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 	// const { objectCode, setObjectCode } = useCustomization();
 	switch (tIndex) {
 		case 0:
-			setObjectCode.setObjectCode(value + objectCode.objectCode.charAt(1) + objectCode.objectCode.slice(2));
+			setObjectCode.setObjectCode(
+				value +
+					objectCode.objectCode.charAt(1) +
+					objectCode.objectCode.slice(2)
+			);
 			break;
 		case 1:
-			setObjectCode.setObjectCode(objectCode.objectCode.charAt(0) + value + objectCode.objectCode.slice(2));
+			setObjectCode.setObjectCode(
+				objectCode.objectCode.charAt(0) +
+					value +
+					objectCode.objectCode.slice(2)
+			);
 
 			break;
 		case 2:
@@ -24,7 +32,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 				objectCode.objectCode.charAt(0) +
 					objectCode.objectCode.charAt(1) +
 					objectCode.objectCode.charAt(2) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(4)
 			);
 			break;
@@ -34,7 +42,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(1) +
 					objectCode.objectCode.charAt(2) +
 					objectCode.objectCode.charAt(3) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(5)
 			);
 			break;
@@ -45,7 +53,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(2) +
 					objectCode.objectCode.charAt(3) +
 					objectCode.objectCode.charAt(4) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(6)
 			);
 			break;
@@ -57,7 +65,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(3) +
 					objectCode.objectCode.charAt(4) +
 					objectCode.objectCode.charAt(5) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(7)
 			);
 			break;
@@ -70,7 +78,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(4) +
 					objectCode.objectCode.charAt(5) +
 					objectCode.objectCode.charAt(6) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(8)
 			);
 			break;
@@ -84,7 +92,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(5) +
 					objectCode.objectCode.charAt(6) +
 					objectCode.objectCode.charAt(7) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(9)
 			);
 			break;
@@ -99,7 +107,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(6) +
 					objectCode.objectCode.charAt(7) +
 					objectCode.objectCode.charAt(8) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(10)
 			);
 			break;
@@ -115,7 +123,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(7) +
 					objectCode.objectCode.charAt(8) +
 					objectCode.objectCode.charAt(9) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(11)
 			);
 			break;
@@ -132,7 +140,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(8) +
 					objectCode.objectCode.charAt(9) +
 					objectCode.objectCode.charAt(10) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(12)
 			);
 			break;
@@ -150,7 +158,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(9) +
 					objectCode.objectCode.charAt(10) +
 					objectCode.objectCode.charAt(11) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(13)
 			);
 			break;
@@ -169,7 +177,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(10) +
 					objectCode.objectCode.charAt(11) +
 					objectCode.objectCode.charAt(12) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(14)
 			);
 			break;
@@ -189,7 +197,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(11) +
 					objectCode.objectCode.charAt(12) +
 					objectCode.objectCode.charAt(13) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(15)
 			);
 			break;
@@ -210,7 +218,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(12) +
 					objectCode.objectCode.charAt(13) +
 					objectCode.objectCode.charAt(14) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(16)
 			);
 			break;
@@ -232,7 +240,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(13) +
 					objectCode.objectCode.charAt(14) +
 					objectCode.objectCode.charAt(15) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(17)
 			);
 			break;
@@ -255,7 +263,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(14) +
 					objectCode.objectCode.charAt(15) +
 					objectCode.objectCode.charAt(16) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(18)
 			);
 			break;
@@ -279,7 +287,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(15) +
 					objectCode.objectCode.charAt(16) +
 					objectCode.objectCode.charAt(17) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(19)
 			);
 			break;
@@ -304,7 +312,7 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(16) +
 					objectCode.objectCode.charAt(17) +
 					objectCode.objectCode.charAt(18) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(20)
 			);
 			break;
@@ -330,8 +338,236 @@ export function UpdateObjectCode(tIndex, value, objectCode, setObjectCode) {
 					objectCode.objectCode.charAt(17) +
 					objectCode.objectCode.charAt(18) +
 					objectCode.objectCode.charAt(19) +
-					(value + 1) +
+					(value ) +
 					objectCode.objectCode.slice(21)
+			);
+			break;
+		case 21:
+			setObjectCode.setObjectCode(
+				objectCode.objectCode.charAt(0) +
+					objectCode.objectCode.charAt(1) +
+					objectCode.objectCode.charAt(2) +
+					objectCode.objectCode.charAt(3) +
+					objectCode.objectCode.charAt(4) +
+					objectCode.objectCode.charAt(5) +
+					objectCode.objectCode.charAt(6) +
+					objectCode.objectCode.charAt(7) +
+					objectCode.objectCode.charAt(8) +
+					objectCode.objectCode.charAt(9) +
+					objectCode.objectCode.charAt(10) +
+					objectCode.objectCode.charAt(11) +
+					objectCode.objectCode.charAt(12) +
+					objectCode.objectCode.charAt(13) +
+					objectCode.objectCode.charAt(14) +
+					objectCode.objectCode.charAt(15) +
+					objectCode.objectCode.charAt(16) +
+					objectCode.objectCode.charAt(17) +
+					objectCode.objectCode.charAt(18) +
+					objectCode.objectCode.charAt(19) +
+					objectCode.objectCode.charAt(20) +
+					(value ) +
+					objectCode.objectCode.slice(22) +
+					objectCode.objectCode.charAt(23) + 
+					objectCode.objectCode.charAt(24) +
+					objectCode.objectCode.charAt(25) +
+					objectCode.objectCode.charAt(26) +
+					objectCode.objectCode.charAt(27)
+
+			);
+			break;
+
+		case 22:
+			setObjectCode.setObjectCode(
+				objectCode.objectCode.charAt(0) +
+					objectCode.objectCode.charAt(1) +
+					objectCode.objectCode.charAt(2) +
+					objectCode.objectCode.charAt(3) +
+					objectCode.objectCode.charAt(4) +
+					objectCode.objectCode.charAt(5) +
+					objectCode.objectCode.charAt(6) +
+					objectCode.objectCode.charAt(7) +
+					objectCode.objectCode.charAt(8) +
+					objectCode.objectCode.charAt(9) +
+					objectCode.objectCode.charAt(10) +
+					objectCode.objectCode.charAt(11) +
+					objectCode.objectCode.charAt(12) +
+					objectCode.objectCode.charAt(13) +
+					objectCode.objectCode.charAt(14) +
+					objectCode.objectCode.charAt(15) +
+					objectCode.objectCode.charAt(16) +
+					objectCode.objectCode.charAt(17) +
+					objectCode.objectCode.charAt(18) +
+					objectCode.objectCode.charAt(19) +
+					objectCode.objectCode.charAt(20) +
+					objectCode.objectCode.charAt(21) +
+					(value ) +
+					objectCode.objectCode.slice(23) +
+					objectCode.objectCode.charAt(24) +
+					objectCode.objectCode.charAt(25) +
+					objectCode.objectCode.charAt(26) +
+					objectCode.objectCode.charAt(27)
+			);
+			break;
+
+		case 23:
+			setObjectCode.setObjectCode(
+				objectCode.objectCode.charAt(0) +
+					objectCode.objectCode.charAt(1) +
+					objectCode.objectCode.charAt(2) +
+					objectCode.objectCode.charAt(3) +
+					objectCode.objectCode.charAt(4) +
+					objectCode.objectCode.charAt(5) +
+					objectCode.objectCode.charAt(6) +
+					objectCode.objectCode.charAt(7) +
+					objectCode.objectCode.charAt(8) +
+					objectCode.objectCode.charAt(9) +
+					objectCode.objectCode.charAt(10) +
+					objectCode.objectCode.charAt(11) +
+					objectCode.objectCode.charAt(12) +
+					objectCode.objectCode.charAt(13) +
+					objectCode.objectCode.charAt(14) +
+					objectCode.objectCode.charAt(15) +
+					objectCode.objectCode.charAt(16) +
+					objectCode.objectCode.charAt(17) +
+					objectCode.objectCode.charAt(18) +
+					objectCode.objectCode.charAt(19) +
+					objectCode.objectCode.charAt(20) +
+					objectCode.objectCode.charAt(21) +
+					objectCode.objectCode.charAt(22) +
+					(value ) +
+					objectCode.objectCode.slice(24) +
+					objectCode.objectCode.charAt(25) +
+					objectCode.objectCode.charAt(26) +
+					objectCode.objectCode.charAt(27)
+			);
+			break;
+		case 24:
+			setObjectCode.setObjectCode(
+				objectCode.objectCode.charAt(0) +
+					objectCode.objectCode.charAt(1) +
+					objectCode.objectCode.charAt(2) +
+					objectCode.objectCode.charAt(3) +
+					objectCode.objectCode.charAt(4) +
+					objectCode.objectCode.charAt(5) +
+					objectCode.objectCode.charAt(6) +
+					objectCode.objectCode.charAt(7) +
+					objectCode.objectCode.charAt(8) +
+					objectCode.objectCode.charAt(9) +
+					objectCode.objectCode.charAt(10) +
+					objectCode.objectCode.charAt(11) +
+					objectCode.objectCode.charAt(12) +
+					objectCode.objectCode.charAt(13) +
+					objectCode.objectCode.charAt(14) +
+					objectCode.objectCode.charAt(15) +
+					objectCode.objectCode.charAt(16) +
+					objectCode.objectCode.charAt(17) +
+					objectCode.objectCode.charAt(18) +
+					objectCode.objectCode.charAt(19) +
+					objectCode.objectCode.charAt(20) +
+					objectCode.objectCode.charAt(21) +
+					objectCode.objectCode.charAt(22) +
+					objectCode.objectCode.charAt(23) +
+					(value ) +
+					objectCode.objectCode.slice(25) +
+					objectCode.objectCode.charAt(26) +
+					objectCode.objectCode.charAt(27)
+			);
+			break;
+		case 25:
+			setObjectCode.setObjectCode(
+				objectCode.objectCode.charAt(0) +
+					objectCode.objectCode.charAt(1) +
+					objectCode.objectCode.charAt(2) +
+					objectCode.objectCode.charAt(3) +
+					objectCode.objectCode.charAt(4) +
+					objectCode.objectCode.charAt(5) +
+					objectCode.objectCode.charAt(6) +
+					objectCode.objectCode.charAt(7) +
+					objectCode.objectCode.charAt(8) +
+					objectCode.objectCode.charAt(9) +
+					objectCode.objectCode.charAt(10) +
+					objectCode.objectCode.charAt(11) +
+					objectCode.objectCode.charAt(12) +
+					objectCode.objectCode.charAt(13) +
+					objectCode.objectCode.charAt(14) +
+					objectCode.objectCode.charAt(15) +
+					objectCode.objectCode.charAt(16) +
+					objectCode.objectCode.charAt(17) +
+					objectCode.objectCode.charAt(18) +
+					objectCode.objectCode.charAt(19) +
+					objectCode.objectCode.charAt(20) +
+					objectCode.objectCode.charAt(21) +
+					objectCode.objectCode.charAt(22) +
+					objectCode.objectCode.charAt(23) +
+					objectCode.objectCode.charAt(24) +
+					(value ) +
+					objectCode.objectCode.slice(26) +
+					objectCode.objectCode.charAt(27)
+			);
+			break;
+		case 26:
+			setObjectCode.setObjectCode(
+				objectCode.objectCode.charAt(0) +
+					objectCode.objectCode.charAt(1) +
+					objectCode.objectCode.charAt(2) +
+					objectCode.objectCode.charAt(3) +
+					objectCode.objectCode.charAt(4) +
+					objectCode.objectCode.charAt(5) +
+					objectCode.objectCode.charAt(6) +
+					objectCode.objectCode.charAt(7) +
+					objectCode.objectCode.charAt(8) +
+					objectCode.objectCode.charAt(9) +
+					objectCode.objectCode.charAt(10) +
+					objectCode.objectCode.charAt(11) +
+					objectCode.objectCode.charAt(12) +
+					objectCode.objectCode.charAt(13) +
+					objectCode.objectCode.charAt(14) +
+					objectCode.objectCode.charAt(15) +
+					objectCode.objectCode.charAt(16) +
+					objectCode.objectCode.charAt(17) +
+					objectCode.objectCode.charAt(18) +
+					objectCode.objectCode.charAt(19) +
+					objectCode.objectCode.charAt(20) +
+					objectCode.objectCode.charAt(21) +
+					objectCode.objectCode.charAt(22) +
+					objectCode.objectCode.charAt(23) +
+					objectCode.objectCode.charAt(24) +
+					objectCode.objectCode.charAt(25) +
+					(value ) +
+					objectCode.objectCode.slice(27)
+			);
+			break;
+
+		case 27:
+			setObjectCode.setObjectCode(
+				objectCode.objectCode.charAt(0) +
+					objectCode.objectCode.charAt(1) +
+					objectCode.objectCode.charAt(2) +
+					objectCode.objectCode.charAt(3) +
+					objectCode.objectCode.charAt(4) +
+					objectCode.objectCode.charAt(5) +
+					objectCode.objectCode.charAt(6) +
+					objectCode.objectCode.charAt(7) +
+					objectCode.objectCode.charAt(8) +
+					objectCode.objectCode.charAt(9) +
+					objectCode.objectCode.charAt(10) +
+					objectCode.objectCode.charAt(11) +
+					objectCode.objectCode.charAt(12) +
+					objectCode.objectCode.charAt(13) +
+					objectCode.objectCode.charAt(14) +
+					objectCode.objectCode.charAt(15) +
+					objectCode.objectCode.charAt(16) +
+					objectCode.objectCode.charAt(17) +
+					objectCode.objectCode.charAt(18) +
+					objectCode.objectCode.charAt(19) +
+					objectCode.objectCode.charAt(20) +
+					objectCode.objectCode.charAt(21) +
+					objectCode.objectCode.charAt(22) +
+					objectCode.objectCode.charAt(23) +
+					objectCode.objectCode.charAt(24) +
+					objectCode.objectCode.charAt(25) +
+					objectCode.objectCode.charAt(26) +
+					(value )
 			);
 			break;
 	}

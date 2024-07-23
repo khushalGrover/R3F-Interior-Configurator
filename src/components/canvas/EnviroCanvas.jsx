@@ -4,9 +4,9 @@ import {
 	AccumulativeShadows,
 	RandomizedLight,
 	Loader,
-	useGLTF,
 } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useLoader  } from "@react-three/fiber";
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 import { Building } from "./BuilingsJsx/Building";
 import { Hall_Building } from "./BuilingsJsx/Hall_Building";
@@ -29,7 +29,9 @@ export const EnviroCanvas = () => {
 	const { loc } = useCustomization();
 	const cameraControlsRef = useRef(null);
 
-	const handleView = (position, target, enableTransition) => {
+	const table_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/table_a_obj/d_table_a.glb')
+
+	const handleView =  (position, target, enableTransition) => {
 		cameraControlsRef.current?.setLookAt(
 			position.x,
 			position.y,
@@ -88,22 +90,7 @@ export const EnviroCanvas = () => {
 		}
 	}, [loc]);
 
-	function Suzi(props) {
-		const { nodes } = useGLTF(
-			"https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/suzanne-high-poly/model.gltf"
-		);
-		return (
-			<mesh
-				castShadow
-				receiveShadow
-				geometry={nodes.Suzanne.geometry}
-				{...props}
-				dispose={null}
-			>
-				<meshStandardMaterial color="#353535" />
-			</mesh>
-		);
-	}
+	
 
 	return (
 		<>
@@ -124,11 +111,7 @@ export const EnviroCanvas = () => {
 					<UIManager />
 					{/* <Hall_Building /> */}
 
-					<Suzi
-						rotation={[-0.63, 0, 0]}
-						scale={2}
-						position={[0, -1.175, 0]}
-					/>
+					<primitive object={table_a.scene} />
 
 					{/* <Building />
 					<BedRoom />

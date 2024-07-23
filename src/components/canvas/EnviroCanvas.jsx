@@ -6,7 +6,6 @@ import {
 	Loader,
 } from "@react-three/drei";
 import { Canvas, useLoader  } from "@react-three/fiber";
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 import { Building } from "./BuilingsJsx/Building";
 import { Hall_Building } from "./BuilingsJsx/Hall_Building";
@@ -29,7 +28,6 @@ export const EnviroCanvas = () => {
 	const { loc } = useCustomization();
 	const cameraControlsRef = useRef(null);
 
-	const table_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/table_a_obj/d_table_a.glb')
 
 	const handleView =  (position, target, enableTransition) => {
 		cameraControlsRef.current?.setLookAt(
@@ -105,18 +103,16 @@ export const EnviroCanvas = () => {
 						dollyToCursor={true}
 					/>
 
-					{/* <color attach="background" args={["#ececec"]} /> */}
-					{/* <ambientLight intensity={0.5} /> */}
 
 					<UIManager />
 					{/* <Hall_Building /> */}
 
-					<primitive object={table_a.scene} />
+					
 
+					<Dinning />
 					{/* <Building />
 					<BedRoom />
 					<Drawing />
-					<Dinning />
 					<Kitchen_1 />
 					<Kitchen_2 />
 					<Hall />

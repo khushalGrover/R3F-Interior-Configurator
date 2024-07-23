@@ -7,16 +7,6 @@ function App() {
 	const {
 		loc,
 		setLoc,
-		activeItem,
-		setActiveItem,
-		objectCode,
-		setObjectCode,
-		rawValue,
-		setRawValue,
-		rug,
-		setRug,
-		rugColors,
-		sofaColor,
 	} = useCustomization();
 
 	const handlePrevBtn = () => {

@@ -60,37 +60,10 @@ function App() {
 	};
 
 	return (
-		<div className="relative">
-			<div className=" fixed flex flex-col h-full w-full outline">
-				<EnviroCanvas />
-
-				{loc === 1 && (
-					<div className="configurator">
-						<Overlay />
-					</div>
-				)}
-
-				{/* <div className="absolute bottom-0">
-					<div className="flex items-center justify-center w-screen">
-						<Button
-							onClick={handlePrevBtn}
-							size="lg"
-							variant="primary"
-						>
-							Prev.
-						</Button>
-
-						<Button
-							onClick={handleNextBtn}
-							size="lg"
-							variant="primary"
-						>
-							Next
-						</Button>
-					</div>
-				</div> */}
-			</div>
-		</div>
+		<>
+			<Overlay />
+			<EnviroCanvas />
+		</>
 	);
 }
 

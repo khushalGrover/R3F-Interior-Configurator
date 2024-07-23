@@ -4,6 +4,7 @@ import {
 	AccumulativeShadows,
 	RandomizedLight,
 	Loader,
+	useGLTF,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 
@@ -19,7 +20,7 @@ import { Stairs } from "./BuilingsJsx/Stairs";
 import { StudyArea } from "./BuilingsJsx/StudyArea";
 import { SwimmingPool } from "./BuilingsJsx/SwimmingPool";
 import { MasterBedRoom } from "./BuilingsJsx/MasterBedRoom";
-import { UIManager } from "./canvasUI/UIManager";      
+import { UIManager } from "./canvasUI/UIManager";
 
 import React, { useEffect, useState, useRef, Suspense, lazy } from "react";
 import { useCustomization } from "../../constants/Customization";
@@ -87,9 +88,26 @@ export const EnviroCanvas = () => {
 		}
 	}, [loc]);
 
+	function Suzi(props) {
+		const { nodes } = useGLTF(
+			"https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/suzanne-high-poly/model.gltf"
+		);
+		return (
+			<mesh
+				castShadow
+				receiveShadow
+				geometry={nodes.Suzanne.geometry}
+				{...props}
+				dispose={null}
+			>
+				<meshStandardMaterial color="#353535" />
+			</mesh>
+		);
+	}
+
 	return (
 		<>
-			<Canvas shadows camera={{ fov: 50, position: [-3, -0.5, 5] }  }>
+			<Canvas shadows camera={{ fov: 50, position: [-3, -0.5, 5] }}>
 				<Suspense fallback={null}>
 					<CameraControls
 						ref={cameraControlsRef}
@@ -106,7 +124,13 @@ export const EnviroCanvas = () => {
 					<UIManager />
 					{/* <Hall_Building /> */}
 
-					<Building />
+					<Suzi
+						rotation={[-0.63, 0, 0]}
+						scale={2}
+						position={[0, -1.175, 0]}
+					/>
+
+					{/* <Building />
 					<BedRoom />
 					<Drawing />
 					<Dinning />
@@ -116,7 +140,7 @@ export const EnviroCanvas = () => {
 					<Stairs />
 					<StudyArea />
 					<SwimmingPool />
-					<MasterBedRoom />
+					<MasterBedRoom /> */}
 
 					{/* <AccumulativeShadows
 						resolution={1024}

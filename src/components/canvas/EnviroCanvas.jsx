@@ -7,18 +7,20 @@ import {
 } from "@react-three/drei";
 import { Canvas, useLoader  } from "@react-three/fiber";
 
-import { Building } from "./BuilingsJsx/Building";
-import { Hall_Building } from "./BuilingsJsx/Hall_Building";
-import { BedRoom } from "./BuilingsJsx/BedRoom";
-import { Drawing } from "./BuilingsJsx/Drawing";
 import { Dinning } from "./BuilingsJsx/Dinning";
-import { Hall } from "./BuilingsJsx/Hall";
-import { Kitchen_1 } from "./BuilingsJsx/Kitchen_1";
-import { Kitchen_2 } from "./BuilingsJsx/Kitchen_2";
-import { Stairs } from "./BuilingsJsx/Stairs";
-import { StudyArea } from "./BuilingsJsx/StudyArea";
-import { SwimmingPool } from "./BuilingsJsx/SwimmingPool";
-import { MasterBedRoom } from "./BuilingsJsx/MasterBedRoom";
+
+// import { Building } from "./BuilingsJsx/Building";
+// import { Hall_Building } from "./BuilingsJsx/Hall_Building";
+// import { BedRoom } from "./BuilingsJsx/BedRoom";
+// import { Drawing } from "./BuilingsJsx/Drawing";
+// import { Hall } from "./BuilingsJsx/Hall";
+// import { Kitchen_1 } from "./BuilingsJsx/Kitchen_1";
+// import { Kitchen_2 } from "./BuilingsJsx/Kitchen_2";
+// import { Stairs } from "./BuilingsJsx/Stairs";
+// import { StudyArea } from "./BuilingsJsx/StudyArea";
+// import { SwimmingPool } from "./BuilingsJsx/SwimmingPool";
+// import { MasterBedRoom } from "./BuilingsJsx/MasterBedRoom";
+
 import { UIManager } from "./canvasUI/UIManager";
 
 import React, { useEffect, useState, useRef, Suspense, lazy } from "react";

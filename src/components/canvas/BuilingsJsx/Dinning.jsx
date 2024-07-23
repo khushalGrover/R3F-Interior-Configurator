@@ -16,10 +16,13 @@ export function Dinning(props) {
   const rug_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/self_a_obj/d_rug_a.glb')
   const self_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/self_a_obj/d_self_a.glb')
   const dinningCommon = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dinningRoom_common/d_commom.glb')
+  // const mainBuilding = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/mainBuiling/mainBuilding.glb')
+  const mainBuilding = useLoader(GLTFLoader, './public/models/mainBuilding.glb')
 
 
   return (
     <>
+      <primitive object={mainBuilding.scene} />
       <primitive object={table_a.scene} />
       <primitive object={sofa_a.scene} />
       <primitive object={self_a.scene} />

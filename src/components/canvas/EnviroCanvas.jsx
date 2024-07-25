@@ -7,7 +7,10 @@ import {
 } from "@react-three/drei";
 import { Canvas, useLoader  } from "@react-three/fiber";
 
+import { MainBuilding } from "./BuilingsJsx/MainBuilding";
+
 import { Dinning } from "./BuilingsJsx/Dinning";
+import { Drawing } from "./BuilingsJsx/Drawing";
 
 // import { Building } from "./BuilingsJsx/Building";
 // import { Hall_Building } from "./BuilingsJsx/Hall_Building";
@@ -90,8 +93,6 @@ export const EnviroCanvas = () => {
 		}
 	}, [loc]);
 
-	
-
 	return (
 		<>
 			<Canvas shadows camera={{ fov: 50, position: [-3, -0.5, 5] }}>
@@ -107,11 +108,9 @@ export const EnviroCanvas = () => {
 
 
 					<UIManager />
-					{/* <Hall_Building /> */}
+					<MainBuilding />
 
-					
-
-					<Dinning />
+					<Drawing />
 					{/* <Building />
 					<BedRoom />
 					<Drawing />

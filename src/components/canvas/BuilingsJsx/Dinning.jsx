@@ -4,30 +4,28 @@ Command: npx gltfjsx@6.2.16 .\public\models3\Dinning_part2.gltf
 */
 
 import React, { useRef } from 'react'
-import { Loader } from '@react-three/drei'
 import { useLoader  } from "@react-three/fiber";
 import { useCustomization } from "../../../constants/Customization";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 export function Dinning(props) {
 	const { codeOBJ, loc, setLoc } = useCustomization();
-  const table_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/table_a_obj/d_table_a.glb')
-  const sofa_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/sofa_a_obj/d_sofa_a.glb')
-  const rug_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/self_a_obj/d_rug_a.glb')
-  const self_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/self_a_obj/d_self_a.glb')
-  const dinningCommon = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dinningRoom_common/d_commom.glb')
-  // const mainBuilding = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/mainBuiling/mainBuilding.glb')
-  const mainBuilding = useLoader(GLTFLoader, './public/models/mainBuilding.glb')
-
-
+  // const dn_table_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_table/dn_table_a.glb')
+  // const dn_table_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_table/dn_table_b.glb')
+  // const dn_clock_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_clock_a_obj/d_clock_a.glb')
+  // const dn_clock_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_clock_b_obj/d_clock_b.glb')
+  // const dn_lamp_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp_a_obj/dn_lamp_a.glb')
+  // const dn_lamp_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp_b_obj/dn_lamp_b.glb')
+  // const dn_lamp_c = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp_c_obj/dn_lamp_c.glb')
+  // const dn_lamp_d = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp_d_obj/dn_lamp_d.glb')
+  // const dn_lamp_e = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp_e_obj/dn_lamp_e.glb')
+ 
   return (
     <>
-      <primitive object={mainBuilding.scene} />
-      <primitive object={table_a.scene} />
-      <primitive object={sofa_a.scene} />
-      <primitive object={self_a.scene} />
-      <primitive object={rug_a.scene} />
-      <primitive object={dinningCommon.scene} />
+      {/* <primitive object={d_table_a.scene} /> */}
+      {/* <primitive object={dn_table_a.scene} />
+      <primitive object={dn_table_b.scene} /> */}
+      
     </>
   )
 }

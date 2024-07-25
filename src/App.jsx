@@ -4,10 +4,7 @@ import { useCustomization } from "./constants/Customization";
 import "../src/App.css";
 import React, { useState } from "react";
 function App() {
-	const {
-		loc,
-		setLoc,
-	} = useCustomization();
+	const { loc, setLoc } = useCustomization();
 
 	const handlePrevBtn = () => {
 		if (loc === 1) {
@@ -25,23 +22,25 @@ function App() {
 	const Overlay = () => {
 		if (loc === 1) {
 			return (
-				<div className="configurator__section">
-					<div className="configurator__section__title">
-						<h1>{loc}. Welcome</h1>
-					</div>
-					<div className="configurator__section__values">
-						<div className="item__label item--intro">
-							Lorem ipsum dolor, sit amet consectetur adipisicing
-							elit. Tempora rerum natus facilis necessitatibus?
-							Sed, earum.
+				<div className="configurator">
+					<div className="configurator__section">
+						<div className="configurator__section__title">
+							<h1>{loc}. Welcome</h1>
 						</div>
-					</div>
-					<div
-						className={"item item--active"}
-						onClick={() => setLoc(2)}
-					>
-						<div className="item__label outline px-2">
-							Lets Start
+						<div className="configurator__section__values">
+							<div className="item__label item--intro">
+								Lorem ipsum dolor, sit amet consectetur
+								adipisicing elit. Tempora rerum natus facilis
+								necessitatibus? Sed, earum.
+							</div>
+						</div>
+						<div
+							className={"item item--active"}
+							onClick={() => setLoc(2)}
+						>
+							<div className="item__label outline px-2">
+								Lets Start
+							</div>
 						</div>
 					</div>
 				</div>
@@ -51,8 +50,8 @@ function App() {
 
 	return (
 		<>
-			<Overlay />
 			<EnviroCanvas />
+			<Overlay className="configurator" />
 		</>
 	);
 }

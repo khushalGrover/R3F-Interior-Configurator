@@ -8,31 +8,47 @@ import { useLoader  } from "@react-three/fiber";
 import { useCustomization } from "../../../constants/Customization";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
-export function Dinning(props) {
+export function Kitchen(props) {
 	const { codeOBJ, loc, setLoc } = useCustomization();
-  // const k_table_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_table/k_table_a.glb')
-  // const k_table_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_table/k_table_b.glb')
- 
-  // const k_lamp_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_lamp/k_lamp_a.glb')
-  // const k_lamp_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_lamp/k_lamp_b.glb')
-  // const k_lamp_c = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_lamp/k_lamp_c.glb')
-  // const k_lamp_d = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_lamp/k_lamp_d.glb')
-  // const k_lamp_e = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_lamp/k_lamp_e.glb')
+  // const k_chair_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_table/k_table_b.glb')
   
-  // const k_tap_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_a.glb')
-  // const k_tap_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_b.glb')
-  // const k_tap_c = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_c.glb')
-  // const k_tap_d = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_d.glb')
-  // const k_tap_e = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_e.glb')
-  // const k_tap_f = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_f.glb')
-  // const k_tap_g = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_g.glb')
+  const k_lamp_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_lamp/k_lamp_a.glb')
+  const k_lamp_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_lamp/k_lamp_b.glb')
+  const k_lamp_c = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_lamp/k_lamp_c.glb')
   
+  const k_tap_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_a.glb')
+  const k_tap_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_b.glb')
+  const k_tap_c = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_c.glb')
+  const k_tap_d = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_d.glb')
+  const k_tap_e = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_e.glb')
+  const k_tap_f = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_f.glb')
+  const k_tap_g = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_tap/k_tap_g.glb')
+
+  const k_chair_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_chair/k_chair_a.glb')
+  const k_chair_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/k_chair/k_chair_b.glb')
+  
+  const k_common = useLoader(GLTFLoader, './public/models/k_common.glb')
+  
+  console.log(codeOBJ, "!!! codeOBJ  ", codeOBJ['ktTaps'] === '3');
+
   return (
     <>
-      {/* <primitive object={d_table_a.scene} /> */}
-      {/* <primitive object={dn_table_a.scene} />
-      <primitive object={dn_table_b.scene} /> */}
+      <primitive object={k_common.scene} visible={true}/>
       
+      <primitive object={k_lamp_a.scene} visible={codeOBJ['ktLamp']==0}/>
+      <primitive object={k_lamp_b.scene} visible={codeOBJ['ktLamp']==1}/>
+      <primitive object={k_lamp_c.scene} visible={codeOBJ['ktLamp']==2}/>
+
+      <primitive object={k_tap_a.scene} visible={codeOBJ['ktTap']==0}/>
+      <primitive object={k_tap_b.scene} visible={codeOBJ['ktTap']==1}/>
+      <primitive object={k_tap_c.scene} visible={codeOBJ['ktTap']==2}/>
+      <primitive object={k_tap_d.scene} visible={codeOBJ['ktTap']==3}/>
+      <primitive object={k_tap_e.scene} visible={codeOBJ['ktTap']==4}/>
+      <primitive object={k_tap_f.scene} visible={codeOBJ['ktTap']==5}/>
+      <primitive object={k_tap_g.scene} visible={codeOBJ['ktTap']==6}/>
+      
+      <primitive object={k_chair_a.scene} visible={codeOBJ['ktChair']==0}/>
+      <primitive object={k_chair_b.scene} visible={codeOBJ['ktChair']==1}/>
     </>
   )
 }

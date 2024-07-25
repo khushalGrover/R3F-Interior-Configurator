@@ -10,21 +10,32 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 export function Dinning(props) {
 	const { codeOBJ, loc, setLoc } = useCustomization();
-  // const dn_table_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_table/dn_table_a.glb')
-  // const dn_table_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_table/dn_table_b.glb')
-  // const dn_clock_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_clock_a_obj/d_clock_a.glb')
-  // const dn_clock_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_clock_b_obj/d_clock_b.glb')
-  // const dn_lamp_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp_a_obj/dn_lamp_a.glb')
-  // const dn_lamp_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp_b_obj/dn_lamp_b.glb')
-  // const dn_lamp_c = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp_c_obj/dn_lamp_c.glb')
-  // const dn_lamp_d = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp_d_obj/dn_lamp_d.glb')
-  // const dn_lamp_e = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp_e_obj/dn_lamp_e.glb')
+
+  const dn_table_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_table/dn_table_a.glb')
+  
+  const dn_clock_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_clock/dn_clock_a.glb')
+
+  const dn_chair_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_table/dn_chair_a.glb') // todo change to object to chair
+    
+  const dn_lamp_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp/dn_lamp_a.glb')
+  const dn_lamp_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp/dn_lamp_b.glb')
+  const dn_lamp_c = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp/dn_lamp_c.glb')
+  const dn_lamp_d = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp/dn_lamp_d.glb')
+  const dn_lamp_e = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp/dn_lamp_e.glb')
  
   return (
     <>
-      {/* <primitive object={d_table_a.scene} /> */}
-      {/* <primitive object={dn_table_a.scene} />
-      <primitive object={dn_table_b.scene} /> */}
+      <primitive object={dn_table_a.scene}  visible={codeOBJ['dn']===0}/> 
+
+      <primitive object={dn_clock_a.scene}  visible={true}/> 
+
+      <primitive object={dn_chair_a.scene}  visible={true}/>
+      
+      <primitive object={dn_lamp_a.scene}  visible={true}/> 
+      <primitive object={dn_lamp_b.scene}  visible={true}/> 
+      <primitive object={dn_lamp_c.scene}  visible={true}/> 
+      <primitive object={dn_lamp_d.scene}  visible={true}/> 
+      <primitive object={dn_lamp_e.scene}  visible={true}/> 
       
     </>
   )

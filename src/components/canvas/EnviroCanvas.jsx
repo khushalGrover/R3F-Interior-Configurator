@@ -11,18 +11,8 @@ import { MainBuilding } from "./BuilingsJsx/MainBuilding";
 
 import { Dinning } from "./BuilingsJsx/Dinning";
 import { Drawing } from "./BuilingsJsx/Drawing";
+import { Kitchen } from "./BuilingsJsx/Kitchen";
 
-// import { Building } from "./BuilingsJsx/Building";
-// import { Hall_Building } from "./BuilingsJsx/Hall_Building";
-// import { BedRoom } from "./BuilingsJsx/BedRoom";
-// import { Drawing } from "./BuilingsJsx/Drawing";
-// import { Hall } from "./BuilingsJsx/Hall";
-// import { Kitchen_1 } from "./BuilingsJsx/Kitchen_1";
-// import { Kitchen_2 } from "./BuilingsJsx/Kitchen_2";
-// import { Stairs } from "./BuilingsJsx/Stairs";
-// import { StudyArea } from "./BuilingsJsx/StudyArea";
-// import { SwimmingPool } from "./BuilingsJsx/SwimmingPool";
-// import { MasterBedRoom } from "./BuilingsJsx/MasterBedRoom";
 
 import { UIManager } from "./canvasUI/UIManager";
 
@@ -108,10 +98,14 @@ export const EnviroCanvas = () => {
 
 
 					<UIManager />
+
 					<MainBuilding />
 
 					<Drawing />
-					{/* <Building />
+					<Dinning />
+					<Kitchen />
+					{/*
+					<Building />
 					<BedRoom />
 					<Drawing />
 					<Kitchen_1 />
@@ -120,9 +114,11 @@ export const EnviroCanvas = () => {
 					<Stairs />
 					<StudyArea />
 					<SwimmingPool />
-					<MasterBedRoom /> */}
+					<MasterBedRoom /> 
+					*/}
 
-					{/* <AccumulativeShadows
+					{/* 
+					<AccumulativeShadows
 						resolution={1024}
 						frames={100}
 						color={"#8fa2be"}
@@ -137,7 +133,8 @@ export const EnviroCanvas = () => {
 							position={[10, 5, -15]}
 							bias={0.001}
 						/>
-					</AccumulativeShadows>  */}
+					</AccumulativeShadows>  
+					*/}
 					<Environment
 						files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/peppermint_powerplant_2_1k.hdr"
 						background

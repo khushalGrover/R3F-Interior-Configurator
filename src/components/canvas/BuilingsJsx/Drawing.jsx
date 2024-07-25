@@ -7,7 +7,7 @@ export function Drawing(props) {
 	const { codeOBJ, loc, setLoc } = useCustomization();
 	
     
-        {/* 
+        
     const d_table_a = useLoader(
 		GLTFLoader,
 		"https://www.backend.visualizenbuild.com/static/d_table/d_table_a.glb"
@@ -43,22 +43,23 @@ export function Drawing(props) {
 
 	return (
 		<>
-			<primitive object={d_table_a.scene} />
-			<primitive object={d_table_b.scene} />
-			<primitive object={d_sofa_a.scene} />
-			<primitive object={d_sofa_b.scene} /> 
-			<primitive object={d_rug_a.scene} />
-			<primitive object={d_rug_b.scene} />
-			<primitive object={d_self_a.scene} />
-			<primitive object={d_self_b.scene} />
+			<primitive object={d_table_a.scene}  visible={true}/>
+			<primitive object={d_table_b.scene}  visible={true}/>
+			<primitive object={d_sofa_a.scene}  visible={true}/>
+			<primitive object={d_sofa_b.scene}  visible={true}/> 
+			<primitive object={d_rug_a.scene}  visible={true}/>
+			<primitive object={d_rug_b.scene}  visible={true}/>
+			<primitive object={d_self_a.scene}  visible={true}/>
+			<primitive object={d_self_b.scene}  visible={true}/>
 			
 		</>
 	);
 
-    */}
+    
         
     
-
+	{/* 
+	
     const modelPaths = [
 		"https://www.backend.visualizenbuild.com/static/d_table/d_table_a.glb",
 		"https://www.backend.visualizenbuild.com/static/d_table/d_table_b.glb",
@@ -80,4 +81,7 @@ export function Drawing(props) {
 			))}
 		</>
 	);
+
+		
+	*/}
 }

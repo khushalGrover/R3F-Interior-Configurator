@@ -7,11 +7,14 @@ import {
 } from "@react-three/drei";
 import { Canvas, useLoader  } from "@react-three/fiber";
 
-import { MainBuilding } from "./BuilingsJsx/MainBuilding";
+// import { MainBuilding } from "./BuilingsJsx/MainBuilding";
 
+import { MainBuilding } from "./BuilingsJsx/MainBuilding";
 import { Dinning } from "./BuilingsJsx/Dinning";
+import { D_common } from "./BuilingsJsx/D_common";
 import { Drawing } from "./BuilingsJsx/Drawing";
 import { Kitchen } from "./BuilingsJsx/Kitchen";
+import { K_common } from "./BuilingsJsx/K_common.jsx";
 
 
 import { UIManager } from "./canvasUI/UIManager";
@@ -99,11 +102,13 @@ export const EnviroCanvas = () => {
 
 					<UIManager />
 
-					<MainBuilding />
 
+					<MainBuilding />
 					<Drawing />
+					<D_common/>
 					<Dinning />
 					<Kitchen />
+					<K_common/>
 					{/*
 					<Building />
 					<BedRoom />

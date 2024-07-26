@@ -6,8 +6,8 @@ Command: npx gltfjsx@6.4.1 .\public\models\mainBuilding.gltf
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function MainBuilding(props) {
-  const { nodes, materials } = useGLTF('./models/mainBuilding.gltf')
+export function Model(props) {
+  const { nodes, materials } = useGLTF('/mainBuilding.gltf')
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.021}>
@@ -183,4 +183,4 @@ export function MainBuilding(props) {
   )
 }
 
-useGLTF.preload('./models/mainBuilding.gltf')
+useGLTF.preload('/mainBuilding.gltf')

@@ -40,10 +40,6 @@ export function Drawing(props) {
 		GLTFLoader,
 		"https://www.backend.visualizenbuild.com/static/d_self/d_self_b.glb"
 	);
-	const d_common = useLoader(
-		GLTFLoader,
-		"./public/models/d_common.gltf"
-	);
 
 	return (
 		<>
@@ -55,7 +51,6 @@ export function Drawing(props) {
 			<primitive object={d_rug_b.scene} visible={codeOBJ['dRug'] === 1}/>
 			<primitive object={d_self_a.scene} visible={codeOBJ['dSelf'] === 0}/>
 			<primitive object={d_self_b.scene} visible={codeOBJ['dSelf'] === 1}/>
-			<primitive object={d_common.scene} visible={true}/>
 			
 		</>
 	);

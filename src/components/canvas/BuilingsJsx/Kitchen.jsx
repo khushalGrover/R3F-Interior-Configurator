@@ -27,10 +27,10 @@ export function Kitchen(props) {
             'https://www.backend.visualizenbuild.com/static/k_chair/k_chair_a.glb',
             'https://www.backend.visualizenbuild.com/static/k_chair/k_chair_b.glb',
         ],
-        k_common: './public/models/k_common.gltf',
+        
     };
 
-    const k_common = useLoader(GLTFLoader, modelPaths.k_common);
+    // const k_common = useLoader(GLTFLoader, modelPaths.k_common);
 
     const loadedModels = {
         k_lamp: modelPaths.k_lamp.map(path => useLoader(GLTFLoader, path)),
@@ -42,7 +42,7 @@ export function Kitchen(props) {
 
     return (
         <>
-            <primitive object={k_common.scene} visible={true} />
+            
 
             {loadedModels.k_lamp.map((model, index) => (
                 <primitive key={`k_lamp_${index}`} object={model.scene} visible={isVisible('lamp', index)} />

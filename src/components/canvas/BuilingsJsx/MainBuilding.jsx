@@ -10,7 +10,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 export function MainBuilding(props) {
 	const { codeOBJ, loc, setLoc } = useCustomization();
-  const mainBuilding = useLoader(GLTFLoader, './public/models/mainBuilding.glb')
+  const mainBuilding = useLoader(GLTFLoader, './public/models/mainBuilding.gltf')
 
 
   return (

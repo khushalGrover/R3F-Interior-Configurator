@@ -27,7 +27,7 @@ export function Kitchen(props) {
             'https://www.backend.visualizenbuild.com/static/k_chair/k_chair_a.glb',
             'https://www.backend.visualizenbuild.com/static/k_chair/k_chair_b.glb',
         ],
-        k_common: './public/models/k_common.glb',
+        k_common: './public/models/k_common.gltf',
     };
 
     const k_common = useLoader(GLTFLoader, modelPaths.k_common);

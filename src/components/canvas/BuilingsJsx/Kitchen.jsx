@@ -1,11 +1,13 @@
+
 import React from 'react';
 import { useLoader } from "@react-three/fiber";
 import { useCustomization } from "../../../constants/Customization";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 export function Kitchen(props) {
-    const { codeOBJ } = useCustomization();
+    const { codeOBJ, loc } = useCustomization();
 
+   
     const modelPaths = {
         k_lamp: [
             'https://www.backend.visualizenbuild.com/static/k_lamp/k_lamp_a.glb',
@@ -47,7 +49,7 @@ export function Kitchen(props) {
             ))}
 
             {loadedModels.k_tap.map((model, index) => (
-                <primitive key={`k_tap_${index}`} object={model.scene} visible={isVisible('tap', index)} />
+                <primitive key={`k_tap_${index}`} object={model.scene} visible={isVisible('taps', index)} />
             ))}
 
             {loadedModels.k_chair.map((model, index) => (
@@ -57,6 +59,7 @@ export function Kitchen(props) {
     );
 }
 
+    
 
 
 

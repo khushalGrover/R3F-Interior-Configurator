@@ -5,6 +5,7 @@ import "../src/App.css";
 import React, { useState } from "react";
 function App() {
 	const { loc, setLoc } = useCustomization();
+	const [ data, setData] = useState([]);
 	const [isClosed, setIsClosed] = useState(true);
 
 	const handlePrevBtn = () => {

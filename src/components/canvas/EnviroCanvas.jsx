@@ -38,6 +38,7 @@ export const EnviroCanvas = () => {
 			enableTransition
 		);
 		// console.log("Camera Position", position);
+		
 	};
 
 	useEffect(() => {
@@ -48,12 +49,12 @@ export const EnviroCanvas = () => {
 				target: { x: 27, y: 2, z: -10 },
 			},
 			{
-				position: { x: 14, y: 3.2, z: -18 },
-				target: { x: 17, y: 1.5, z: -15.4 },
+				position: { x: 20, y: 3, z: -14 },
+				target: { x: 15, y: 2, z: -18.4 },
 			},
 			{
-				position: { x: 18, y: 3, z: -16 },
-				target: { x: 15, y: 2, z: -18.4 },
+				position: { x: 14, y: 3.2, z: -18 },
+				target: { x: 17, y: 1.5, z: -15.4 },
 			},
 			{
 				position: { x: 18, y: 3, z: -18 },

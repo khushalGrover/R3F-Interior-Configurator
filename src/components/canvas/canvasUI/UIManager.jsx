@@ -6,7 +6,7 @@ import {
 	swap,
 	cross,
 } from "../../../assets/icons";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Html } from "@react-three/drei";
 import { useCustomization } from "../../../constants/Customization";
 import { annotations, interactionBtns, subMenuItems } from "../../../constants";
@@ -18,6 +18,11 @@ export function UIManager() {
 	// Calculate the position for the Card and SubMenu based on the offset of interactionBtns
 	const cardPosition = calculatePosition[(50, 0, 0)];
 	const subMenuPosition = calculatePosition([50, 0, 0]);
+
+
+	// useEffect(() => {
+	// 	console.log("change mode : " + mode)
+	// }),[mode]
 
 	function calculatePosition(offset) {
 		// Calculate the average of the offset values of interactionBtns
@@ -52,52 +57,49 @@ export function UIManager() {
 			))}
 
 			{/* only visible when mode is config */}
-			{/* {mode === "config" && <Card position={cardPosition} />} */}
+			{mode === "config" && <Card position={cardPosition} />}
 			{/* only visible when mode is subMenu */}
-			{mode === "submenu" && <SubMenu position={subMenuPosition} />}
+			{mode === "subMenu" && <SubMenu position={subMenuPosition} />}
 		</>
 	);
 }
 
+//  To Do make saperate component file for below code
+function Card() {
+	const { setFocusObj, setMode, activeItem, setActiveItem } =
+		useCustomization();
 
-					//  To Do make saperate component file for below code
+	const handleReset = () => {
+		// setFocusObj("");
+		setMode("view");
+	};
 
-
-
-// function Card() {
-// 	const { setFocusObj, setMode, activeItem, setActiveItem } =
-// 		useCustomization();
-
-// 	const handleReset = () => {
-// 		// setFocusObj("");
-// 		setMode("view");
-// 	};
-
-// 	return (
-// 		<Html scale={1} distanceFactor={4} position={activeItem.offset}>
-// 			<div className="handle w-5 h-5 bg-red-600" onClick={handleReset}>
-// 				<img
-// 					className="handleIcon--active"
-// 					src={cross}
-// 					alt={"crossImg"}
-// 				/>
-// 			</div>
-// 			<div className="configurator">
-// 				<div className="configurator__section">
-// 					<div className="configurator__section__title">
-// 						<CardSection
-// 							activeItem={activeItem}
-// 							setMode={setMode}
-// 						/>
-// 					</div>
-// 				</div>
-// 			</div>
-// 		</Html>
-// 	);
-// }
+	return (
+		<Html scale={1} distanceFactor={4} position={activeItem.offset}>
+			<div className="handle w-5 h-5 bg-red-600" onClick={handleReset}>
+				<img
+					className="handleIcon--active"
+					src={cross}
+					alt={"crossImg"}
+				/>
+			</div>
+			<div className="configurator">
+				<div className="configurator__section">
+					<div className="configurator__section__title">
+						<CardSection
+							activeItem={activeItem}
+							setMode={setMode}
+						/>
+					</div>
+				</div>
+			</div>
+		</Html>
+	);
+}
 
 function SubMenu() {
-	const { activeItem, setMode, objectCode, setObjectCode } = useCustomization();
+	const { activeItem, setMode, objectCode, setObjectCode } =
+		useCustomization();
 	return (
 		<Html scale={2} distanceFactor={3} position={activeItem.offset}>
 			<div className="configurator">
@@ -108,7 +110,7 @@ function SubMenu() {
 							activeItem={activeItem}
 							setMode={setMode}
 							objectCode={objectCode}
-							setObjectCode={setObjectCode}							
+							setObjectCode={setObjectCode}
 						/>
 					</div>
 				</div>
@@ -117,15 +119,27 @@ function SubMenu() {
 	);
 }
 
-function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode}) {
+function CardSection({
+	isSubMenu,
+	activeItem,
+	setMode,
+	objectCode,
+	setObjectCode,
+}) {
 	// const { setMode } = useCustomization();
 
 	const handleCardClick = () => {
-		// console.log("Clicked "+ activeItem.target);
-		setMode("submenu");
+		console.log("Clicked " + activeItem.target);
+		setMode("subMenu");
 	};
-	const handleSubMenuClick = (value, targetValue, item, objectCode, setObjectCode) => {
-		// console.log("Clicked subMenu " + activeItem.target);
+	const handleSubMenuClick = (
+		value,
+		targetValue,
+		item,
+		objectCode,
+		setObjectCode
+	) => {
+		console.log("Clicked subMenu " + activeItem.target);
 		setMode("view");
 		console.log(
 			" Clicked " +
@@ -136,7 +150,7 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 				item.tIndex
 		);
 		UpdateObjectCode(item.tIndex, targetValue, objectCode, setObjectCode);
-		console.log("ObjectCode is:", objectCode);
+		// console.log("ObjectCode is:", objectCode);
 	};
 	return (
 		<div className="card">
@@ -159,8 +173,12 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 														value,
 														targetValue,
 														item,
-														objectCode={objectCode},
-														setObjectCode={setObjectCode},
+														(objectCode = {
+															objectCode,
+														}),
+														(setObjectCode = {
+															setObjectCode,
+														})
 													);
 												}}
 											>
@@ -173,7 +191,7 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 								)}
 						</>
 					)}
-					{/* {!isSubMenu && (
+					{!isSubMenu && (
 						<>
 							<div className="item" onClick={handleCardClick}>
 								<div className="item__dot">
@@ -186,22 +204,19 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 								</div>
 							</div>
 						</>
-					)} */}
+					)}
 				</div>
 			</div>
 		</div>
 	);
 }
 
-
-
-
 function InteractionBtn(target) {
 	const { activeItem, setActiveItem, setMode } = useCustomization();
 
 	const handleFocus = (target) => {
 		setActiveItem(target);
-		setMode("submenu");
+		setMode("subMenu");
 		// console.log("Active pos is:", activeItem.offset);
 	};
 
@@ -211,7 +226,7 @@ function InteractionBtn(target) {
 				className={"handle w-8 h-8 bg-black"}
 				onClick={() => {
 					handleFocus(target);
-					// console.log("Active obj is:", target.target);
+					console.log("Active obj is:", target.name);
 					// console.log("position is:", target.offset);
 				}}
 			>
@@ -244,4 +259,3 @@ function Annotation({ children, ...props }) {
 		</Html>
 	);
 }
-

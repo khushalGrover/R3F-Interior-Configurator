@@ -26,7 +26,7 @@ export function Kitchen(props) {
         k_chair: [
             'https://www.backend.visualizenbuild.com/static/k_chair/k_chair_a.glb',
             'https://www.backend.visualizenbuild.com/static/k_chair/k_chair_b.glb',
-        ],
+        ]
         
     };
 
@@ -35,7 +35,7 @@ export function Kitchen(props) {
     const loadedModels = {
         k_lamp: modelPaths.k_lamp.map(path => useLoader(GLTFLoader, path)),
         k_tap: modelPaths.k_tap.map(path => useLoader(GLTFLoader, path)),
-        k_chair: modelPaths.k_chair.map(path => useLoader(GLTFLoader, path)),
+        k_chair: modelPaths.k_chair.map(path => useLoader(GLTFLoader, path))
     };
 
     const isVisible = (type, index) => codeOBJ[`kt${type.charAt(0).toUpperCase() + type.slice(1)}`] === index;

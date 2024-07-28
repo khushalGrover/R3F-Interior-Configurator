@@ -1,10 +1,5 @@
-
 const annotations = [
-	{
-		position: [16.483, 3.5, -15.337],
-		focusLocation: "Drawing Room",
-		tIndex: 2,
-	},
+	{ position: [16, 2.5, -15], focusLocation: "Drawing Room", tIndex: 2, },
 	{ position: [17, 2, -21], focusLocation: "Dinning Table", tIndex: 4 },
 	{ position: [19, 3, -20], focusLocation: "Kitchen", tIndex: 6 },
 	{ position: [29, 3.5, -15], focusLocation: "Guest Room", tIndex: 7 },
@@ -14,22 +9,22 @@ const annotations = [
 ];
 
 const interactionBtns = [
-	{ target: "dSofa1", offset: [16.9, 2, -16.7], name: "Sofa1" },
-	{ target: "dSelf", offset: [15.2, 2.301, -17.85], name: "Cabinet" },
-	{ target: "dTable", offset: [16.873, 1.7, -15.301], name: "Table" },
-	{ target: "dRug", offset: [17.5, 1.472, -16], name: "Rug" },
+	{ target: "drSofa", offset: [16.9, 2, -16.7], name: "Sofa" },
+	{ target: "drSelf", offset: [15.2, 2.301, -17.85], name: "Cabinet" },
+	{ target: "drTable", offset: [16.873, 1.7, -15.301], name: "Table" },
+	{ target: "drRug", offset: [17.5, 1.472, -16], name: "Rug" },
 	{ target: "dnClock", offset: [15.9, 3.295, -21.151], name: "Clock" },
 	{ target: "dnLamp", offset: [16.928, 3.619, -21.346], name: "Lamp" },
-	{ target: "dnTable", offset: [16.928, 2.5, -20.8], name: "Table" },
+	// { target: "dnTable", offset: [16.928, 2.5, -20.8], name: "Table" },
 	{ target: "ktTap", offset: [20, 2.672, -19.84], name: "Tap" },
 	{ target: "ktLamp", offset: [20.111, 3.556, -19.587], name: "Lamp" },
-	{ target: "ktTable", offset: [19.5, 2.672, -19.84], name: "Table" },
+	// { target: "ktTable", offset: [19.5, 2.672, -19.84], name: "Table" },
 	{ target: "ktChair", offset: [20.138, 2.5, -18.28], name: "" },
 ];
 
 const subMenuItems = [
 	{
-		target: "dSofa1",
+		target: "drSofa",
 		tIndex: 0,
 		updateObjectCodeValues: [
 			{ value: "Classic", targetValue: 0 },
@@ -37,7 +32,7 @@ const subMenuItems = [
 		],
 	},
 	{
-		target: "dTable",
+		target: "drTable",
 		tIndex: 1,
 		updateObjectCodeValues: [
 			{ value: "Round", targetValue: 0 },
@@ -45,7 +40,7 @@ const subMenuItems = [
 		],
 	},
 	{
-		target: "dSelf",
+		target: "drSelf",
 		tIndex: 2,
 		updateObjectCodeValues: [
 			{ value: "dark", targetValue: 0 },
@@ -134,7 +129,7 @@ const subMenuItems = [
 		],
 	},
 	{
-		target: "dRug",
+		target: "drRug",
 		tIndex: 27,
 		updateObjectCodeValues: [
 			{ value: "light", targetValue: 0 },

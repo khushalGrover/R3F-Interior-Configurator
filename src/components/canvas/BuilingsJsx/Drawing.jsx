@@ -1,87 +1,80 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useLoader } from "@react-three/fiber";
 import { useCustomization } from "../../../constants/Customization";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
+
+
+
+
+
+
+
+
+
+
 export function Drawing(props) {
-	const { codeOBJ, loc, setLoc } = useCustomization();
-	
-    
-        
-    const d_table_a = useLoader(
-		GLTFLoader,
-		"https://www.backend.visualizenbuild.com/static/d_table/d_table_a.glb"
-	);
-	const d_table_b = useLoader(
-		GLTFLoader,
-		"https://www.backend.visualizenbuild.com/static/d_table/d_table_b.glb"
-	);
-	const d_sofa_a = useLoader(
-		GLTFLoader,
-		"https://www.backend.visualizenbuild.com/static/d_sofa/d_sofa_a.glb"
-	);
-	const d_sofa_b = useLoader(
-		GLTFLoader,
-		"https://www.backend.visualizenbuild.com/static/d_sofa/d_sofa_b.glb"
-	);
-	const d_rug_a = useLoader(
-		GLTFLoader,
-		"https://www.backend.visualizenbuild.com/static/d_rug/d_rug_a.glb"
-	);
-	const d_rug_b = useLoader(
-		GLTFLoader,
-		"https://www.backend.visualizenbuild.com/static/d_rug/d_rug_b.glb"
-	);
-	const d_self_a = useLoader(
-		GLTFLoader,
-		"https://www.backend.visualizenbuild.com/static/d_self/d_self_a.glb"
-	);
-	const d_self_b = useLoader(
-		GLTFLoader,
-		"https://www.backend.visualizenbuild.com/static/d_self/d_self_b.glb"
-	);
+	const { codeOBJ } = useCustomization();
+
+	const modelPaths = {
+		dTable: [
+			"https://www.backend.visualizenbuild.com/static/d_table/d_table_a.glb",
+			"https://www.backend.visualizenbuild.com/static/d_table/d_table_b.glb",
+		],
+		dSofa: [
+			"https://www.backend.visualizenbuild.com/static/d_sofa/d_sofa_a.glb",
+			"https://www.backend.visualizenbuild.com/static/d_sofa/d_sofa_b.glb",
+		],
+		dRug: [
+			"https://www.backend.visualizenbuild.com/static/d_rug/d_rug_a.glb",
+			"https://www.backend.visualizenbuild.com/static/d_rug/d_rug_b.glb",
+		],
+		dSelf: [
+			"https://www.backend.visualizenbuild.com/static/d_self/d_self_a.glb",
+			"https://www.backend.visualizenbuild.com/static/d_self/d_self_b.glb",
+		],
+	};
+
+	const loadedModels = {
+		dTable: modelPaths.dTable.map((path) => useLoader(GLTFLoader, path)),
+		dSofa: modelPaths.dSofa.map((path) => useLoader(GLTFLoader, path)),
+		dRug: modelPaths.dRug.map((path) => useLoader(GLTFLoader, path)),
+		dSelf: modelPaths.dSelf.map((path) => useLoader(GLTFLoader, path)),
+	};
 
 	return (
 		<>
-			<primitive object={d_table_a.scene} visible={codeOBJ['dTable'] === 1}/>
-			<primitive object={d_table_b.scene} visible={codeOBJ['dTable'] === 0}/>
-			<primitive object={d_sofa_a.scene} visible={codeOBJ['dSofa'] === 0}/>
-			<primitive object={d_sofa_b.scene} visible={codeOBJ['dSofa'] === 1}/> 
-			<primitive object={d_rug_a.scene} visible={codeOBJ['dRug'] === 0}/>
-			<primitive object={d_rug_b.scene} visible={codeOBJ['dRug'] === 1}/>
-			<primitive object={d_self_a.scene} visible={codeOBJ['dSelf'] === 0}/>
-			<primitive object={d_self_b.scene} visible={codeOBJ['dSelf'] === 1}/>
-			
-		</>
-	);
+			{loadedModels.dTable.map((model, index) => (
+				<primitive
+					key={`d_table_${index}`}
+					object={model.scene}
+					visible={codeOBJ["dTable"] === index}
+				/>
+			))}
 
-    
-        
-    
-	{/* 
-	
-    const modelPaths = [
-		"https://www.backend.visualizenbuild.com/static/d_table/d_table_a.glb",
-		"https://www.backend.visualizenbuild.com/static/d_table/d_table_b.glb",
-		"https://www.backend.visualizenbuild.com/static/d_sofa/d_sofa_a.glb",
-		// "https://www.backend.visualizenbuild.com/static/d_sofa/d_sofa_b.glb",
-		// "https://www.backend.visualizenbuild.com/static/d_rug/d_rug_a.glb",
-		// "https://www.backend.visualizenbuild.com/static/d_rug/d_rug_b.glb",
-		// "https://www.backend.visualizenbuild.com/static/d_self/d_self_a.glb",
-		// "https://www.backend.visualizenbuild.com/static/d_self/d_self_b.glb",
-        "./public/models/d_commom.glb"
-	];
-   
-	const models = modelPaths.map((path) => useLoader(GLTFLoader, path));
+			{loadedModels.dSofa.map((model, index) => (
+				<primitive
+					key={`d_sofa_${index}`}
+					object={model.scene}
+					visible={codeOBJ["dSofa"] === index}
+				/>
+			))}
 
-	return (
-		<>
-			{models.map((model, index) => (
-				<primitive key={index} object={model.scene} />
+			{loadedModels.dRug.map((model, index) => (
+				<primitive
+					key={`d_rug_${index}`}
+					object={model.scene}
+					visible={codeOBJ["dRug"] === index}
+				/>
+			))}
+
+			{loadedModels.dSelf.map((model, index) => (
+				<primitive
+					key={`d_self_${index}`}
+					object={model.scene}
+					visible={codeOBJ["dSelf"] === index}
+				/>
 			))}
 		</>
 	);
-
-		
-	*/}
 }

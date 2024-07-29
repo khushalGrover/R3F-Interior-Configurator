@@ -5,7 +5,7 @@ import {
 	RandomizedLight,
 	Loader,
 } from "@react-three/drei";
-import { Canvas, useLoader  } from "@react-three/fiber";
+import { Canvas, useLoader } from "@react-three/fiber";
 
 // import { MainBuilding } from "./BuilingsJsx/MainBuilding";
 
@@ -16,7 +16,6 @@ import { Drawing } from "./BuilingsJsx/Drawing";
 import { Kitchen } from "./BuilingsJsx/Kitchen";
 import { K_common } from "./BuilingsJsx/K_common.jsx";
 
-
 import { UIManager } from "./canvasUI/UIManager";
 
 import React, { useEffect, useState, useRef, Suspense, lazy } from "react";
@@ -26,8 +25,7 @@ export const EnviroCanvas = () => {
 	const { loc } = useCustomization();
 	const cameraControlsRef = useRef(null);
 
-
-	const handleView =  (position, target, enableTransition) => {
+	const handleView = (position, target, enableTransition) => {
 		cameraControlsRef.current?.setLookAt(
 			position.x,
 			position.y,
@@ -99,16 +97,15 @@ export const EnviroCanvas = () => {
 						dollyToCursor={true}
 					/>
 
-
 					<UIManager />
-
 
 					<MainBuilding />
 					<Drawing />
-					<D_common/>
+					<D_common />
 					<Dinning />
 					<Kitchen />
-					<K_common/>
+					<K_common />
+
 					{/*
 					<Building />
 					<BedRoom />

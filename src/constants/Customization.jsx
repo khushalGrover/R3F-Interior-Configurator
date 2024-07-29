@@ -137,6 +137,7 @@ const CustomizationContext = createContext({});
 
 export const CustomizationProvider = (props) => {
 	const [targetPos, setTargetPos] = useState([20, 5, -15]);
+
 	const [rawValue, setRawValue] = useState("");
 	const [rawValueTap, setRawValueTap] = useState("");
 	const [objectCode, setObjectCode] = useState("111111111111111111111111111");
@@ -154,6 +155,8 @@ export const CustomizationProvider = (props) => {
 	const [focusObj, setFocusObj] = useState("dTable");
 	const [activeItem, setActiveItem] = useState("");
 	const [mode, setMode] = useState("");
+	const [objectProduct, setObjectProduct] = useState([])
+	const [places, setPlaces] = useState([])
 
 	const codeOBJ = {
 		dSofa: parseInt(objectCode.charAt(0)), // Dnsofa
@@ -191,6 +194,10 @@ export const CustomizationProvider = (props) => {
 	return (
 		<CustomizationContext.Provider
 			value={{
+				objectProduct,
+				setObjectProduct,
+				places,
+				setPlaces,
 				rawValue,
 				setRawValue,
 				rawValueTap,

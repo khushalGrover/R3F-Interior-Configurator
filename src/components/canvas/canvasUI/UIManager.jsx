@@ -127,16 +127,16 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 	const handleSubMenuClick = (value, targetValue, item, objectCode, setObjectCode) => {
 		// console.log("Clicked subMenu " + activeItem.target);
 		setMode("view");
-		console.log(
-			" Clicked " +
-				value +
-				" with target " +
-				targetValue +
-				" at index " +
-				item.tIndex
-		);
+		// console.log(
+		// 	" Clicked " +
+		// 		value +
+		// 		" with target " +
+		// 		targetValue +
+		// 		" at index " +
+		// 		item.tIndex
+		// );
 		UpdateObjectCode(item.tIndex, targetValue, objectCode, setObjectCode);
-		console.log("ObjectCode is:", objectCode);
+		// console.log("ObjectCode is:", objectCode);
 	};
 	return (
 		<div className="card">
@@ -202,7 +202,9 @@ function InteractionBtn(target) {
 	const handleFocus = (target) => {
 		setActiveItem(target);
 		setMode("submenu");
-		// console.log("Active pos is:", activeItem.offset);
+		console.log("Active pos is:", activeItem.name);
+		console.log("target:", target.objectId);
+
 	};
 
 	return (

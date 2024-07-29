@@ -5,21 +5,18 @@ import {
 	RandomizedLight,
 	Loader,
 } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useLoader } from "@react-three/fiber";
 
-import { Building } from "./BuilingsJsx/Building";
-import { Hall_Building } from "./BuilingsJsx/Hall_Building";
-import { BedRoom } from "./BuilingsJsx/BedRoom";
-import { Drawing } from "./BuilingsJsx/Drawing";
+// import { MainBuilding } from "./BuilingsJsx/MainBuilding";
+
+import { MainBuilding } from "./BuilingsJsx/MainBuilding";
 import { Dinning } from "./BuilingsJsx/Dinning";
-import { Hall } from "./BuilingsJsx/Hall";
-import { Kitchen_1 } from "./BuilingsJsx/Kitchen_1";
-import { Kitchen_2 } from "./BuilingsJsx/Kitchen_2";
-import { Stairs } from "./BuilingsJsx/Stairs";
-import { StudyArea } from "./BuilingsJsx/StudyArea";
-import { SwimmingPool } from "./BuilingsJsx/SwimmingPool";
-import { MasterBedRoom } from "./BuilingsJsx/MasterBedRoom";
-import { UIManager } from "./canvasUI/UIManager";      
+import { D_common } from "./BuilingsJsx/D_common";
+import { Drawing } from "./BuilingsJsx/Drawing";
+import { Kitchen } from "./BuilingsJsx/Kitchen";
+import { K_common } from "./BuilingsJsx/K_common.jsx";
+
+import { UIManager } from "./canvasUI/UIManager";
 
 import React, { useEffect, useState, useRef, Suspense, lazy } from "react";
 import { useCustomization } from "../../constants/Customization";
@@ -89,7 +86,7 @@ export const EnviroCanvas = () => {
 
 	return (
 		<>
-			<Canvas shadows camera={{ fov: 50, position: [-3, -0.5, 5] }  }>
+			<Canvas shadows camera={{ fov: 50, position: [-3, -0.5, 5] }}>
 				<Suspense fallback={null}>
 					<CameraControls
 						ref={cameraControlsRef}
@@ -100,25 +97,30 @@ export const EnviroCanvas = () => {
 						dollyToCursor={true}
 					/>
 
-					{/* <color attach="background" args={["#ececec"]} /> */}
-					{/* <ambientLight intensity={0.5} /> */}
-
 					<UIManager />
-					{/* <Hall_Building /> */}
 
+					<MainBuilding />
+					<Drawing />
+					<D_common />
+					<Dinning />
+					<Kitchen />
+					<K_common />
+
+					{/*
 					<Building />
 					<BedRoom />
 					<Drawing />
-					<Dinning />
 					<Kitchen_1 />
 					<Kitchen_2 />
 					<Hall />
 					<Stairs />
 					<StudyArea />
 					<SwimmingPool />
-					<MasterBedRoom />
+					<MasterBedRoom /> 
+					*/}
 
-					{/* <AccumulativeShadows
+					{/* 
+					<AccumulativeShadows
 						resolution={1024}
 						frames={100}
 						color={"#8fa2be"}
@@ -133,7 +135,8 @@ export const EnviroCanvas = () => {
 							position={[10, 5, -15]}
 							bias={0.001}
 						/>
-					</AccumulativeShadows>  */}
+					</AccumulativeShadows>  
+					*/}
 					<Environment
 						files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/peppermint_powerplant_2_1k.hdr"
 						background

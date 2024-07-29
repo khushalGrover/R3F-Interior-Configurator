@@ -197,13 +197,14 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 
 
 function InteractionBtn(target) {
-	const { activeItem, setActiveItem, setMode } = useCustomization();
+	const { activeItem, setActiveItem, setMode, setActiveObjectProductId, activeObjectProductId } = useCustomization();
 
 	const handleFocus = (target) => {
 		setActiveItem(target);
 		setMode("submenu");
-		console.log("Active pos is:", activeItem.name);
-		console.log("target:", target.objectId);
+		// console.log("Active pos is:", activeItem.name);
+		// console.log("target:", activeObjectProductId);
+		setActiveObjectProductId(target.objectId);
 
 	};
 

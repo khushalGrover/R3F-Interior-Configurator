@@ -4,7 +4,7 @@ import { useCustomization } from "./constants/Customization";
 import "../src/App.css";
 import React, { useState } from "react";
 function App() {
-	const { loc, setLoc } = useCustomization();
+	const { loc, setLoc, objectProduct,activeItem } = useCustomization();
 	const [isClosed, setIsClosed] = useState(true);
 
 	const handlePrevBtn = () => {
@@ -94,18 +94,18 @@ function App() {
 						</Button>
 					</div>
 				</div>
-				
+
 				{isClosed ? null : (
 					<div className="grid gap-4 px-6 text-slate-400">
-
 						<h1 className="font-bold text-2xl sm:text-3xl">
-							Lorem, ipsum.
+							{
+							activeItem.name + " - "+ objectProduct.docs[0].type
+							}
 						</h1>
 						<div className="text-1xl sm:text-2">
-							Price $44.99 | In Stock
+							{"Price: " + objectProduct.docs[0].product_id.price}
 						</div>
-						
-						
+
 						<div className="flex items-center gap-4">
 							<div className="flex items-center gap-0.5">
 								<StarIcon className="w-5 h-5 fill-white" />
@@ -117,20 +117,21 @@ function App() {
 							</div>
 						</div>
 
-						<div className="text-1xl sm:text-2">
-							by Nishant
-						</div>
+						<div className="text-1xl sm:text-2">by Nishant</div>
 
 						<div className="grid gap-4 text-sm leading-loose">
-							
-							<p>this is a desciption of object. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ratione enim distinctio exercitationem facilis iure quibusdam nam! Ipsum perferendis necessitatibus amet vero eaque? Quaerat asperiores atque fugiat illo nam corporis qu </p>
+							<p>
+								this is a desciption of object. Lorem ipsum
+								dolor sit amet. Lorem ipsum dolor sit amet
+								consectetur adipisicing elit. Tempora ratione
+								enim distinctio exercitationem facilis iure
+								quibusdam nam! Ipsum perferendis necessitatibus
+								amet vero eaque? Quaerat asperiores atque fugiat
+								illo nam corporis qu{" "}
+							</p>
 						</div>
-
 					</div>
 				)}
-
-
-
 			</div>
 		</>
 	);

@@ -4,7 +4,7 @@ import { useCustomization } from "./constants/Customization";
 import "../src/App.css";
 import React, { useState } from "react";
 function App() {
-	const { loc, setLoc, objectProduct,activeItem } = useCustomization();
+	const { loc, setLoc, objectProduct, activeItem } = useCustomization();
 	const [isClosed, setIsClosed] = useState(true);
 
 	const handlePrevBtn = () => {
@@ -79,7 +79,7 @@ function App() {
 					className={`${
 						isClosed
 							? "w-full h-full"
-							: "w-full h-1/2 md:w-1/2 md:h-full"
+							: "w-full h-1/2 flex-none md:w-1/2 md:h-full"
 					} relative`}
 				>
 					<EnviroCanvas />
@@ -96,41 +96,57 @@ function App() {
 				</div>
 
 				{isClosed ? null : (
-					<div className="grid gap-4 px-6 text-slate-400">
-						<h1 className="font-bold text-2xl sm:text-3xl">
-							{
-							activeItem.name + " - "+ objectProduct.docs[0].type
-							}
-						</h1>
-						<div className="text-1xl sm:text-2">
-							{"Price: " + objectProduct.docs[0].product_id.price}
-						</div>
-
-						<div className="flex items-center gap-4">
-							<div className="flex items-center gap-0.5">
-								<StarIcon className="w-5 h-5 fill-white" />
-								<StarIcon className="w-5 h-5 fill-white" />
-								<StarIcon className="w-5 h-5 fill-white" />
-								<StarIcon className="w-5 h-5 stroke-muted-foreground" />
-								<StarIcon className="w-5 h-5 stroke-muted-foreground" />
-								(143 reviews)
+					<section className="text-gray-100 grow grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 md:p-6">
+						{objectProduct.docs.map((item, index) => (
+							<div className="bg-background rounded-lg shadow-lg overflow-hidden group outline p-3">
+								<a className="block relative" href="#">
+									<img
+										src={objectProduct.docs[0].product_id.url}
+										alt="Product Image"
+										width="100"
+										height="100"
+										className="w-full h-60 object-cover group-hover:opacity-80 transition-opacity"
+										style={{
+											aspectRatio: "100 / 100",
+											objectFit: "content",
+										}} // Corrected this line
+									/>
+								</a>
+								<div className="p-4">
+									<h3 className="text-lg font-semibold text-primary-foreground group-hover:text-primary transition-colors">
+										{console.log(
+											"Object Product",
+											objectProduct.docs[0].product_id.url
+										)}
+										{activeItem.name +
+											" - " +
+											objectProduct.docs[
+												index
+											].type.slice(2, 10)}
+									</h3>
+									{/* <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
+									{objectProduct.docs[0].product_id.description}
+								</p> */}
+									<div className="flex items-center justify-between">
+										<span className="text-lg font-semibold text-primary-foreground">
+											{
+												objectProduct.docs[index]
+													.product_id.price
+											}
+										</span>
+										<span className="text-sm text-muted-foreground">
+											{"By " +
+												objectProduct.docs[index]
+													.product_id.name}
+										</span>
+									</div>
+									<button className="outline inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 w-full mt-4">
+										Buy Now
+									</button>
+								</div>
 							</div>
-						</div>
-
-						<div className="text-1xl sm:text-2">by Nishant</div>
-
-						<div className="grid gap-4 text-sm leading-loose">
-							<p>
-								this is a desciption of object. Lorem ipsum
-								dolor sit amet. Lorem ipsum dolor sit amet
-								consectetur adipisicing elit. Tempora ratione
-								enim distinctio exercitationem facilis iure
-								quibusdam nam! Ipsum perferendis necessitatibus
-								amet vero eaque? Quaerat asperiores atque fugiat
-								illo nam corporis qu{" "}
-							</p>
-						</div>
-					</div>
+						))}
+					</section>
 				)}
 			</div>
 		</>

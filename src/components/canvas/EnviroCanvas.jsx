@@ -15,6 +15,7 @@ import { D_common } from "./BuilingsJsx/D_common";
 import { Drawing } from "./BuilingsJsx/Drawing";
 import { Kitchen } from "./BuilingsJsx/Kitchen";
 import { K_common } from "./BuilingsJsx/K_common.jsx";
+import { H_stairs } from "./BuilingsJsx/H_stairs.jsx";
 
 import { UIManager } from "./canvasUI/UIManager";
 
@@ -105,6 +106,7 @@ export const EnviroCanvas = () => {
 					<Dinning />
 					<Kitchen />
 					<K_common />
+					<H_stairs />
 
 					{/*
 					<Building />

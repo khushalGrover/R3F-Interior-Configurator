@@ -158,6 +158,7 @@ export const CustomizationProvider = (props) => {
 	const [objectProduct, setObjectProduct] = useState([])
 	const [places, setPlaces] = useState([])
 	const [activeObjectProductId, setActiveObjectProductId] = useState("66a144dfac05bb09458c7dcf")
+	const [activePlaceId, setActivePlaceId] = useState("66a12ecb66f6f9795fba886f")
 
 	const codeOBJ = {
 		dSofa: parseInt(objectCode.charAt(0)), // Dnsofa
@@ -199,6 +200,8 @@ export const CustomizationProvider = (props) => {
 				setObjectProduct,
 				activeObjectProductId,
 				setActiveObjectProductId,
+				activePlaceId,
+				setActivePlaceId,
 				places,
 				setPlaces,
 				rawValue,

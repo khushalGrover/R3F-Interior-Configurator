@@ -1,11 +1,11 @@
 
 const annotations = [
 	{
-		position: [16.483, 3.5, -15.337],
+		position: [16.483, 2.5, -15.337],
 		focusLocation: "Drawing Room",
 		tIndex: 2,
 	},
-	{ position: [17, 2, -21], focusLocation: "Dinning Table", tIndex: 4 },
+	{ position: [17, 2.5, -21], focusLocation: "Dinning Table", tIndex: 4 },
 	{ position: [19, 3, -20], focusLocation: "Kitchen", tIndex: 6 },
 	{ position: [29, 3.5, -15], focusLocation: "Guest Room", tIndex: 7 },
 	{ position: [27, 3.5, -7], focusLocation: "Swimming Pool", tIndex: 1 },
@@ -23,8 +23,9 @@ const interactionBtns = [
 	{ target: "dnTable", offset: [16.928, 2.5, -20.8], name: "Table", objectId: "66a1455f0315ecf0580e6df0"  },
 	{ target: "ktTap", offset: [20, 2.672, -19.84], name: "Tap", objectId: "66a145290315ecf0580e6da4"  },
 	{ target: "ktLamp", offset: [20.111, 3.556, -19.587], name: "Lamp", objectId: "66a145460315ecf0580e6dd9"  },
-	{ target: "ktTable", offset: [19.5, 2.672, -19.84], name: "Table", objectId: "66a1303166f6f9795fba887c"  },
+	// { target: "ktTable", offset: [19.5, 2.672, -19.84], name: "Table", objectId: "66a1303166f6f9795fba887c"  },
 	{ target: "ktChair", offset: [20.138, 2.5, -18.28], name: "Chair", objectId: "66a145a60315ecf0580e6e3e"  },
+	{ target: "hwTable", offset: [30, 2, -16], name: "Table", objectId: "66a145a60315ecf0580e6e3e"  },
 ];
 
 const subMenuItems = [
@@ -136,6 +137,14 @@ const subMenuItems = [
 	{
 		target: "dRug",
 		tIndex: 27,
+		updateObjectCodeValues: [
+			{ value: "light", targetValue: 0 },
+			{ value: "dark", targetValue: 1 },
+		],
+	},
+	{
+		target: "hwTable",
+		tIndex: 12,
 		updateObjectCodeValues: [
 			{ value: "light", targetValue: 0 },
 			{ value: "dark", targetValue: 1 },

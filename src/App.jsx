@@ -4,7 +4,8 @@ import { useCustomization } from "./constants/Customization";
 import "../src/App.css";
 import React, { useState } from "react";
 function App() {
-	const { loc, setLoc, objectProduct, activeItem } = useCustomization();
+	const { loc, setLoc, objectProduct, activeItem, activeObjectProductId } =
+		useCustomization();
 	const [isClosed, setIsClosed] = useState(true);
 
 	const handlePrevBtn = () => {
@@ -42,6 +43,12 @@ function App() {
 			</svg>
 		);
 	}
+
+
+	function HandleButtonClicked ( ) {
+		console.log("Button Clicked", e);
+		window.open(`https://visual-and-builds.netlify.app/product/${activeObjectProductId}`, '_blank')
+	};
 
 	const Overlay = () => {
 		if (loc === 1) {
@@ -151,7 +158,10 @@ function App() {
 											objectProduct.docs[index].product_id
 												.name}
 									</div>
-									<button className="bg-green-600 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 mt-4">
+									<button
+										className="bg-green-600 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 mt-4"
+										onclick="HandleButtonClicked()"
+									>
 										Buy Now
 									</button>
 								</div>

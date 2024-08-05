@@ -46,8 +46,9 @@ function App() {
 
 
 	function Handle2ButtonClicked ( ) {
-		window.open(`https://visual-and-builds.netlify.app/product/${activeObjectProductId}`, '_blank')
-		console.log("Button Clicked: ", activeObjectProductId);
+		window.open(`https://visual-and-builds.netlify.app/product/{slug}?id=${activeObjectProductId}`, '_blank')
+		// window.open(`https://visual-and-builds.netlify.app/product/${activeObjectProductId}`, '_blank')
+		// console.log("Button Clicked: ", activeObjectProductId);
 	};
 
 	const Overlay = () => {

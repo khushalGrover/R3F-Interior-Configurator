@@ -17,15 +17,15 @@ const interactionBtns = [
 	{ target: "dSofa", offset: [16.9, 2, -16.7], name: "Sofa", objectId: "66a144d1ac05bb09458c7db9" },
 	{ target: "dSelf", offset: [15.2, 2.301, -17.85], name: "Cabinet" , objectId: "66a144fc0315ecf0580e6d90" },
 	{ target: "dTable", offset: [16.873, 1.7, -15.301], name: "Table", objectId: "66a144dfac05bb09458c7dcf"  },
-	{ target: "dRug", offset: [17.5, 1.472, -16], name: "Rug", objectId: "66a144ecac05bb09458c7de6"  },
+	// { target: "dRug", offset: [17.5, 1.472, -16], name: "Rug", objectId: "66a144ecac05bb09458c7de6"  },
 	{ target: "dnClock", offset: [15.9, 3.295, -21.151], name: "Clock", objectId: "66a145720315ecf0580e6e08"  },
 	{ target: "dnLamp", offset: [16.928, 3.619, -21.346], name: "Lamp", objectId: "66a145880315ecf0580e6e24"  },
 	{ target: "dnTable", offset: [16.928, 2.5, -20.8], name: "Table", objectId: "66a1455f0315ecf0580e6df0"  },
-	{ target: "ktTap", offset: [20, 2.672, -19.84], name: "Tap", objectId: "66a145290315ecf0580e6da4"  },
+	// { target: "ktTap", offset: [20, 2.672, -19.84], name: "Tap", objectId: "66a145290315ecf0580e6da4"  },
 	{ target: "ktLamp", offset: [20.111, 3.556, -19.587], name: "Lamp", objectId: "66a145460315ecf0580e6dd9"  },
 	// { target: "ktTable", offset: [19.5, 2.672, -19.84], name: "Table", objectId: "66a1303166f6f9795fba887c"  },
-	{ target: "ktChair", offset: [20.138, 2.5, -18.28], name: "Chair", objectId: "66a145a60315ecf0580e6e3e"  },
-	{ target: "hwTable", offset: [30, 2, -16], name: "Table", objectId: "66a145a60315ecf0580e6e3e"  },
+	// { target: "ktChair", offset: [20.138, 2.5, -18.28], name: "Chair", objectId: "66a145a60315ecf0580e6e3e"  },
+	// { target: "hwTable", offset: [30, 2, -16], name: "Table", objectId: "66a145a60315ecf0580e6e3e"  },
 ];
 
 const subMenuItems = [

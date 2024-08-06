@@ -181,7 +181,7 @@ function App() {
 											// Handle2ButtonClicked(objectProduct.docs[index].type ,objectProduct.docs[index]._id);
 										}}
 									>
-										Buy Now123
+										Buy Now
 									</button>
 								</div>
 							</div>

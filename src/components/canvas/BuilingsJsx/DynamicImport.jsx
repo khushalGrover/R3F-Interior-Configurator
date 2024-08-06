@@ -53,10 +53,10 @@ export function DynamicImport() {
 					placeAddressId
 				);
 				const activePlaceObjectData = await activePlaceObjectResponse.json();
-				console.log("Object Product Data ", activePlaceObjectData);
-				activePlaceObjectData.data.docs.forEach((item, index) => {
-					console.log(`${index}: ${item.place._id}`);
-				});
+				// console.log("Object Product Data ", activePlaceObjectData);
+				// activePlaceObjectData.data.docs.forEach((item, index) => {
+				// 	console.log(`${index}: ${item.place._id}`);
+				// });
 				// setObjectProduct(activePlaceObjectData.docs);
 
 	

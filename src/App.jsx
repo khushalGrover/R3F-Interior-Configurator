@@ -44,9 +44,20 @@ function App() {
 		);
 	}
 
+	function removeAfterSecondUnderscore(inputString) {
+		let parts = inputString.split('_');  // Split the string by underscore
+		if (parts.length > 2) {
+			return parts.slice(0, 2).join('_');  // Join the first two parts with an underscore
+		}
+		return inputString;  // Return the original string if there are less than 2 underscores
+	}
 
-	function Handle2ButtonClicked ( ) {
-		window.open(`https://visual-and-builds.netlify.app/product/{slug}?id=${activeObjectProductId}`, '_blank')
+
+	function Handle2ButtonClicked (name, id ) {
+		// const slug = activeItem.name
+		console.log("Button Clicked: ",id);
+		console.log("name ",name);
+		window.open(`https://visual-and-builds.netlify.app/product/${name}?id=${id}`, '_blank')
 		// window.open(`https://visual-and-builds.netlify.app/product/${activeObjectProductId}`, '_blank')
 		// console.log("Button Clicked: ", activeObjectProductId);
 	};
@@ -128,7 +139,7 @@ function App() {
 
 								<div className="p-4 grow">
 									<h3 className="text-lg font-semibold text-primary-foreground group-hover:text-primary transition-colors">
-										{activeItem.name +
+										{	 +
 											" - " +
 											objectProduct.docs[
 												index
@@ -159,9 +170,16 @@ function App() {
 											objectProduct.docs[index].product_id
 												.name}
 									</div>
+									{/* <div className="text-sm text-muted-foreground">
+										{"_id  " +
+											removeAfterSecondUnderscore(objectProduct.docs[index].type)}
+									</div> */}
 									<button
 										className="bg-green-600 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 mt-4"
-										onClick={Handle2ButtonClicked}
+										onClick={ () => {
+											Handle2ButtonClicked(removeAfterSecondUnderscore(objectProduct.docs[index].type) ,objectProduct.docs[index]._id);
+											// Handle2ButtonClicked(objectProduct.docs[index].type ,objectProduct.docs[index]._id);
+										}}
 									>
 										Buy Now123
 									</button>

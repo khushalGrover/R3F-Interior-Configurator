@@ -203,7 +203,7 @@ function InteractionBtn(target) {
 		setActiveItem(target);
 		setMode("submenu");
 		// console.log("Active pos is:", activeItem.name);
-		// console.log("target:", activeObjectProductId);
+		console.log("target:", target.target);
 		setActiveObjectProductId(target.objectId);
 
 	};

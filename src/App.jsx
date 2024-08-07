@@ -139,11 +139,11 @@ function App() {
 
 								<div className="p-4 grow">
 									<h3 className="text-lg font-semibold text-primary-foreground group-hover:text-primary transition-colors">
-										{	 +
+										{	activeItem.name +
 											" - " +
 											objectProduct.docs[
 												index
-											].type.slice(2, 10)}
+											].type.slice(0, 10)}
 									</h3>
 									{/* <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
 									{objectProduct.docs[0].product_id.description}

@@ -25,7 +25,7 @@ const interactionBtns = [
 	{ target: "ktLamp", offset: [20.111, 3.556, -19.587], name: "Lamp", objectId: "66a145460315ecf0580e6dd9"  },
 	// { target: "ktTable", offset: [19.5, 2.672, -19.84], name: "Table", objectId: "66a1303166f6f9795fba887c"  },
 	// { target: "ktChair", offset: [20.138, 2.5, -18.28], name: "Chair", objectId: "66a145a60315ecf0580e6e3e"  },
-	// { target: "hwTable", offset: [30, 2, -16], name: "Table", objectId: "66a145a60315ecf0580e6e3e"  },
+	{ target: "hwTable", offset: [30, 2, -16], name: "Table", objectId: "66a145a60315ecf0580e6e3e"  },
 ];
 
 const subMenuItems = [

@@ -13,7 +13,8 @@ import { annotations, interactionBtns, subMenuItems } from "../../../constants";
 import { UpdateObjectCode } from "../../UpdateObjectCode";
 
 export function UIManager() {
-	const { activeItem, mode, setMode } = useCustomization();
+	const { activeItem, mode, setMode, focusObjProd, setFocusObjProd } =
+		useCustomization();
 
 	// Calculate the position for the Card and SubMenu based on the offset of interactionBtns
 	const cardPosition = calculatePosition[(50, 0, 0)];
@@ -59,10 +60,7 @@ export function UIManager() {
 	);
 }
 
-
-					//  To Do make saperate component file for below code
-
-
+//  To Do make saperate component file for below code
 
 // function Card() {
 // 	const { setFocusObj, setMode, activeItem, setActiveItem } =
@@ -97,7 +95,8 @@ export function UIManager() {
 // }
 
 function SubMenu() {
-	const { activeItem, setMode, objectCode, setObjectCode } = useCustomization();
+	const { activeItem, setMode, objectCode, setObjectCode } =
+		useCustomization();
 	return (
 		<Html scale={2} distanceFactor={3} position={activeItem.offset}>
 			<div className="configurator">
@@ -108,7 +107,7 @@ function SubMenu() {
 							activeItem={activeItem}
 							setMode={setMode}
 							objectCode={objectCode}
-							setObjectCode={setObjectCode}							
+							setObjectCode={setObjectCode}
 						/>
 					</div>
 				</div>
@@ -117,24 +116,36 @@ function SubMenu() {
 	);
 }
 
-function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode}) {
+function CardSection({
+	isSubMenu,
+	activeItem,
+	setMode,
+	objectCode,
+	setObjectCode,
+}) {
 	// const { setMode } = useCustomization();
 
 	const handleCardClick = () => {
 		// console.log("Clicked "+ activeItem.target);
 		setMode("submenu");
 	};
-	const handleSubMenuClick = (value, targetValue, item, objectCode, setObjectCode) => {
-		// console.log("Clicked subMenu " + activeItem.target);
+	const handleSubMenuClick = (
+		value,
+		targetValue,
+		item,
+		objectCode,
+		setObjectCode
+	) => {
+		// console.log("Clicked subMenu " + value);
 		setMode("view");
-		// console.log(
-		// 	" Clicked " +
-		// 		value +
-		// 		" with target " +
-		// 		targetValue +
-		// 		" at index " +
-		// 		item.tIndex
-		// );
+		console.log(
+			" Clicked " +
+				value +
+				" with target " +
+				targetValue +
+				" at index " +
+				item.tIndex
+		);
 		UpdateObjectCode(item.tIndex, targetValue, objectCode, setObjectCode);
 		// console.log("ObjectCode is:", objectCode);
 	};
@@ -159,8 +170,12 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 														value,
 														targetValue,
 														item,
-														objectCode={objectCode},
-														setObjectCode={setObjectCode},
+														(objectCode = {
+															objectCode,
+														}),
+														(setObjectCode = {
+															setObjectCode,
+														})
 													);
 												}}
 											>
@@ -193,11 +208,14 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 	);
 }
 
-
-
-
 function InteractionBtn(target) {
-	const { activeItem, setActiveItem, setMode, setActiveObjectProductId, activeObjectProductId } = useCustomization();
+	const {
+		activeItem,
+		setActiveItem,
+		setMode,
+		setActiveObjectProductId,
+		activeObjectProductId,
+	} = useCustomization();
 
 	const handleFocus = (target) => {
 		setActiveItem(target);
@@ -205,7 +223,6 @@ function InteractionBtn(target) {
 		// console.log("Active pos is:", activeItem.name);
 		console.log("target:", target.target);
 		setActiveObjectProductId(target.objectId);
-
 	};
 
 	return (
@@ -247,4 +264,3 @@ function Annotation({ children, ...props }) {
 		</Html>
 	);
 }
-

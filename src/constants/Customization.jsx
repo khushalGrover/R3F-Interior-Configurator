@@ -152,7 +152,7 @@ export const CustomizationProvider = (props) => {
 	const [lamp, setLamp] = useState("1");
 	const [lampColor, setLampColor] = useState("#ffffff");
 	const [painting, setPainting] = useState("1");
-	const [focusObj, setFocusObj] = useState("dTable");
+	const [focusObjProd, setFocusObjProd] = useState("dTable");
 	const [activeItem, setActiveItem] = useState("");
 	const [mode, setMode] = useState("");
 	const [objectProduct, setObjectProduct] = useState([])
@@ -212,8 +212,8 @@ export const CustomizationProvider = (props) => {
 				setObjectCode,
 				loc,
 				setLoc,
-				focusObj,
-				setFocusObj,
+				focusObjProd,
+				setFocusObjProd,
 
 				activeItem,
 				setActiveItem,

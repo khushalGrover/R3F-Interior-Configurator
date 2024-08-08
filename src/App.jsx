@@ -45,22 +45,24 @@ function App() {
 	}
 
 	function removeAfterSecondUnderscore(inputString) {
-		let parts = inputString.split('_');  // Split the string by underscore
+		let parts = inputString.split("_"); // Split the string by underscore
 		if (parts.length > 2) {
-			return parts.slice(0, 2).join('_');  // Join the first two parts with an underscore
+			return parts.slice(0, 2).join("_"); // Join the first two parts with an underscore
 		}
-		return inputString;  // Return the original string if there are less than 2 underscores
+		return inputString; // Return the original string if there are less than 2 underscores
 	}
 
-
-	function Handle2ButtonClicked (name, id ) {
+	function Handle2ButtonClicked(name, id) {
 		// const slug = activeItem.name
-		console.log("Button Clicked: ",id);
-		console.log("name ",name);
-		window.open(`https://visual-and-builds.netlify.app/product/${name}?id=${id}`, '_blank')
+		console.log("Button Clicked: ", id);
+		console.log("name ", name);
+		window.open(
+			`https://visual-and-builds.netlify.app/product/${name}?id=${id}`,
+			"_blank"
+		);
 		// window.open(`https://visual-and-builds.netlify.app/product/${activeObjectProductId}`, '_blank')
 		// console.log("Button Clicked: ", activeObjectProductId);
-	};
+	}
 
 	const Overlay = () => {
 		if (loc === 1) {
@@ -122,8 +124,8 @@ function App() {
 									<a className="" href="#">
 										<img
 											src={
-												objectProduct.docs[0].product_id
-													.url
+												objectProduct?.docs[0]
+													?.product_id?.url
 											}
 											alt="Product Image"
 											width="20"
@@ -139,11 +141,14 @@ function App() {
 
 								<div className="p-4 grow">
 									<h3 className="text-lg font-semibold text-primary-foreground group-hover:text-primary transition-colors">
-										{	activeItem.name +
-											" - " +
-											objectProduct.docs[
-												index
-											].type.slice(0, 10)}
+										{/* {objectProduct?.docs[index].type.slice(
+											0,
+											10
+										)} */}
+										{
+											objectProduct?.docs[index]
+												?.product_id?.name
+										}
 									</h3>
 									{/* <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
 									{objectProduct.docs[0].product_id.description}
@@ -151,24 +156,29 @@ function App() {
 
 									<div className="flex items-center justify-start gap-2">
 										<span className="text-lg font-semibold text-green-400">
-											{"$" +
-												objectProduct.docs[index]
-													.product_id.price}
+											{`$${
+												objectProduct?.docs[index]
+													?.product_id?.price -
+												objectProduct?.docs[index]
+													?.product_id?.discount
+											}`}
 										</span>
 										<span className="text-sm font-semibold text-primary-foreground line-through">
 											{"$" +
-												objectProduct.docs[index]
-													.product_id.price}
+												objectProduct?.docs[index]
+													?.product_id?.price}
 										</span>
 										<span className="text-sm font-semibold text-primary-foreground bg-gray-700 px-3 rounded-md">
-											{objectProduct.docs[index]
-												.product_id.discount + "%"}
+											{"$" +
+												objectProduct?.docs[index]
+													?.product_id?.discount +
+												" off"}
 										</span>
 									</div>
 									<div className="text-sm text-muted-foreground">
 										{"By " +
-											objectProduct.docs[index].product_id
-												.name}
+											objectProduct?.docs[index]
+												?.product_id?.vendor_name}
 									</div>
 									{/* <div className="text-sm text-muted-foreground">
 										{"_id  " +
@@ -176,8 +186,15 @@ function App() {
 									</div> */}
 									<button
 										className="bg-green-600 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 mt-4"
-										onClick={ () => {
-											Handle2ButtonClicked(removeAfterSecondUnderscore(objectProduct.docs[index].type) ,objectProduct.docs[index].product_id._id);
+										onClick={() => {
+											Handle2ButtonClicked(
+												removeAfterSecondUnderscore(
+													objectProduct?.docs[index]
+														?.type
+												),
+												objectProduct?.docs[index]
+													?.product_id?._id
+											);
 											// Handle2ButtonClicked(objectProduct.docs[index].type ,objectProduct.docs[index]._id);
 										}}
 									>

@@ -128,6 +128,10 @@
 	color: white;
 }
 
+.item__label--focused {
+	/* underline the text */
+	text-decoration: underline;
+}
 .spinner {
 	text-align: center;
 	font-weight: bold;

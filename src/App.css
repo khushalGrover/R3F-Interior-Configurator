@@ -117,19 +117,19 @@
 	/* background-color: #f00; */
 	width: 300px;
 }
-.item__label {
+.item__option, .item__option--focused, .item__label {
 	text-align: center;
 	font-weight: bold;
 	font-size: 12px;
 	color: #aaa;
 	text-transform: capitalize;
 }
-.item .item__label:hover {
+.item__option--focused:hover, .item__option:hover {
 	color: white;
 }
-
-.item__label--focused {
+.item__option--focused {
 	/* underline the text */
+	color: #ddd;
 	text-decoration: underline;
 }
 .spinner {

@@ -20,7 +20,7 @@ export function Dinning(props) {
   return (
     <>
       <primitive object={dn_table_a.scene} visible={codeOBJ['dnTable'] === 1} />
-      <primitive object={dn_clock_a.scene} visible={codeOBJ['dnClock'] === 1} />
+      <primitive object={dn_clock_a.scene} visible={codeOBJ['dnClock'] === 0} />
       <primitive object={dn_chair_a.scene} visible={codeOBJ['dnChair'] === 1} />
       <primitive object={dn_lamp_a.scene} visible={codeOBJ['dnLamp'] === 0} />
       <primitive object={dn_lamp_b.scene} visible={codeOBJ['dnLamp'] === 1} />

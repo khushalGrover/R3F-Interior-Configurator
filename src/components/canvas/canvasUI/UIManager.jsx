@@ -13,7 +13,7 @@ import { annotations, interactionBtns, subMenuItems } from "../../../constants";
 import { UpdateObjectCode } from "../../UpdateObjectCode";
 
 export function UIManager() {
-	const { activeItem, mode, setMode, focusObjProd, setFocusObjProd } =
+	const { activeItem, mode, setMode, focusObjProd, setFocusObjProd, setFocusObjProdIdx  } =
 		useCustomization();
 
 	// Calculate the position for the Card and SubMenu based on the offset of interactionBtns
@@ -95,7 +95,7 @@ export function UIManager() {
 // }
 
 function SubMenu() {
-	const { activeItem, setMode, objectCode, setObjectCode } =
+	const { activeItem, setMode, objectCode, setObjectCode, focusObjProd, setFocusObjProd, setFocusObjProdIdx } =
 		useCustomization();
 	return (
 		<Html scale={2} distanceFactor={3} position={activeItem.offset}>
@@ -108,6 +108,10 @@ function SubMenu() {
 							setMode={setMode}
 							objectCode={objectCode}
 							setObjectCode={setObjectCode}
+							focusObjProd={focusObjProd}
+							setFocusObjProd={setFocusObjProd}
+							setFocusObjProdIdx={setFocusObjProdIdx}
+
 						/>
 					</div>
 				</div>
@@ -122,6 +126,9 @@ function CardSection({
 	setMode,
 	objectCode,
 	setObjectCode,
+	focusObjProd,
+	setFocusObjProd,
+	setFocusObjProdIdx
 }) {
 	// const { setMode } = useCustomization();
 
@@ -134,18 +141,25 @@ function CardSection({
 		targetValue,
 		item,
 		objectCode,
-		setObjectCode
+		setObjectCode, 
+		focusObjProd,
+		
 	) => {
 		// console.log("Clicked subMenu " + value);
 		setMode("view");
-		console.log(
-			" Clicked " +
-				value +
-				" with target " +
-				targetValue +
-				" at index " +
-				item.tIndex
-		);
+		// console.log(
+		// 	" Clicked " +
+		// 		value +
+		// 		" with target " +
+		// 		targetValue +
+		// 		" at index " +
+		// 		item.tIndex + 
+		// 		" focus Object " + focusObjProd +
+		// 		" item number " + (targetValue + 1)
+		// );
+		setFocusObjProd(value)
+		setFocusObjProdIdx(targetValue)
+
 		UpdateObjectCode(item.tIndex, targetValue, objectCode, setObjectCode);
 		// console.log("ObjectCode is:", objectCode);
 	};
@@ -163,7 +177,7 @@ function CardSection({
 									item.updateObjectCodeValues.map(
 										({ value, targetValue }) => (
 											<div
-												className="item"
+												className='item'
 												key={value}
 												onClick={() => {
 													handleSubMenuClick(
@@ -176,10 +190,13 @@ function CardSection({
 														(setObjectCode = {
 															setObjectCode,
 														})
+														,focusObjProd,
+														setFocusObjProd,
+														setFocusObjProdIdx
 													);
 												}}
 											>
-												<div className="item__label">
+												<div className={`${value === focusObjProd ? "item__option--focused" : "item__option"}`}>
 													{value}
 												</div>
 											</div>
@@ -221,7 +238,7 @@ function InteractionBtn(target) {
 		setActiveItem(target);
 		setMode("submenu");
 		// console.log("Active pos is:", activeItem.name);
-		console.log("target:", target.target);
+		// console.log("target:", target);
 		setActiveObjectProductId(target.objectId);
 	};
 

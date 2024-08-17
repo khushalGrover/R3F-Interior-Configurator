@@ -2,10 +2,17 @@ import Button from "./components/Button";
 import { EnviroCanvas } from "./components/canvas/EnviroCanvas";
 import { useCustomization } from "./constants/Customization";
 import "../src/App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 function App() {
-	const { loc, setLoc, objectProduct, activeItem, activeObjectProductId } =
-		useCustomization();
+	const {
+		loc,
+		setLoc,
+		objectProduct,
+		activeItem,
+		activeObjectProductId,
+		focusObjProdIdx,
+		focusObjProd,
+	} = useCustomization();
 	const [isClosed, setIsClosed] = useState(true);
 
 	const handlePrevBtn = () => {
@@ -52,17 +59,31 @@ function App() {
 		return inputString; // Return the original string if there are less than 2 underscores
 	}
 
+	function removeBeforeFirstUnderscore(inputString) {
+		let parts = inputString.split("_"); // Split the string by underscore
+		if (parts.length > 1) {
+			return parts.slice(1).join("_"); // Join the first two parts with an underscore
+		}
+		return inputString; // Return the original string if there are less than 2 underscores
+	}
+
 	function Handle2ButtonClicked(name, id) {
+		const before_name = removeAfterSecondUnderscore(name);
+
 		// const slug = activeItem.name
+
 		console.log("Button Clicked: ", id);
 		console.log("name ", name);
+		console.log("foucus index: ", focusObjProdIdx);
 		window.open(
-			`https://visual-and-builds.netlify.app/product/${name}?id=${id}`,
+			`https://visual-and-builds.netlify.app/product/${before_name}?id=${id}`,
 			"_blank"
 		);
 		// window.open(`https://visual-and-builds.netlify.app/product/${activeObjectProductId}`, '_blank')
 		// console.log("Button Clicked: ", activeObjectProductId);
 	}
+
+	function Handle3ButtonClicked() {}
 
 	const Overlay = () => {
 		if (loc === 1) {
@@ -119,7 +140,13 @@ function App() {
 				{isClosed ? null : (
 					<section className="text-gray-100 sm:w-50 md:w-96 flex flex-col content-center gap-4 p-4">
 						{objectProduct.docs.map((item, index) => (
-							<div className="bg-[#202025] rounded-lg shadow-lg content-center flex p-3">
+							<div
+								className={`${
+									focusObjProdIdx === index
+										? "border-2 border-primary-foreground"
+										: ""
+								} bg-[#202025] rounded-lg shadow-lg content-center flex p-3`}
+							>
 								<div className=" content-center">
 									<a className="" href="#">
 										<img
@@ -139,7 +166,7 @@ function App() {
 									</a>
 								</div>
 
-								<div className="p-4 grow">
+								<div className="p-4 grow relative">
 									<h3 className="text-lg font-semibold text-primary-foreground group-hover:text-primary transition-colors">
 										{/* {objectProduct?.docs[index].type.slice(
 											0,
@@ -180,6 +207,10 @@ function App() {
 											objectProduct?.docs[index]
 												?.product_id?.vendor_name}
 									</div>
+									<div className="absolute right-0">
+										{focusObjProdIdx === index ? "✅" : ""}
+									</div>
+
 									{/* <div className="text-sm text-muted-foreground">
 										{"_id  " +
 											removeAfterSecondUnderscore(objectProduct.docs[index].type)}
@@ -188,14 +219,11 @@ function App() {
 										className="bg-green-600 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 mt-4"
 										onClick={() => {
 											Handle2ButtonClicked(
-												removeAfterSecondUnderscore(
-													objectProduct?.docs[index]
-														?.type
-												),
+												objectProduct?.docs[index]
+													?.type,
 												objectProduct?.docs[index]
 													?.product_id?._id
 											);
-											// Handle2ButtonClicked(objectProduct.docs[index].type ,objectProduct.docs[index]._id);
 										}}
 									>
 										Buy Now

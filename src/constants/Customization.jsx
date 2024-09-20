@@ -152,11 +152,14 @@ export const CustomizationProvider = (props) => {
 	const [lamp, setLamp] = useState("1");
 	const [lampColor, setLampColor] = useState("#ffffff");
 	const [painting, setPainting] = useState("1");
-	const [focusObj, setFocusObj] = useState("dTable");
+	const [focusObjProd, setFocusObjProd] = useState("");
+	const [focusObjProdIdx, setFocusObjProdIdx] = useState(0);
 	const [activeItem, setActiveItem] = useState("");
 	const [mode, setMode] = useState("");
 	const [objectProduct, setObjectProduct] = useState([])
 	const [places, setPlaces] = useState([])
+	const [activeObjectProductId, setActiveObjectProductId] = useState("66edb0fb86e886d461b05a01")
+	const [activePlaceId, setActivePlaceId] = useState("66eda49286e886d461b050c0")
 
 	const codeOBJ = {
 		dSofa: parseInt(objectCode.charAt(0)), // Dnsofa
@@ -196,6 +199,10 @@ export const CustomizationProvider = (props) => {
 			value={{
 				objectProduct,
 				setObjectProduct,
+				activeObjectProductId,
+				setActiveObjectProductId,
+				activePlaceId,
+				setActivePlaceId,
 				places,
 				setPlaces,
 				rawValue,
@@ -206,8 +213,10 @@ export const CustomizationProvider = (props) => {
 				setObjectCode,
 				loc,
 				setLoc,
-				focusObj,
-				setFocusObj,
+				focusObjProd,
+				setFocusObjProd,
+				focusObjProdIdx,
+				setFocusObjProdIdx,
 
 				activeItem,
 				setActiveItem,

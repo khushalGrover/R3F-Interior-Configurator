@@ -13,7 +13,8 @@ import { annotations, interactionBtns, subMenuItems } from "../../../constants";
 import { UpdateObjectCode } from "../../UpdateObjectCode";
 
 export function UIManager() {
-	const { activeItem, mode, setMode } = useCustomization();
+	const { activeItem, mode, setMode, focusObjProd, setFocusObjProd, setFocusObjProdIdx  } =
+		useCustomization();
 
 	// Calculate the position for the Card and SubMenu based on the offset of interactionBtns
 	const cardPosition = calculatePosition[(50, 0, 0)];
@@ -59,10 +60,7 @@ export function UIManager() {
 	);
 }
 
-
-					//  To Do make saperate component file for below code
-
-
+//  To Do make saperate component file for below code
 
 // function Card() {
 // 	const { setFocusObj, setMode, activeItem, setActiveItem } =
@@ -97,7 +95,8 @@ export function UIManager() {
 // }
 
 function SubMenu() {
-	const { activeItem, setMode, objectCode, setObjectCode } = useCustomization();
+	const { activeItem, setMode, objectCode, setObjectCode, focusObjProd, setFocusObjProd, setFocusObjProdIdx } =
+		useCustomization();
 	return (
 		<Html scale={2} distanceFactor={3} position={activeItem.offset}>
 			<div className="configurator">
@@ -108,7 +107,11 @@ function SubMenu() {
 							activeItem={activeItem}
 							setMode={setMode}
 							objectCode={objectCode}
-							setObjectCode={setObjectCode}							
+							setObjectCode={setObjectCode}
+							focusObjProd={focusObjProd}
+							setFocusObjProd={setFocusObjProd}
+							setFocusObjProdIdx={setFocusObjProdIdx}
+
 						/>
 					</div>
 				</div>
@@ -117,15 +120,32 @@ function SubMenu() {
 	);
 }
 
-function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode}) {
+function CardSection({
+	isSubMenu,
+	activeItem,
+	setMode,
+	objectCode,
+	setObjectCode,
+	focusObjProd,
+	setFocusObjProd,
+	setFocusObjProdIdx
+}) {
 	// const { setMode } = useCustomization();
 
 	const handleCardClick = () => {
 		// console.log("Clicked "+ activeItem.target);
 		setMode("submenu");
 	};
-	const handleSubMenuClick = (value, targetValue, item, objectCode, setObjectCode) => {
-		// console.log("Clicked subMenu " + activeItem.target);
+	const handleSubMenuClick = (
+		value,
+		targetValue,
+		item,
+		objectCode,
+		setObjectCode, 
+		focusObjProd,
+		
+	) => {
+		// console.log("Clicked subMenu " + value);
 		setMode("view");
 		// console.log(
 		// 	" Clicked " +
@@ -133,8 +153,13 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 		// 		" with target " +
 		// 		targetValue +
 		// 		" at index " +
-		// 		item.tIndex
+		// 		item.tIndex + 
+		// 		" focus Object " + focusObjProd +
+		// 		" item number " + (targetValue + 1)
 		// );
+		setFocusObjProd(value)
+		setFocusObjProdIdx(targetValue)
+
 		UpdateObjectCode(item.tIndex, targetValue, objectCode, setObjectCode);
 		// console.log("ObjectCode is:", objectCode);
 	};
@@ -152,19 +177,26 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 									item.updateObjectCodeValues.map(
 										({ value, targetValue }) => (
 											<div
-												className="item"
+												className='item'
 												key={value}
 												onClick={() => {
 													handleSubMenuClick(
 														value,
 														targetValue,
 														item,
-														objectCode={objectCode},
-														setObjectCode={setObjectCode},
+														(objectCode = {
+															objectCode,
+														}),
+														(setObjectCode = {
+															setObjectCode,
+														})
+														,focusObjProd,
+														setFocusObjProd,
+														setFocusObjProdIdx
 													);
 												}}
 											>
-												<div className="item__label">
+												<div className={`${value === focusObjProd ? "item__option--focused" : "item__option"}`}>
 													{value}
 												</div>
 											</div>
@@ -193,18 +225,21 @@ function CardSection({ isSubMenu, activeItem, setMode, objectCode, setObjectCode
 	);
 }
 
-
-
-
 function InteractionBtn(target) {
-	const { activeItem, setActiveItem, setMode } = useCustomization();
+	const {
+		activeItem,
+		setActiveItem,
+		setMode,
+		setActiveObjectProductId,
+		activeObjectProductId,
+	} = useCustomization();
 
 	const handleFocus = (target) => {
 		setActiveItem(target);
 		setMode("submenu");
-		console.log("Active pos is:", activeItem.name);
-		console.log("target:", target.objectId);
-
+		// console.log("Active pos is:", activeItem.name);
+		// console.log("target:", target);
+		setActiveObjectProductId(target.objectId);
 	};
 
 	return (
@@ -246,4 +281,3 @@ function Annotation({ children, ...props }) {
 		</Html>
 	);
 }
-

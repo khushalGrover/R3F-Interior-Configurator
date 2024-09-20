@@ -2,9 +2,17 @@ import Button from "./components/Button";
 import { EnviroCanvas } from "./components/canvas/EnviroCanvas";
 import { useCustomization } from "./constants/Customization";
 import "../src/App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 function App() {
-	const { loc, setLoc } = useCustomization();
+	const {
+		loc,
+		setLoc,
+		objectProduct,
+		activeItem,
+		activeObjectProductId,
+		focusObjProdIdx,
+		focusObjProd,
+	} = useCustomization();
 	const [isClosed, setIsClosed] = useState(true);
 
 	const handlePrevBtn = () => {
@@ -43,6 +51,39 @@ function App() {
 		);
 	}
 
+	function removeAfterSecondUnderscore(inputString) {
+		let parts = inputString.split("_"); // Split the string by underscore
+		if (parts.length > 2) {
+			return parts.slice(0, 2).join("_"); // Join the first two parts with an underscore
+		}
+		return inputString; // Return the original string if there are less than 2 underscores
+	}
+
+	function removeBeforeFirstUnderscore(inputString) {
+		let parts = inputString.split("_"); // Split the string by underscore
+		if (parts.length > 1) {
+			return parts.slice(1).join("_"); // Join the first two parts with an underscore
+		}
+		return inputString; // Return the original string if there are less than 2 underscores
+	}
+
+	function Handle2ButtonClicked(name, id) {
+		const before_name = removeAfterSecondUnderscore(name);
+
+
+
+		console.log("Button Clicked: ", id);
+		console.log("name ", name);
+		console.log("foucus index: ", focusObjProdIdx);
+		window.open(
+			`https://visual-and-builds.netlify.app/product/${before_name}?id=${id}`,
+			"_blank"
+		);
+		
+	}
+
+	function Handle3ButtonClicked() {}
+
 	const Overlay = () => {
 		if (loc === 1) {
 			return (
@@ -74,12 +115,12 @@ function App() {
 
 	return (
 		<>
-			<div className="flex flex-col md:flex-row h-dvh w-full items-center justify-center relative bg-[#191920]">
+			<div className="flex flex-col md:flex-row h-dvh w-full items-center  justify-center relative bg-[#191920]">
 				<div
 					className={`${
 						isClosed
 							? "w-full h-full"
-							: "w-full h-1/2 md:w-1/2 md:h-full"
+							: "w-full h-1/2 flex-grow md:w-1/2 md:h-full"
 					} relative`}
 				>
 					<EnviroCanvas />
@@ -94,43 +135,95 @@ function App() {
 						</Button>
 					</div>
 				</div>
+
 				
 				{isClosed ? null : (
-					<div className="grid gap-4 px-6 text-slate-400">
+					<section className="text-gray-100 sm:w-50 md:w-96 flex flex-col content-center gap-4 p-4">
+						{objectProduct.docs.map((item, index) => (
+							<div
+								className={`${
+									focusObjProdIdx === index
+										? "border-2 border-primary-foreground"
+										: ""
+								} bg-[#202025] rounded-lg shadow-lg content-center flex p-3`}
+							>
+								<div className=" content-center">
+									<a className="" href="#">
+										<img
+											src={
+												objectProduct?.docs[0]
+													?.product_id?.url
+											}
+											alt="Product Image"
+											width="20"
+											height="20"
+											className="w-full h-20 object-cover group-hover:opacity-80 transition-opacity"
+											style={{
+												aspectRatio: " 100/ 100",
+												objectFit: "fill",
+											}} // Corrected this line
+										/>
+									</a>
+								</div>
 
-						<h1 className="font-bold text-2xl sm:text-3xl">
-							Lorem, ipsum.
-						</h1>
-						<div className="text-1xl sm:text-2">
-							Price $44.99 | In Stock
-						</div>
-						
-						
-						<div className="flex items-center gap-4">
-							<div className="flex items-center gap-0.5">
-								<StarIcon className="w-5 h-5 fill-white" />
-								<StarIcon className="w-5 h-5 fill-white" />
-								<StarIcon className="w-5 h-5 fill-white" />
-								<StarIcon className="w-5 h-5 stroke-muted-foreground" />
-								<StarIcon className="w-5 h-5 stroke-muted-foreground" />
-								(143 reviews)
+								<div className="p-4 grow relative">
+									<h3 className="text-lg font-semibold text-primary-foreground group-hover:text-primary transition-colors">
+										
+										{
+											objectProduct?.docs[index]
+												?.product_id?.name
+										}
+									</h3>
+
+									<div className="flex items-center justify-start gap-2">
+										<span className="text-lg font-semibold text-green-400">
+											{`$${
+												objectProduct?.docs[index]
+													?.product_id?.price -
+												objectProduct?.docs[index]
+													?.product_id?.discount
+											}`}
+										</span>
+										<span className="text-sm font-semibold text-primary-foreground line-through">
+											{"$" +
+												objectProduct?.docs[index]
+													?.product_id?.price}
+										</span>
+										<span className="text-sm font-semibold text-primary-foreground bg-gray-700 px-3 rounded-md">
+											{"$" +
+												objectProduct?.docs[index]
+													?.product_id?.discount +
+												" off"}
+										</span>
+									</div>
+									<div className="text-sm text-muted-foreground">
+										{"By " +
+											objectProduct?.docs[index]
+												?.product_id?.vendor_name}
+									</div>
+									<div className="absolute right-0">
+										{focusObjProdIdx === index ? "✅" : ""}
+									</div>
+
+									
+									<button
+										className="bg-green-600 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 mt-4"
+										onClick={() => {
+											Handle2ButtonClicked(
+												objectProduct?.docs[index]
+													?.type,
+												objectProduct?.docs[index]
+													?.product_id?._id
+											);
+										}}
+									>
+										Buy Now
+									</button>
+								</div>
 							</div>
-						</div>
-
-						<div className="text-1xl sm:text-2">
-							by Nishant
-						</div>
-
-						<div className="grid gap-4 text-sm leading-loose">
-							
-							<p>this is a desciption of object. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ratione enim distinctio exercitationem facilis iure quibusdam nam! Ipsum perferendis necessitatibus amet vero eaque? Quaerat asperiores atque fugiat illo nam corporis qu </p>
-						</div>
-
-					</div>
+						))}
+					</section>
 				)}
-
-
-
 			</div>
 		</>
 	);

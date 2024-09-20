@@ -43,8 +43,8 @@ export function Drawing(props) {
 
 	return (
 		<>
-			<primitive object={d_table_a.scene} visible={codeOBJ['dTable'] === 1}/>
-			<primitive object={d_table_b.scene} visible={codeOBJ['dTable'] === 0}/>
+			<primitive object={d_table_a.scene} visible={codeOBJ['dTable'] === 0}/>
+			<primitive object={d_table_b.scene} visible={codeOBJ['dTable'] === 1}/>
 			<primitive object={d_sofa_a.scene} visible={codeOBJ['dSofa'] === 0}/>
 			<primitive object={d_sofa_b.scene} visible={codeOBJ['dSofa'] === 1}/> 
 			<primitive object={d_rug_a.scene} visible={codeOBJ['dRug'] === 0}/>

@@ -17,10 +17,12 @@ export function DynamicImport() {
 					addressId
 				);
 				const productByIdData = await productByIdResponse.json();
-				// console.log("Product by Id ", productByIdData);
-				// console.log("Product active place Id ", productByIdData.data.docs[0].place._id);
-				setActivePlaceId(productByIdData.data.docs[0].place._id);
-				setObjectProduct(productByIdData.data);
+
+				console.log("respose: ", productByIdData)
+				
+				
+				setActivePlaceId(productByIdData?.data?.docs[0]?.place?._id);
+				setObjectProduct(productByIdData?.data);
 
 				// console.log("type of discount", typeof (productByIdData.data.docs[0].product_id.discount));
 				// console.log("type of discount", productByIdData.data.docs[0].product_id.price - productByIdData.data.docs[0].product_id.discount);

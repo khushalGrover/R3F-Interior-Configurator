@@ -70,7 +70,7 @@ function App() {
 	function Handle2ButtonClicked(name, id) {
 		const before_name = removeAfterSecondUnderscore(name);
 
-		// const slug = activeItem.name
+
 
 		console.log("Button Clicked: ", id);
 		console.log("name ", name);
@@ -79,8 +79,7 @@ function App() {
 			`https://visual-and-builds.netlify.app/product/${before_name}?id=${id}`,
 			"_blank"
 		);
-		// window.open(`https://visual-and-builds.netlify.app/product/${activeObjectProductId}`, '_blank')
-		// console.log("Button Clicked: ", activeObjectProductId);
+		
 	}
 
 	function Handle3ButtonClicked() {}
@@ -137,6 +136,7 @@ function App() {
 					</div>
 				</div>
 
+				
 				{isClosed ? null : (
 					<section className="text-gray-100 sm:w-50 md:w-96 flex flex-col content-center gap-4 p-4">
 						{objectProduct.docs.map((item, index) => (
@@ -168,18 +168,12 @@ function App() {
 
 								<div className="p-4 grow relative">
 									<h3 className="text-lg font-semibold text-primary-foreground group-hover:text-primary transition-colors">
-										{/* {objectProduct?.docs[index].type.slice(
-											0,
-											10
-										)} */}
+										
 										{
 											objectProduct?.docs[index]
 												?.product_id?.name
 										}
 									</h3>
-									{/* <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
-									{objectProduct.docs[0].product_id.description}
-									</p> */}
 
 									<div className="flex items-center justify-start gap-2">
 										<span className="text-lg font-semibold text-green-400">
@@ -211,10 +205,7 @@ function App() {
 										{focusObjProdIdx === index ? "✅" : ""}
 									</div>
 
-									{/* <div className="text-sm text-muted-foreground">
-										{"_id  " +
-											removeAfterSecondUnderscore(objectProduct.docs[index].type)}
-									</div> */}
+									
 									<button
 										className="bg-green-600 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 mt-4"
 										onClick={() => {

@@ -8,7 +8,7 @@ export function Dinning(props) {
 
   const dn_table_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_table/dn_table_a.glb');
   const dn_clock_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_clock/dn_clock_a.glb');
-  const dn_chair_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_table/dn_chair_a.glb'); // todo change to object to chair
+  const dn_chair_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_chair/dn_chair_a.glb'); // todo change to object to chair
   const dn_lamp_a = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp/dn_lamp_a.glb');
   const dn_lamp_b = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp/dn_lamp_b.glb');
   const dn_lamp_c = useLoader(GLTFLoader, 'https://www.backend.visualizenbuild.com/static/dn_lamp/dn_lamp_c.glb');
